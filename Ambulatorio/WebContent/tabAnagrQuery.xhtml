@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+</h:head>
+<ui:include src="header.xhtml"></ui:include>
+<h:form>
+	<p:growl id="message"></p:growl>
+	<p:tabView activeIndex="#{tabViewManagedBean.index}">
+		<p:tab title="Anagrafica">
+
+			<ui:include src="elenco.xhtml" />
+			
+
+		</p:tab>
+		<p:tab title="Query">
+			<ui:include src="query/query.xhtml" />
+		</p:tab>
+		
+
+	</p:tabView>
+
+	<p:commandButton action="/elenco.xhtml?faces-redirect=true"
+		value="Esci" process="@this" />
+
+</h:form>
+</html>

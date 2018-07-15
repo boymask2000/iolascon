@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<p:growl id="growl_iron" life="2000" />
+<p:panel>
+
+	<p:dataTable id="ironDt" var="car" value="#{dBUtil.elencoIronBalance}">
+
+		<p:column headerText="date">
+			<h:outputText value="#{car.date}">
+
+				<f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:outputText>
+		</p:column>
+		<p:column headerText="serum iron">
+			<h:outputText value="#{car.serum_iron}" />
+		</p:column>
+
+		<p:column headerText="ferritin">
+			<h:outputText value="#{car.ferritin}" />
+		</p:column>
+
+
+		<p:column headerText="transferrin">
+			<h:outputText value="#{car.transferrin}" />
+		</p:column>
+		<p:column headerText="is_transferrin">
+			<h:outputText value="#{car.is_transferrin}" />
+		</p:column>
+		<p:column headerText="sfTFR">
+			<h:outputText value="#{car.sfTFR}" />
+		</p:column>
+		<p:column headerText="hepcidin serum">
+			<h:outputText value="#{car.hepcidin_serum}" />
+		</p:column>
+
+		<p:column headerText="liver NMR_T2">
+			<h:outputText value="#{car.liver_NMR_T2}" />
+		</p:column>
+		<p:column headerText="heart NMR_T2">
+			<h:outputText value="#{car.heart_NMR_T2}" />
+		</p:column>
+		<p:column headerText="chelation History">
+			<h:outputText value="#{car.chelation_History}" />
+		</p:column>
+		<p:column headerText="chelator">
+			<h:outputText value="#{car.chelator}" />
+		</p:column>
+		<p:column headerText="dosage of_chelator">
+			<h:outputText value="#{car.dosage_of_chelator}" />
+		</p:column>
+		<p:column headerText="other">
+			<h:outputText value="#{car.other}" />
+		</p:column>
+
+
+		<p:column style="width:32px;text-align: center">
+			<p:commandButton update=":form:tabs:ironDetail1" 
+				oncomplete="PF('carDialog').show()" icon="ui-icon-search"
+				title="View">
+				<f:setPropertyActionListener value="#{car}"
+					target="#{dBUtil.ironBalance}" />
+			</p:commandButton>
+		</p:column>
+
+	</p:dataTable>
+	<p:outputPanel id="ironDetail1" style="text-align:center;">
+		<p:dialog header="Iron Balance" widgetVar="carDialog" modal="true"
+			showEffect="fade" hideEffect="fade" resizable="false">
+			<p:outputPanel id="ironDetail" style="text-align:center;">
+
+				<ui:include src="ironBalanceDetail.xhtml" />
+
+			</p:outputPanel>
+		</p:dialog>
+	</p:outputPanel>
+
+	<p:commandButton action="/nuovoIronBalance.xhtml?faces-redirect=true"
+		value="Nuovo" process="@this" />
+
+</p:panel>
+</html>

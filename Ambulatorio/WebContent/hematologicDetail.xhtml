@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+</h:head>
+<h:panelGrid columns="2">
+
+	<p:outputLabel for="p1z" value="date" />
+	<p:calendar id="p1z" 
+		value="#{dBUtil.hematologicData.date}" pattern="dd/MM/yyyy" >
+		<p:ajax event="dateSelect" listener="#{dBUtil.hematologicData.fechaInicioClickChange}"
+                update="@form" />
+		</p:calendar>
+	<p:outputLabel value="rcb" />
+	<h:inputText value="#{dBUtil.hematologicData.rcb}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="hb" />
+	<h:inputText value="#{dBUtil.hematologicData.hb}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="ht" />
+	<h:inputText value="#{dBUtil.hematologicData.ht}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="mcv" />
+	<h:inputText value="#{dBUtil.hematologicData.mcv}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="mch" />
+	<h:inputText value="#{dBUtil.hematologicData.mch}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="mchc" />
+	<h:inputText value="#{dBUtil.hematologicData.mchc}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="rdw" />
+	<h:inputText value="#{dBUtil.hematologicData.rdw}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="retics" />
+	<h:inputText value="#{dBUtil.hematologicData.retics}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="wbc" />
+	<h:inputText value="#{dBUtil.hematologicData.wbc}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="plt" />
+	<h:inputText value="#{dBUtil.hematologicData.plt}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="mpv" />
+	<h:inputText value="#{dBUtil.hematologicData.mpv}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="pdw" />
+	<h:inputText value="#{dBUtil.hematologicData.pdw}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="hba2" />
+	<h:inputText value="#{dBUtil.hematologicData.hba2}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="Shbf" />
+	<h:inputText value="#{dBUtil.hematologicData.hbf}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="trasf_need" />
+	<h:inputText value="#{dBUtil.hematologicData.trasf_need}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="trasf_dep" />
+	<h:inputText value="#{dBUtil.hematologicData.trasf_dep}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="N_life_trasf" />
+	<h:inputText value="#{dBUtil.hematologicData.n_life_trasf}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="g6pd_def" />
+	<h:inputText value="#{dBUtil.hematologicData.g6pd_def}" ><p:ajax event="keyup"/></h:inputText>
+
+</h:panelGrid>
+
+</html>

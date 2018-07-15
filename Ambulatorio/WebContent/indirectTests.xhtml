@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+</h:head>
+<p:growl id="growl13_ind" life="2000" />
+<p:panel>
+
+	<p:dataTable id="clientTable" var="car"
+		value="#{dBUtil.elencoIndirectTests}" selectionMode="single"
+		selection="#{dBUtil.indirectTests}" rowKey="#{car.id}">
+
+		<p:ajax event="rowSelect"
+			listener="#{dBUtil.onIndirectTestsRowSelect}" process="clientTable" />
+		<p:column style="width:16px">
+			<p:rowToggler />
+		</p:column>
+		<p:column headerText="ID">
+			<h:outputText value="#{car.id}" />
+		</p:column>
+		<p:column headerText="N">
+			<h:outputText value="#{car.n}" />
+		</p:column>
+
+
+
+		<p:column headerText="date" style="width:80px;">
+			<h:outputText value="#{car.date}">
+				<f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:outputText>
+		</p:column>
+		<p:column headerText="eMA_binding_test_patients">
+			<h:outputText value="#{car.eMA_binding_test_patients}">
+
+
+			</h:outputText>
+		</p:column>
+		<p:column headerText="eMA_binding_test_normal_ctr_value">
+			<h:outputText value="#{car.eMA_binding_test_normal_ctr_value}" />
+		</p:column>
+
+		<p:column headerText="ektacytometry_omin">
+			<h:outputText value="#{car.ektacytometry_omin}" />
+		</p:column>
+
+
+		<p:column headerText="ektacytometry_o">
+			<h:outputText value="#{car.ektacytometry_o}" />
+		</p:column>
+		<p:column headerText="ektacytometry_di_max">
+			<h:outputText value="#{car.ektacytometry_di_max}" />
+		</p:column>
+		<p:column headerText="pB_smear_description">
+			<h:outputText value="#{car.pB_smear_description}" />
+		</p:column>
+		<p:column headerText="bone_marrow_description">
+			<h:outputText value="#{car.bone_marrow_description}" />
+		</p:column>
+
+		<p:column headerText="cation_flux">
+			<h:outputText value="#{car.cation_flux}" />
+		</p:column>
+		<p:column headerText="other">
+			<h:outputText value="#{car.other}" />
+		</p:column>
+
+		<p:column headerText="ektacytometry_chart">
+			<h:outputText value="#{car.id}" />
+		</p:column>
+		<p:column headerText="peripehral_blood_smear">
+			<h:outputText value="#{car.id}" />
+		</p:column>
+
+		<p:rowExpansion>
+			<h:panelGrid columns="2" border="1">
+				<f:facet name="header">
+                   Bone marrow
+                </f:facet>
+				<h:panelGroup id="dd2">
+
+					<p:panel>
+
+						<h:outputLink value="#{of:graphicImageURL('car.bone_marrow')}">
+							<o:graphicImage value="#{car.bone_marrow}" dataURI="true"
+								height="80" />
+						</h:outputLink>
+
+
+						<o:graphicImage value="#{car.bone_marrow}" height="80" />
+
+
+						<p:fileUpload value="#{dBUtil.uploadedFileIndirectTests_1}"
+							mode="advanced" skinSimple="true"
+							fileUploadListener="#{dBUtil.uploadedFileIndirectTests_1_Listener}"
+							update="dd2">
+							<f:attribute name="foo" value="#{car}" />
+						</p:fileUpload>
+					</p:panel>
+				</h:panelGroup>
+				<h:panelGroup id="dd3">
+
+					<p:panel>
+
+						<h:outputLink
+							value="#{of:graphicImageURL('car.ektacytometry_chart')}">
+							<o:graphicImage value="#{car.ektacytometry_chart}" dataURI="true"
+								height="80" />
+						</h:outputLink>
+
+
+						<o:graphicImage value="#{car.ektacytometry_chart}" height="80" />
+
+
+						<p:fileUpload value="#{dBUtil.uploadedFileIndirectTests_2}"
+							mode="advanced" skinSimple="true"
+							fileUploadListener="#{dBUtil.uploadedFileIndirectTests_2_Listener}"
+							update="dd3">
+							<f:attribute name="foo" value="#{car}" />
+						</p:fileUpload>
+					</p:panel>
+				</h:panelGroup>
+				<h:panelGroup id="dd4">
+
+					<p:panel>
+
+						<h:outputLink
+							value="#{of:graphicImageURL('car.peripehral_blood_smear')}">
+							<o:graphicImage value="#{car.peripehral_blood_smear}"
+								dataURI="true" height="80" />
+						</h:outputLink>
+
+
+						<o:graphicImage value="#{car.peripehral_blood_smear}" height="80" />
+
+
+						<p:fileUpload value="#{dBUtil.uploadedFileIndirectTests_3}"
+							mode="advanced" skinSimple="true"
+							fileUploadListener="#{dBUtil.uploadedFileIndirectTests_3_Listener}"
+							update="dd4">
+							<f:attribute name="foo" value="#{car}" />
+						</p:fileUpload>
+					</p:panel>
+				</h:panelGroup>
+			</h:panelGrid>
+		</p:rowExpansion>
+	</p:dataTable>
+
+
+	<p:commandButton action="/nuovoIndirectTests.xhtml?faces-redirect=true"
+		value="Nuovo" process="@this" />
+
+	<p:dataTable id="basicDT" var="car"
+		value="#{dBUtil.elencoIndirectTests}" rendered="false">
+		<f:facet name="header">
+            Basic
+        </f:facet>
+		<p:column headerText="Id">
+			<h:outputText value="#{car.id}" />
+		</p:column>
+		<p:column style="width:32px;text-align: center">
+			<p:commandButton update="basicDT" oncomplete="PF('carDialog').show()"
+				icon="ui-icon-search" title="View">
+				<f:setPropertyActionListener value="#{car}"
+					target="#{dBUtil.indirectTests}" />
+			</p:commandButton>
+		</p:column>
+	</p:dataTable>
+	<p:dialog header="Car Info" widgetVar="carDialog" modal="true"
+		showEffect="fade" hideEffect="fade" resizable="false">
+		<p:outputPanel id="carDetail" style="text-align:center;">
+			<p:panelGrid columns="4">
+				<f:facet name="header">
+                    ggggg
+                </f:facet>
+				<h:outputText value="#{dBUtil.indirectTests.id}" />
+				<h:outputLink
+					value="#{of:graphicImageURL('dBUtil.indirectTests.bone_marrow')}">
+					<o:graphicImage value="#{dBUtil.indirectTests.bone_marrow}"
+						dataURI="true" height="80" />
+				</h:outputLink>
+
+
+				<o:graphicImage value="#{dBUtil.indirectTests.bone_marrow}"
+					height="80" />
+			</p:panelGrid>
+		</p:outputPanel>
+	</p:dialog>
+
+</p:panel>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+</h:head>
+<h:panelGrid columns="2">
+
+<p:outputLabel for="p1" value="Date" />
+	<p:calendar id="p1"
+		value="#{dBUtil.biochemicalData.date}"
+		pattern="dd/MM/yyyy"/>
+		
+	<p:outputLabel value="tot_bilirubin" />
+	<h:inputText value="#{dBUtil.biochemicalData.tot_bilirubin}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+
+	
+		
+
+
+	<h:outputText value="indirect_bilirubin"></h:outputText>
+	<h:inputText value="#{dBUtil.biochemicalData.indirect_bilirubin}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+	<h:outputText value="ldh"></h:outputText>
+	<h:inputText value="#{dBUtil.biochemicalData.ldh}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+
+	<h:outputText value="haptoglobin"></h:outputText>
+	<h:inputText value="#{dBUtil.biochemicalData.haptoglobin}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+	<h:outputText value="ast"></h:outputText>
+	<h:inputText
+		value="#{dBUtil.biochemicalData.ast}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+	<h:outputText value="alt"></h:outputText>
+	<h:inputText value="#{dBUtil.biochemicalData.alt}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+	<h:outputText value="epo"></h:outputText>
+	<h:inputText value="#{dBUtil.biochemicalData.epo}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+
+	<h:outputText value="na"></h:outputText>
+	<h:inputText value="#{dBUtil.biochemicalData.na}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+		<h:outputText value="k"></h:outputText>
+	<h:inputText value="#{dBUtil.biochemicalData.k}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+		<h:outputText value="ca"></h:outputText>
+	<h:inputText value="#{dBUtil.biochemicalData.ca}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+		<h:outputText value="dat_yn"></h:outputText>
+	<h:inputText value="#{dBUtil.biochemicalData.dat_yn}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+		<h:outputText value="dat_date"></h:outputText>
+	<h:inputText value="#{dBUtil.biochemicalData.dat_date}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+		<h:outputText value="dat_micromol"></h:outputText>
+	<h:inputText value="#{dBUtil.biochemicalData.dat_micromol}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+		<h:outputText value="dat_vn1"></h:outputText>
+	<h:inputText value="#{dBUtil.biochemicalData.dat_vn1}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+		<h:outputText value="dat_millisec"></h:outputText>
+	<h:inputText value="#{dBUtil.biochemicalData.dat_millisec}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+		<h:outputText value="dat_vn2"></h:outputText>
+	<h:inputText value="#{dBUtil.biochemicalData.dat_vn2}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+		<h:outputText value="other"></h:outputText>
+	<h:inputText value="#{dBUtil.biochemicalData.other}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+</h:panelGrid>
+
+</html>

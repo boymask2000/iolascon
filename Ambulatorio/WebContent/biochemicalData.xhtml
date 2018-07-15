@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+</h:head>
+<p:growl id="growl_bio" life="2000" />
+<p:panel>
+
+		<p:dataTable var="car" value="#{dBUtil.elencoBiochemicalData}">
+
+			<p:column headerText="date" style="width:80px;">
+				<h:outputText value="#{car.date}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:outputText>
+			</p:column>
+		
+			<p:column headerText="tot bilirubin" style="width:80px;">
+				<h:outputText value="#{car.tot_bilirubin}" />
+			</p:column>
+			<p:column headerText="indirect bilirubin" style="width:80px;">
+				<h:outputText value="#{car.indirect_bilirubin}" />
+			</p:column>
+			<p:column headerText="ldh">
+				<h:outputText value="#{car.ldh}" />
+			</p:column>
+			<p:column headerText="haptoglobin">
+				<h:outputText value="#{car.haptoglobin}" />
+			</p:column>
+			<p:column headerText="ast">
+				<h:outputText value="#{car.ast}" />
+			</p:column>
+			<p:column headerText="alt">
+				<h:outputText value="#{car.alt}" />
+			</p:column>
+			<p:column headerText="epo">
+				<h:outputText value="#{car.epo}" />
+			</p:column>
+			<p:column headerText="na">
+				<h:outputText value="#{car.na}" />
+			</p:column>
+			<p:column headerText="k">
+				<h:outputText value="#{car.k}" />
+			</p:column>
+			<p:column headerText="ca">
+				<h:outputText value="#{car.ca}" />
+			</p:column>
+			<p:column headerText="dat yn">
+				<h:outputText value="#{car.dat_yn}" />
+			</p:column>
+			<p:column headerText="dat date">
+				<h:outputText value="#{car.dat_date}" />
+			</p:column>
+			<p:column headerText="dat micromol">
+				<h:outputText value="#{car.dat_micromol}" />
+			</p:column>
+			<p:column headerText="dat vn1">
+				<h:outputText value="#{car.dat_vn1}" />
+			</p:column>
+			<p:column headerText="dat millisec">
+				<h:outputText value="#{car.dat_millisec}" />
+			</p:column>
+			<p:column headerText="dat vn2">
+				<h:outputText value="#{car.dat_vn2}" />
+			</p:column>
+			<p:column headerText="other">
+				<h:outputText value="#{car.other}" />
+			</p:column>
+		</p:dataTable>
+
+		<p:button outcome="nuovo_biomedical" value="Nuovo" />
+	
+</p:panel>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+</h:head>
+<h:panelGrid columns="2">
+
+	<p:outputLabel for="p1" value="date" />
+
+	<p:calendar id="p1"
+		value="#{dBUtil.indirectTests.date}" pattern="dd/MM/yyyy"/>
+	<p:outputLabel value="eMA_binding_test_patients" />
+	<h:inputText value="#{dBUtil.indirectTests.eMA_binding_test_patients}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="eMA_binding_test_normal_ctr_value" />
+	<h:inputText value="#{dBUtil.indirectTests.eMA_binding_test_normal_ctr_value}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="ektacytometry_omin" />
+	<h:inputText value="#{dBUtil.indirectTests.ektacytometry_omin}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="ektacytometry_o" />
+	<h:inputText value="#{dBUtil.indirectTests.ektacytometry_o}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="ektacytometry_di_max" />
+	<h:inputText value="#{dBUtil.indirectTests.ektacytometry_di_max}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="pB_smear_description" />
+	<h:inputText value="#{dBUtil.indirectTests.pB_smear_description}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="bone_marrow_description" />
+	<h:inputText value="#{dBUtil.indirectTests.bone_marrow_description}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="cation_flux" />
+	<h:inputText value="#{dBUtil.indirectTests.cation_flux}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="other" />
+	<h:inputText value="#{dBUtil.indirectTests.other}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="ektacytometry_chart" />
+	<h:inputText value="#{dBUtil.indirectTests.other}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="peripehral_blood_smear" />
+	<h:inputText value="#{dBUtil.indirectTests.other}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="bone_marrow" />
+	<h:inputText value="#{dBUtil.indirectTests.other}" ><p:ajax event="keyup"/></h:inputText>
+
+	
+
+</h:panelGrid>
+
+</html>

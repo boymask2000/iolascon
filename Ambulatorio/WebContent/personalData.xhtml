@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions">
+
+
+<p:growl id="growl" life="2000" />
+<p:panel>
+	<h:panelGrid columns="2">
+		<h:panelGrid columns="2">
+			<p:outputLabel value="Name" />
+			<h:inputText value="#{dBUtil.selectedPersonalData.name}"></h:inputText>
+			<p:outputLabel value="Surname" />
+			<h:inputText value="#{dBUtil.selectedPersonalData.surname}"></h:inputText>
+			<p:outputLabel value="Familial Degree" />
+			<h:inputText value="#{dBUtil.selectedPersonalData.familial_degree}">
+				<p:ajax event="keyup"></p:ajax>
+			</h:inputText>
+			<p:outputLabel value="Consanguinity" />
+			<h:inputText value="#{dBUtil.selectedPersonalData.consanguinity}">
+				<p:ajax event="keyup"></p:ajax>
+			</h:inputText>
+
+			<p:outputLabel for="p1" value="Withdrawal" />
+			<p:calendar id="p1" value="#{dBUtil.selectedPersonalData.withdrawal}"
+				pattern="dd/MM/yyyy" />
+
+
+			<p:outputLabel value="Acceptance" />
+			<h:inputText value="#{dBUtil.selectedPersonalData.acceptance}">
+				<f:convertDateTime pattern="dd/MM/yyyy" />
+				<p:ajax event="keyup"></p:ajax>
+			</h:inputText>
+			<p:outputLabel value="CodeEthnicity" />
+			<h:inputText value="#{dBUtil.selectedPersonalData.codeEthnicity}">
+				<p:ajax event="keyup"></p:ajax>
+			</h:inputText>
+			<p:outputLabel value="Gender" />
+			<h:inputText value="#{dBUtil.selectedPersonalData.gender}">
+				<p:ajax event="keyup"></p:ajax>
+			</h:inputText>
+			<p:outputLabel value="DOB" />
+			<h:inputText value="#{dBUtil.selectedPersonalData.dob}">
+				<p:ajax event="keyup"></p:ajax>
+			</h:inputText>
+			<p:outputLabel value="Place_of_residence" />
+			<h:inputText
+				value="#{dBUtil.selectedPersonalData.place_of_residence}">
+				<p:ajax event="keyup"></p:ajax>
+			</h:inputText>
+			<p:outputLabel value="Reference_doctor" />
+			<h:inputText value="#{dBUtil.selectedPersonalData.reference_doctor}">
+				<p:ajax event="keyup"></p:ajax>
+			</h:inputText>
+			<p:outputLabel value="Initial_clinical" />
+			<h:inputText value="#{dBUtil.selectedPersonalData.initial_clinical}">
+				<p:ajax event="keyup"></p:ajax>
+			</h:inputText>
+			<p:outputLabel value="Age_at_diagnosis" />
+			<h:inputText value="#{dBUtil.selectedPersonalData.age_at_diagnosis}">
+				<p:ajax event="keyup"></p:ajax>
+			</h:inputText>
+			<p:outputLabel value="Onset_symptoms" />
+			<h:inputText value="#{dBUtil.selectedPersonalData.onset_symptoms}">
+				<p:ajax event="keyup"></p:ajax>
+			</h:inputText>
+			<p:outputLabel value="Age_onset_symptoms" />
+			<h:inputText
+				value="#{dBUtil.selectedPersonalData.age_onset_symptoms}">
+				<p:ajax event="keyup"></p:ajax>
+			</h:inputText>
+		</h:panelGrid>
+
+<h:panelGroup id="dd">
+		<p:panel>
+
+			<c:if test="#{dBUtil.selectedPersonalData.photo != null}">
+				<h:outputLink
+					value="#{of:graphicImageURL('dBUtil.selectedPersonalData.photo')}">
+					<o:graphicImage value="#{dBUtil.selectedPersonalData.photo}"
+						dataURI="true" height="80" />
+				</h:outputLink>
+
+
+				<o:graphicImage value="#{dBUtil.selectedPersonalData.photo}"
+					height="80"  />
+			</c:if>
+			<p:commandButton rendered="false" value="ok" id="ajax22"
+				process="postPanel" actionListener="#{dBUtil.updatePersonalData}"
+				styleClass="ui-priority-primary" />
+
+			<p:fileUpload value="#{dBUtil.uploadedFile}" mode="advanced"
+				skinSimple="true" fileUploadListener="#{dBUtil.fileUploadListener}" update="dd" />
+
+		</p:panel>
+		</h:panelGroup>
+	</h:panelGrid>
+
+</p:panel>
+
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<p:growl id="growl13" life="2000" />
+<p:panel>
+
+		<p:dataTable var="car" value="#{dBUtil.elencoEmatologic}">
+
+
+			<p:column headerText="date" style="width:80px;">
+				<h:outputText value="#{car.date}" >
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:outputText>
+			</p:column>
+			<p:column headerText="rcb">
+				<h:outputText value="#{car.rcb}">
+
+				
+				</h:outputText>
+			</p:column>
+			<p:column headerText="hb">
+				<h:outputText value="#{car.hb}" />
+			</p:column>
+
+			<p:column headerText="ht">
+				<h:outputText value="#{car.ht}" />
+			</p:column>
+
+
+			<p:column headerText="mcv">
+				<h:outputText value="#{car.mcv}" />
+			</p:column>
+			<p:column headerText="mch">
+				<h:outputText value="#{car.mch}" />
+			</p:column>
+			<p:column headerText="mchc">
+				<h:outputText value="#{car.mchc}" />
+			</p:column>
+			<p:column headerText="rdw">
+				<h:outputText value="#{car.rdw}" />
+			</p:column>
+			
+			<p:column headerText="retics">
+				<h:outputText value="#{car.retics}" />
+			</p:column>
+			<p:column headerText="wbc">
+				<h:outputText value="#{car.wbc}" />
+			</p:column>
+			<p:column headerText="plt">
+				<h:outputText value="#{car.plt}" />
+			</p:column>
+			<p:column headerText="mpv">
+				<h:outputText value="#{car.mpv}" />
+			</p:column>
+			<p:column headerText="pdw">
+				<h:outputText value="#{car.pdw}" />
+			</p:column>
+			<p:column headerText="hba2">
+				<h:outputText value="#{car.hba2}" />
+			</p:column>
+			<p:column headerText="hbf">
+				<h:outputText value="#{car.hbf}" />
+			</p:column>
+			<p:column headerText="trasf need">
+				<h:outputText value="#{car.trasf_need}" />
+			</p:column>
+			<p:column headerText="trasf dep">
+				<h:outputText value="#{car.trasf_dep}" />
+			</p:column>
+			<p:column headerText="N_life trasf">
+				<h:outputText value="#{car.n_life_trasf}" />
+			</p:column>
+			<p:column headerText="g6pd def">
+				<h:outputText value="#{car.g6pd_def}" />
+			</p:column>
+		</p:dataTable>
+
+
+		<p:commandButton
+			action="/nuovoHematologicData.xhtml?faces-redirect=true"
+			value="Nuovo" process="@this" />
+	
+</p:panel>
+</html>

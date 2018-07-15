@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+</h:head>
+<h:panelGrid columns="2">
+
+	<p:outputLabel value="Splenectomy_YN" />
+	<h:inputText value="#{dBUtil.surgicalIntervention.splenectomy_YN}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+
+	<p:outputLabel for="pz1" value="Splenectomy date" />
+	<p:calendar id="pz1"
+		value="#{dBUtil.surgicalIntervention.splenectomy_DATE}"
+		pattern="dd/MM/yyyy"/>
+		
+
+
+	<h:outputText value="Splenectomy age"></h:outputText>
+	<h:inputText value="#{dBUtil.surgicalIntervention.splenectomy_age}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+	<h:outputText value="Gallstones"></h:outputText>
+	<h:inputText value="#{dBUtil.surgicalIntervention.gallstones}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+
+	<h:outputText value="Cholecystectomy_YN"></h:outputText>
+	<h:inputText value="#{dBUtil.surgicalIntervention.cholecystectomy_YN}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+	<h:outputText value="Cholecystectom date"></h:outputText>
+	<h:inputText
+		value="#{dBUtil.surgicalIntervention.cholecystectomy_DATE}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+	<h:outputText value="Cholecystectomy age"></h:outputText>
+	<h:inputText value="#{dBUtil.surgicalIntervention.cholecystectomy_age}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+	<h:outputText value="Hepatomegaly"></h:outputText>
+	<h:inputText value="#{dBUtil.surgicalIntervention.hepatomegaly}">
+		<p:ajax event="keyup"></p:ajax>
+	</h:inputText>
+
+</h:panelGrid>
+
+</html>

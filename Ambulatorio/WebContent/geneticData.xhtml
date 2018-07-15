@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<p:growl id="growl113" life="2000" />
+<p:panel>
+	<h:form>
+		<p:dataTable var="car" value="#{dBUtil.elencoGeneticData}">
+
+			<p:column headerText="gENE">
+				<h:outputText value="#{car.gENE}" />
+			</p:column>
+
+			<p:column headerText="type of variant">
+				<h:outputText value="#{car.type_of_variant}" />
+			</p:column>
+
+
+			<p:column headerText="refSeq_id">
+				<h:outputText value="#{car.refSeq_id}" />
+			</p:column>
+			<p:column headerText="hOM_HET">
+				<h:outputText value="#{car.hOM_HET}" />
+			</p:column>
+			<p:column headerText="chr">
+				<h:outputText value="#{car.chr}" />
+			</p:column>
+			<p:column headerText="position">
+				<h:outputText value="#{car.position}" />
+			</p:column>
+			
+			<p:column headerText="ref allede">
+				<h:outputText value="#{car.ref_allede}" />
+			</p:column>
+			<p:column headerText="alt allede">
+				<h:outputText value="#{car.alt_allede}" />
+			</p:column>
+			<p:column headerText="mAF 1000G">
+				<h:outputText value="#{car.mAF_1000G}" />
+			</p:column>
+			<p:column headerText="mAF EVS">
+				<h:outputText value="#{car.mAF_EVS}" />
+			</p:column>
+			<p:column headerText="mAF ExAC">
+				<h:outputText value="#{car.mAF_ExAC}" />
+			</p:column>
+			<p:column headerText="aCMG path_score">
+				<h:outputText value="#{car.aCMG_path_score}" />
+			</p:column>
+			<p:column headerText="dNA Storage">
+				<h:outputText value="#{car.dNA_Storage}" />
+			</p:column>
+			<p:column headerText="other">
+				<h:outputText value="#{car.other}" />
+			</p:column>
+			
+		</p:dataTable>
+
+
+		<p:commandButton
+			action="/nuovoGeneticData.xhtml?faces-redirect=true"
+			value="Nuovo" process="@this" />
+	</h:form>
+</p:panel>
+</html>

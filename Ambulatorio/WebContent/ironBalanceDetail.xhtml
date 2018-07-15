@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+</h:head>
+<h:panelGrid columns="2">
+
+	<p:outputLabel for="pwq1" value="date" />
+
+	<p:calendar id="pwq1"
+		value="#{dBUtil.ironBalance.date}" pattern="dd/MM/yyyy"/>
+	<p:outputLabel value="serum_iron" />
+	<h:inputText value="#{dBUtil.ironBalance.serum_iron}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="ferritin" />
+	<h:inputText value="#{dBUtil.ironBalance.ferritin}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="transferrin" />
+	<h:inputText value="#{dBUtil.ironBalance.transferrin}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="is_transferrin" />
+	<h:inputText value="#{dBUtil.ironBalance.is_transferrin}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="sfTFR" />
+	<h:inputText value="#{dBUtil.ironBalance.sfTFR}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="hepcidin_serum" />
+	<h:inputText value="#{dBUtil.ironBalance.hepcidin_serum}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="liver_NMR_T2" />
+	<h:inputText value="#{dBUtil.ironBalance.liver_NMR_T2}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="heart_NMR_T2" />
+	<h:inputText value="#{dBUtil.ironBalance.heart_NMR_T2}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="chelation_History" />
+	<h:inputText value="#{dBUtil.ironBalance.chelation_History}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="chelator" />
+	<h:inputText value="#{dBUtil.ironBalance.chelator}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="dosage_of_chelator" />
+	<h:inputText value="#{dBUtil.ironBalance.dosage_of_chelator}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="other" />
+	<h:inputText value="#{dBUtil.ironBalance.other}" ><p:ajax event="keyup"/></h:inputText>
+
+</h:panelGrid>
+
+</html>

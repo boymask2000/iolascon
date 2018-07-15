@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
+	version="2.1">
+	<managed-bean>
+		<managed-bean-name>queryHandler</managed-bean-name>
+		<managed-bean-class>query.QueryHandler</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>personalData</managed-bean-name>
+		<managed-bean-class>beans.PersonalData</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>surgicalIntervention</managed-bean-name>
+		<managed-bean-class>beans.SurgicalIntervention</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>dBUtil</managed-bean-name>
+		<managed-bean-class>database.DBUtil</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>navigationController1</managed-bean-name>
+		<managed-bean-class>beans.NavigationController</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>printElenco</managed-bean-name>
+		<managed-bean-class>print.PrintElenco</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>printPersonalData</managed-bean-name>
+		<managed-bean-class>print.PrintPersonalData</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>printSchedaPaziente</managed-bean-name>
+		<managed-bean-class>print.PrintSchedaPaziente</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+
+		<navigation-case>
+
+			<from-outcome>scheda</from-outcome>
+			<to-view-id>/schedaPaziente.xhtml</to-view-id>
+		</navigation-case>
+
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+
+		<navigation-case>
+			<from-outcome>elenco</from-outcome>
+			<to-view-id>/elenco.xhtml</to-view-id>
+		</navigation-case>
+
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+
+		<navigation-case>
+			<from-outcome>nuovo</from-outcome>
+			<to-view-id>/nuovoPaziente.xhtml</to-view-id>
+		</navigation-case>
+
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+
+		<navigation-case>
+			<from-outcome>nuovo_surgical</from-outcome>
+			<to-view-id>/nuovoSurgicalIntervention.xhtml</to-view-id>
+		</navigation-case>
+
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+
+		<navigation-case>
+			<from-outcome>nuovo_biomedical</from-outcome>
+			<to-view-id>/nuovoBiochemicalData.xhtml</to-view-id>
+		</navigation-case>
+
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+
+		<navigation-case>
+			<from-outcome>nuova_query</from-outcome>
+			<to-view-id>/query/nuovaQuery.xhtml</to-view-id>
+		</navigation-case>
+
+	</navigation-rule>
+</faces-config>

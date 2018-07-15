@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+</h:head>
+<h:panelGrid columns="2">
+
+	<p:outputLabel value="gENE" />
+	<h:inputText value="#{dBUtil.geneticData.gENE}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="hGVS" />
+	<h:inputText value="#{dBUtil.geneticData.hGVS}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="type_of_variant" />
+	<h:inputText value="#{dBUtil.geneticData.type_of_variant}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="refSeq_id" />
+	<h:inputText value="#{dBUtil.geneticData.refSeq_id}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="hOM_HET" />
+	<h:inputText value="#{dBUtil.geneticData.hOM_HET}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="chr" />
+	<h:inputText value="#{dBUtil.geneticData.chr}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="position" />
+	<h:inputText value="#{dBUtil.geneticData.position}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="ref_allede" />
+	<h:inputText value="#{dBUtil.geneticData.ref_allede}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="alt_allede" />
+	<h:inputText value="#{dBUtil.geneticData.alt_allede}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="mAF_1000G" />
+	<h:inputText value="#{dBUtil.geneticData.mAF_1000G}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="mAF_EVS" />
+	<h:inputText value="#{dBUtil.geneticData.mAF_EVS}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="mAF_ExAC" />
+	<h:inputText value="#{dBUtil.geneticData.mAF_ExAC}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="aCMG_path_score" />
+	<h:inputText value="#{dBUtil.geneticData.aCMG_path_score}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="dNA_Storage" />
+	<h:inputText value="#{dBUtil.geneticData.dNA_Storage}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="other" />
+	<h:inputText value="#{dBUtil.geneticData.other}" ><p:ajax event="keyup"/></h:inputText>
+
+
+</h:panelGrid>
+
+</html>

@@ -43,7 +43,8 @@ public class HematologicData {
 		return date;
 	}
 	public void setDate(Date date) {
-		this.date = date;
+	//	date.setTime(date.getTime() - (date.getTimezoneOffset() * 60 * 1000));
+		this.date = JsfUtil.fixDate(date);
 	}
 	public int getRcb() {
 		return rcb;

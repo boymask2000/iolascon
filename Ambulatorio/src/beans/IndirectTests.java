@@ -38,7 +38,7 @@ public class IndirectTests {
 		return date;
 	}
 	public void setDate(Date date) {
-		this.date = date;
+		this.date = JsfUtil.fixDate(date);
 	}
 	public int geteMA_binding_test_patients() {
 		return eMA_binding_test_patients;

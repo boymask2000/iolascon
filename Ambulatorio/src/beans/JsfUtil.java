@@ -1,5 +1,7 @@
 package beans;
 
+import java.util.Date;
+
 import javax.faces.application.NavigationHandler;
 import javax.faces.context.FacesContext;
 
@@ -10,4 +12,9 @@ public class JsfUtil {
 		nh.handleNavigation(ctx, null, rule);
 		ctx.renderResponse();
 	}
+	public static Date fixDate( Date date) {
+		date.setTime(date.getTime() - (date.getTimezoneOffset() * 60 * 1000));
+		return date;
+	}
+	
 }

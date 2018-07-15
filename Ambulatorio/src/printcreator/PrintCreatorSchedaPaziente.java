@@ -2,6 +2,7 @@ package printcreator;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import javax.xml.transform.TransformerException;
 
@@ -9,6 +10,7 @@ import org.apache.fop.apps.FOPException;
 
 import beans.PersonalData;
 import database.DBUtil;
+import print.Pair;
 
 public class PrintCreatorSchedaPaziente extends PrintCreator {
 	public String convertSchedaPazienteToPDF() {
@@ -24,30 +26,37 @@ public class PrintCreatorSchedaPaziente extends PrintCreator {
 		prt.startPageSequence(null);
 		prt.addBlock("Personal Data", "30pt");
 		Table t = new Table();
-		t.addColumnDefinition(new Column("", "2cm"));
-		t.addColumnDefinition(new Column("", "2cm"));
+		t.addColumnDefinition(new Column("", "6cm"));
+		t.addColumnDefinition(new Column("", "4cm"));
+		
+		List<Pair> lista = caricaCampi(pers);
+		for( Pair p:lista) {
+			t.startRow();
+			t.addDataCol(p.getName()+":");
+			t.addDataCol(""+p.getVal());
+		}
 
-		t.startRow();
-		t.addDataCol("First Name:");
-		t.addDataCol(pers.getName());
+	
 
 		prt.addtable(t);
+		
+		prt.addImage( pers.getPhoto());
+		
+		
 		prt.endPageSequence();
+		
+		prt.startPageSequence(null);
+		prt.addBlock("Hematologic Data", "30pt");
+		prt.endPageSequence();
+		
 		prt.insertFineDoc();
 
 		InputStream is = prt.getBufferInputStream();
 		try {
 			convertToPDFNEW(is);
-		} catch (FOPException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (TransformerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} 
 
 		return "";
 	}

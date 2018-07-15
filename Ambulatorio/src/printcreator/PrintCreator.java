@@ -2,10 +2,15 @@ package printcreator;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.el.ELContext;
@@ -24,7 +29,9 @@ import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
 import org.apache.fop.apps.MimeConstants;
 
+import common.AmbUtils;
 import database.DBUtil;
+import print.Pair;
 
 public class PrintCreator {
 	private StringBuffer buffer = new StringBuffer();
@@ -100,7 +107,30 @@ public class PrintCreator {
 		System.out.println(buffer.toString());
 
 	}
-
+	public void addImage(byte[] photo) {
+		try {
+			File temp = File.createTempFile("img", ".jpg");
+			FileOutputStream fos = new FileOutputStream(temp);
+		
+			fos.write(photo);
+			fos.flush();
+			fos.close();
+			URL url = temp.toURI().toURL();
+			
+			buffer.append("<fo:block >");
+			buffer.append("<fo:external-graphic src=\""+url.toString()+"\"/>");
+		//	buffer.append("<fo:external-graphic src=\"url('data:image/jpeg;base64,"+url.toString()+"')/>");
+			buffer.append("</fo:block>");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+//		buffer.append("<fo:block >");
+//		buffer.append("<fo:external-graphic src=\"url('data:image/jpeg;base64,"+AmbUtils.convertToBase64(photo)+"')/>");
+//		buffer.append("</fo:block>");
+		
+	}
 	public static void main(String s[]) {
 		PrintCreator prt = new PrintCreator();
 		prt.insertStartDoc();
@@ -109,6 +139,7 @@ public class PrintCreator {
 		prt.startPageSequence(null);
 prt.addBlock("Elenco", "30pt");
 		Table t = new Table();
+		t.setHeader(false);
 		t.addColumnDefinition(new Column("name", "2cm"));
 		t.addColumnDefinition(new Column("cognome", "2cm"));
 
@@ -144,7 +175,7 @@ prt.addBlock("Elenco", "30pt");
 		FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
 		// Setup output
 		OutputStream out;
-		out = new java.io.FileOutputStream("F:\\Temp\\employee.pdf");
+		out = new java.io.FileOutputStream("/home/giovanni/Desktop/pippo.pdf");
 
 		try {
 			// Construct fop with desired output format
@@ -166,4 +197,36 @@ prt.addBlock("Elenco", "30pt");
 			out.close();
 		}
 	}
+	public  List<Pair> caricaCampi( Object bean) {
+		List<Pair> lista = new ArrayList<Pair>();
+		try {
+			Field[] ll = bean.getClass().getDeclaredFields();
+			for (Field f : ll) {
+				String name = f.getName();
+				String type = f.getType().getName();
+			
+				if (name.equals("id"))
+					continue;
+				if (name.equals("n"))
+					continue;
+				if( !type.equals("int") && !type.equals("java.lang.String")&& !type.equals("java.util.date")  )continue;
+
+				String methodName = "get" + name.substring(0, 1).toUpperCase() + name.substring(1);
+				Method meth = bean.getClass().getDeclaredMethod(methodName, null);
+				System.out.println(meth.getName());
+				Object val = meth.invoke(bean, null);
+				System.out.println(val);
+				if( val==null)val="";
+				if( val instanceof Date)
+					val=AmbUtils.formatDate((Date)val);
+				lista.add(new Pair(name, val));
+			}
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+		return lista;
+	}
+
+
 }

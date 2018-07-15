@@ -18,6 +18,7 @@ public class Table {
 	}
 
 	private List<String> currentRow = null;
+	private boolean hasHeader;
 	// private boolean rowStarted = false;
 
 	public void startRow() {
@@ -72,6 +73,7 @@ public class Table {
 	}
 
 	private void generateHeader() {
+		if( !hasHeader)return;
 		buffer.append("<fo:table-header text-align=\"center\"><fo:table-row>");
 		for (Column col : cols) {
 			buffer.append("<fo:table-cell padding=\"1mm\" border-width=\"1mm\"");
@@ -80,5 +82,10 @@ public class Table {
 			buffer.append("</fo:table-cell>");
 		}
 		buffer.append("</fo:table-row></fo:table-header>");
+	}
+
+	public void setHeader(boolean b) {
+		hasHeader=b;
+		
 	}
 }

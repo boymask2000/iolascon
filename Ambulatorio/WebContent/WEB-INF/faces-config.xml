@@ -40,8 +40,13 @@
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
-		<managed-bean-name>printSchedaPaziente</managed-bean-name>
+		<managed-bean-name>printSchedaPaziente_old</managed-bean-name>
 		<managed-bean-class>print.PrintSchedaPaziente</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>printSchedaPaziente</managed-bean-name>
+		<managed-bean-class>printcreator.PrintCreatorSchedaPaziente</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 

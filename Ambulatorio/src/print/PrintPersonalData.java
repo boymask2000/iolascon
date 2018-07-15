@@ -22,7 +22,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import beans.PersonalData;
-import common.Utils;
+import common.AmbUtils;
 import database.DBUtil;
 
 public class PrintPersonalData extends Print {
@@ -113,11 +113,11 @@ public class PrintPersonalData extends Print {
 		staff.appendChild(e2);
 		
 		Element e4 = doc.createElement("withdrawal");
-		e4.appendChild(doc.createTextNode(Utils.formatDate(p.getWithdrawal())));
+		e4.appendChild(doc.createTextNode(AmbUtils.formatDate(p.getWithdrawal())));
 		staff.appendChild(e4);
 		
 		Element e3 = doc.createElement("acceptance");
-		e3.appendChild(doc.createTextNode(Utils.formatDate(p.getAcceptance())));
+		e3.appendChild(doc.createTextNode(AmbUtils.formatDate(p.getAcceptance())));
 		staff.appendChild(e3);
 		
 		Element e5 = doc.createElement("codeEthnicity");

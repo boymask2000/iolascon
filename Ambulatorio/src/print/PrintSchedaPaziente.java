@@ -27,7 +27,7 @@ import org.w3c.dom.Element;
 import beans.HematologicData;
 import beans.PersonalData;
 import beans.SurgicalIntervention;
-import common.Utils;
+import common.AmbUtils;
 import database.DBUtil;
 
 public class PrintSchedaPaziente extends Print {

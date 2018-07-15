@@ -11,7 +11,8 @@
 					margin-bottom="2cm" margin-left="2cm" margin-right="2cm">
 					<fo:region-body />
 				</fo:simple-page-master>
-				<fo:simple-page-master master-name="simpleA4Landscape" reference-orientation="90"
+				<fo:simple-page-master
+					master-name="simpleA4Landscape" reference-orientation="90"
 					page-height="29.7cm" page-width="21cm" margin-top="2cm"
 					margin-bottom="2cm" margin-left="2cm" margin-right="2cm">
 					<fo:region-body />
@@ -25,9 +26,10 @@
 					<fo:block font-size="10pt">
 						<fo:table table-layout="fixed" width="100%"
 							border-collapse="separate">
-							<fo:table-column column-width="4cm" />
+					
 							<fo:table-column column-width="4cm" />
 							<fo:table-column column-width="5cm" />
+							
 							<fo:table-body>
 								<xsl:apply-templates select="paziente" />
 							</fo:table-body>
@@ -54,7 +56,8 @@
 				</fo:flow>
 
 			</fo:page-sequence>
-			<fo:page-sequence master-reference="simpleA4Landscape">
+			<fo:page-sequence
+				master-reference="simpleA4Landscape">
 				<fo:flow flow-name="xsl-region-body">
 					<fo:block font-size="20pt">
 						Hematologic Data
@@ -79,6 +82,19 @@
 							<fo:table-column column-width="1cm" />
 							<fo:table-column column-width="1cm" />
 							<fo:table-column column-width="1cm" />
+							<fo:table-header text-align="center"
+								background-color="silver">
+								<fo:table-row>
+									<fo:table-cell padding="1mm" border-width="1mm"
+										border-style="solid">
+										<fo:block>Date</fo:block>
+									</fo:table-cell>
+									<fo:table-cell padding="1mm" border-width="1mm"
+										border-style="solid">
+										<fo:block>rcb</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+							</fo:table-header>
 							<fo:table-body>
 								<xsl:apply-templates select="hematologic" />
 							</fo:table-body>
@@ -114,7 +130,7 @@
 					<xsl:value-of select="ht" />
 				</fo:block>
 			</fo:table-cell>
-			
+
 			<fo:table-cell>
 				<fo:block>
 					<xsl:value-of select="mcv" />
@@ -180,9 +196,9 @@
 					<xsl:value-of select="g6pd_def" />
 				</fo:block>
 			</fo:table-cell>
-			
+
 		</fo:table-row>
-		
+
 	</xsl:template>
 	<xsl:template match="surgical">
 		<fo:table-row>
@@ -424,6 +440,28 @@
 			</fo:table-cell>
 
 		</fo:table-row>
+
+		<fo:table-row>
+			<fo:table-cell>
+				<fo:block>
+					age_onset_symptoms:
+				</fo:block>
+			</fo:table-cell>
+
+			<fo:table-cell>
+				<fo:block>
+
+
+					<fo:external-graphic>
+						<xsl:attribute name="src"><xsl:value-of
+							select="encodedImage" /></xsl:attribute>
+					</fo:external-graphic>
+
+				</fo:block>
+			</fo:table-cell>
+
+		</fo:table-row>
+
 
 	</xsl:template>
 </xsl:stylesheet>

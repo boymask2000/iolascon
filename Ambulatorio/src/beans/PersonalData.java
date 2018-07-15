@@ -7,6 +7,8 @@ import java.util.Date;
 
 import org.omnifaces.cdi.GraphicImageBean;
 
+import common.AmbUtils;
+
 /**
  * @author giovanni
  *
@@ -142,6 +144,8 @@ public class PersonalData {
 		
 		
 	}
-	
+	public String getEncodedImage() {
+		return AmbUtils.convertToBase64(getPhoto());
+	}
 	
 }

@@ -1,12 +1,14 @@
-package print;
+package printcreator;
 
 public class Pair {
 	private String name;
 	private Object val;
+	private String type;
 
-	public Pair(String name, Object v) {
+	public Pair(String name, Object v, String type) {
 		this.name = name;
 		this.val = v;
+		this.type=type;
 	}
 
 	public String getName() {
@@ -23,5 +25,13 @@ public class Pair {
 
 	public void setVal(Object val) {
 		this.val = val;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 }

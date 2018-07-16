@@ -39,7 +39,7 @@ public class BiochemicalData {
 		return date;
 	}
 	public void setDate(Date date) {
-		this.date = date;
+		this.date = JsfUtil.fixDate(date);
 	}
 	public int getTot_bilirubin() {
 		return tot_bilirubin;

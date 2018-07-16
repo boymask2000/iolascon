@@ -31,17 +31,18 @@ import org.apache.fop.apps.MimeConstants;
 
 import common.AmbUtils;
 import database.DBUtil;
-import print.Pair;
 
 public class PrintCreator {
 	private StringBuffer buffer = new StringBuffer();
-	private PageFormat portrait = new PageFormat("PORTRAT");
+	public static PageFormat PORTRAT = new PageFormat("PORTRAT");
+	public static PageFormat LANDSCAPE = new PageFormat("LANDSCAPE");
 
 	private List<PageFormat> pageFormats = new ArrayList<PageFormat>();
 
 	public PrintCreator() {
-		pageFormats.add(portrait);
-
+		pageFormats.add(PORTRAT);
+		LANDSCAPE.setOrientation("90");
+		pageFormats.add(LANDSCAPE);
 	}
 
 	public void build() {
@@ -61,10 +62,10 @@ public class PrintCreator {
 	private boolean startedPageSequence = false;
 
 	public void startPageSequence(PageFormat pf) {
-		if (pf == null) {
-			buffer.append("<fo:page-sequence master-reference=\"" + portrait.getName() + "\">");
-		} else
-			buffer.append("<fo:page-sequence master-reference=\"" + pf.getName() + "\">");
+		if (pf == null)
+			pf = PORTRAT;
+
+		buffer.append("<fo:page-sequence master-reference=\"" + pf.getName() + "\">");
 		buffer.append("<fo:flow flow-name=\"xsl-region-body\">");
 		startedPageSequence = true;
 	}
@@ -98,6 +99,7 @@ public class PrintCreator {
 	public void addtable(Table t) {
 		buffer.append(t.getBuffer());
 	}
+
 	public InputStream getBufferInputStream() {
 		return new ByteArrayInputStream(buffer.toString().getBytes());
 	}
@@ -107,37 +109,41 @@ public class PrintCreator {
 		System.out.println(buffer.toString());
 
 	}
+
 	public void addImage(byte[] photo) {
 		try {
 			File temp = File.createTempFile("img", ".jpg");
 			FileOutputStream fos = new FileOutputStream(temp);
-		
+
 			fos.write(photo);
 			fos.flush();
 			fos.close();
 			URL url = temp.toURI().toURL();
-			
+
 			buffer.append("<fo:block >");
-			buffer.append("<fo:external-graphic src=\""+url.toString()+"\"/>");
-		//	buffer.append("<fo:external-graphic src=\"url('data:image/jpeg;base64,"+url.toString()+"')/>");
+			buffer.append("<fo:external-graphic src=\"" + url.toString() + "\"/>");
+			// buffer.append("<fo:external-graphic
+			// src=\"url('data:image/jpeg;base64,"+url.toString()+"')/>");
 			buffer.append("</fo:block>");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-//		buffer.append("<fo:block >");
-//		buffer.append("<fo:external-graphic src=\"url('data:image/jpeg;base64,"+AmbUtils.convertToBase64(photo)+"')/>");
-//		buffer.append("</fo:block>");
-		
+
+		// buffer.append("<fo:block >");
+		// buffer.append("<fo:external-graphic
+		// src=\"url('data:image/jpeg;base64,"+AmbUtils.convertToBase64(photo)+"')/>");
+		// buffer.append("</fo:block>");
+
 	}
+
 	public static void main(String s[]) {
 		PrintCreator prt = new PrintCreator();
 		prt.insertStartDoc();
 		prt.insertPageFormats();
 
 		prt.startPageSequence(null);
-prt.addBlock("Elenco", "30pt");
+		prt.addBlock("Elenco", "30pt");
 		Table t = new Table();
 		t.setHeader(false);
 		t.addColumnDefinition(new Column("name", "2cm"));
@@ -155,6 +161,7 @@ prt.addBlock("Elenco", "30pt");
 
 		prt.dump();
 	}
+
 	public DBUtil getBeanDBUtil() {
 
 		ELContext elContext = FacesContext.getCurrentInstance().getELContext();
@@ -162,13 +169,13 @@ prt.addBlock("Elenco", "30pt");
 				null, "dBUtil");
 		return db;
 	}
+
 	public void convertToPDFNEW(InputStream is) throws IOException, FOPException, TransformerException {
 		// the XSL FO file
-		//File xsltFile = getFile("print/template/lista_pazienti.xsl"); 
-		File xsltFile = new File( "/home/giovanni/Desktop/fop-2.3/fop/prova.xsl");
+		// File xsltFile = getFile("print/template/lista_pazienti.xsl");
+		File xsltFile = new File("/home/giovanni/Desktop/fop-2.3/fop/prova.xsl");
 		// the XML file which provides the input
-	
-	
+
 		// create an instance of fop factory
 		FopFactory fopFactory = FopFactory.newInstance(new File(".").toURI());
 		// a user agent is needed for transformation
@@ -191,35 +198,38 @@ prt.addBlock("Elenco", "30pt");
 			// Start XSLT transformation and FOP processing
 			// That's where the XML is first transformed to XSL-FO and then
 			// PDF is created
-			 Source src = new StreamSource(is);
+			Source src = new StreamSource(is);
 			transformer.transform(src, res);
 		} finally {
 			out.close();
 		}
 	}
-	public  List<Pair> caricaCampi( Object bean) {
+
+	public List<Pair> caricaCampi(Object bean) {
 		List<Pair> lista = new ArrayList<Pair>();
 		try {
 			Field[] ll = bean.getClass().getDeclaredFields();
 			for (Field f : ll) {
 				String name = f.getName();
 				String type = f.getType().getName();
-			
+
 				if (name.equals("id"))
 					continue;
 				if (name.equals("n"))
 					continue;
-				if( !type.equals("int") && !type.equals("java.lang.String")&& !type.equals("java.util.date")  )continue;
+				if (!type.equals("int") && !type.equals("java.lang.String") && !type.equals("java.util.Date"))
+					continue;
 
 				String methodName = "get" + name.substring(0, 1).toUpperCase() + name.substring(1);
 				Method meth = bean.getClass().getDeclaredMethod(methodName, null);
 				System.out.println(meth.getName());
 				Object val = meth.invoke(bean, null);
 				System.out.println(val);
-				if( val==null)val="";
-				if( val instanceof Date)
-					val=AmbUtils.formatDate((Date)val);
-				lista.add(new Pair(name, val));
+				if (val == null)
+					val = "";
+				if (val instanceof Date)
+					val = AmbUtils.formatDate((Date) val);
+				lista.add(new Pair(name, val, type));
 			}
 		} catch (Exception e) {
 
@@ -227,6 +237,5 @@ prt.addBlock("Elenco", "30pt");
 		}
 		return lista;
 	}
-
 
 }

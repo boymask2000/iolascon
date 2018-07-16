@@ -11,10 +11,19 @@
 </h:head>
 <h:panelGrid columns="2">
 
-<p:outputLabel for="p1" value="Date" />
-	<p:calendar id="p1"
-		value="#{dBUtil.biochemicalData.date}"
-		pattern="dd/MM/yyyy"/>
+
+		
+		<p:outputLabel for="p1z" value="date" />
+	<p:calendar id="p1z" 
+		value="#{dBUtil.biochemicalData.date}" pattern="dd/MM/yyyy" >
+		<p:ajax event="dateSelect" listener="#{dBUtil.hematologicData.fechaInicioClickChange}"
+                update="@form" />
+		</p:calendar>
+		
+		
+		
+		
+		
 		
 	<p:outputLabel value="tot_bilirubin" />
 	<h:inputText value="#{dBUtil.biochemicalData.tot_bilirubin}">

@@ -9,6 +9,7 @@ public class Column {
 	}
 
 	public Column(String name, String width) {
+		name=name.replace('_', ' ');
 		this.name = name;
 		this.width = width;
 	}

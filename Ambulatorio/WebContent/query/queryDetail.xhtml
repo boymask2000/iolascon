@@ -10,14 +10,11 @@
 	<script name="jquery/jquery.js" library="primefaces"></script>
 </h:head>
 <p:outputLabel value="Description" />
-<h:inputText value="#{queryHandler.description}" maxlength="200" size="200">
-	<p:ajax event="keyup" />
-</h:inputText>
+
 <p:inputTextarea rows="3" cols="50" maxlength="200" value="#{queryHandler.description}">
 <p:ajax event="keyup" />
 </p:inputTextarea>
 <p:dataTable id="po" var="car" value="#{queryHandler.lista}">
-
 
 	<p:column headerText="Tabella">
 		<h:outputText value="#{car.tabella}" />
@@ -25,10 +22,6 @@
 	<p:column headerText="Campo">
 		<h:outputText value="#{car.campo}" />
 	</p:column>
-
-
-
-
 
 	<p:column headerText="equalTo Value">
 		<h:panelGroup id="formatsSelectPG">

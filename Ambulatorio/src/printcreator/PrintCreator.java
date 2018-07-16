@@ -162,13 +162,6 @@ public class PrintCreator {
 		prt.dump();
 	}
 
-	public DBUtil getBeanDBUtil() {
-
-		ELContext elContext = FacesContext.getCurrentInstance().getELContext();
-		DBUtil db = (DBUtil) FacesContext.getCurrentInstance().getApplication().getELResolver().getValue(elContext,
-				null, "dBUtil");
-		return db;
-	}
 
 	public void convertToPDFNEW(InputStream is) throws IOException, FOPException, TransformerException {
 		// the XSL FO file

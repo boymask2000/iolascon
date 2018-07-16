@@ -3,13 +3,14 @@ package printcreator;
 import java.io.InputStream;
 import java.util.List;
 
+import beans.JsfUtil;
 import beans.PersonalData;
 import database.DBUtil;
 
 public class PrintElencoPazienti extends PrintCreator {
 	public String convertElencoPazientiToPDF() {
 
-		DBUtil db = getBeanDBUtil();
+		DBUtil db = (DBUtil) JsfUtil.getBean("dBUtil");
 
 		PrintCreator prt = new PrintCreator();
 		prt.insertStartDoc();

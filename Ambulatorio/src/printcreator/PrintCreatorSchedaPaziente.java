@@ -5,6 +5,7 @@ import java.util.List;
 
 import beans.BiochemicalData;
 import beans.HematologicData;
+import beans.JsfUtil;
 import beans.PersonalData;
 import beans.SurgicalIntervention;
 import database.DBUtil;
@@ -12,7 +13,7 @@ import database.DBUtil;
 public class PrintCreatorSchedaPaziente extends PrintCreator {
 	public String convertSchedaPazienteToPDF() {
 
-		DBUtil db = getBeanDBUtil();
+		DBUtil db = (DBUtil) JsfUtil.getBean("dBUtil");
 
 		PersonalData pers = db.getSelectedPersonalData();
 

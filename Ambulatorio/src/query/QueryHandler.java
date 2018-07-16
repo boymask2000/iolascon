@@ -177,7 +177,10 @@ public class QueryHandler {
 
 		return query;
 	}
-
+	public void resetQuery() {
+		lista=savedLista;
+		
+	}
 	public String run(Query e) {
 		System.out.println("xxxxx");
 		System.out.println(e.getXml());
@@ -243,6 +246,7 @@ public class QueryHandler {
 	//
 	// }
 	private Query selectedQuery;
+	private List<CampoQuery> savedLista;
 
 	public static void main(String s[]) {
 		QueryHandler q = new QueryHandler();
@@ -288,6 +292,9 @@ public class QueryHandler {
 	}
 
 	public void setLista(List<CampoQuery> lista) {
+		if(this.lista!=null)savedLista=this.lista;
 		this.lista = lista;
 	}
+
+	
 }

@@ -17,6 +17,7 @@ import beans.GeneticData;
 import beans.HematologicData;
 import beans.IndirectTests;
 import beans.IronBalance;
+import beans.JsfUtil;
 import beans.PersonalData;
 import beans.Query;
 import beans.SurgicalIntervention;
@@ -284,6 +285,9 @@ public class DBUtil {
 	public void resetQuery() {
 		customPazienti = null;
 		currentQuery = null;
+		QueryHandler qh = (QueryHandler) JsfUtil.getBean("queryHandler");
+		qh.resetQuery();
+		
 	}
 
 	public List<PersonalData> getPazienti() {

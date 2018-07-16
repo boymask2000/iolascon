@@ -278,7 +278,7 @@ public class DBUtil {
 
 	}
 
-	private String currentSelectionDesc;
+//	private String currentSelectionDesc;
 	private Query currentQuery = null;
 	private List<PersonalData> customPazienti = null;
 
@@ -461,7 +461,5 @@ public class DBUtil {
 		this.currentQuery = currentQuery;
 	}
 
-	public void setCurrentSelectionDesc(String currentSelectionDesc) {
-		this.currentSelectionDesc = currentSelectionDesc;
-	}
+
 }

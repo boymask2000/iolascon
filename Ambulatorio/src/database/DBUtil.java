@@ -80,7 +80,7 @@ public class DBUtil {
 			e.printStackTrace();
 		}
 
-		addMessage("Welcome to Primefaces!!");
+		addMessage("Inserimento");
 		System.out.println("kkkkkkkkkkkkk inert kkkkkkkkkkkkkkkkkkkkkkkkk");
 
 	}
@@ -99,7 +99,7 @@ public class DBUtil {
 	}
 
 	public void insertIndirectTests() {
-		addMessage("Welcome to Primefaces!!");
+		addMessage("Aggiornamento");
 		System.out.println("kkkkkkkkkkkkk inert kkkkkkkkkkkkkkkkkkkkkkkkk");
 		IndirectTestsDAO dao = new IndirectTestsDAO();
 		indirectTests.setN(selectedPersonalData.getN());
@@ -114,7 +114,7 @@ public class DBUtil {
 	}
 
 	public void updateIndirectTests() {
-		addMessage("Welcome to Primefaces!!");
+		addMessage("Aggiornamento");
 		System.out.println("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
 		IndirectTestsDAO dao = new IndirectTestsDAO();
 		dao.update(indirectTests);
@@ -128,7 +128,7 @@ public class DBUtil {
 	}
 
 	public void insertGeneticData() {
-		addMessage("Welcome to Primefaces!!");
+		addMessage("Inserimento");
 		System.out.println("kkkkkkkkkkkkk inert kkkkkkkkkkkkkkkkkkkkkkkkk");
 		GeneticDataDAO dao = new GeneticDataDAO();
 		geneticData.setN(selectedPersonalData.getN());
@@ -149,7 +149,7 @@ public class DBUtil {
 	}
 
 	public void insertIronBalance() {
-		addMessage("Welcome to Primefaces!!");
+		addMessage("Inserimento");
 		System.out.println("kkkkkkkkkkkkk inert kkkkkkkkkkkkkkkkkkkkkkkkk");
 		IronBalanceDAO dao = new IronBalanceDAO();
 		ironBalance.setN(selectedPersonalData.getN());
@@ -172,7 +172,7 @@ public class DBUtil {
 	}
 
 	public void insertBiochemicalData() {
-		addMessage("Welcome to Primefaces!!");
+		addMessage("Inserimento");
 		System.out.println("kkkkkkkkkkkkk inert kkkkkkkkkkkkkkkkkkkkkkkkk");
 		BiochemicalDataDAO dao = new BiochemicalDataDAO();
 		biochemicalData.setN(selectedPersonalData.getN());
@@ -202,7 +202,7 @@ public class DBUtil {
 	// return dao.selectAll(selectedPersonalData);
 	// }
 	public void insertHematologicData() {
-		addMessage("Welcome to Primefaces!!");
+		addMessage("Inserimento");
 		System.out.println("kkkkkkkkkkkkk inert kkkkkkkkkkkkkkkkkkkkkkkkk");
 		HematologicDataDAO dao = new HematologicDataDAO();
 		hematologicData.setN(selectedPersonalData.getN());
@@ -250,7 +250,7 @@ public class DBUtil {
 	}
 
 	public void insertSurgical() {
-		addMessage("Welcome to Primefaces!!");
+		addMessage("Inserimento");
 		System.out.println("kkkkkkkkkkkkk inert kkkkkkkkkkkkkkkkkkkkkkkkk");
 		SurgicalInterventionDAO dao = new SurgicalInterventionDAO();
 		surgicalIntervention.setN(selectedPersonalData.getN());
@@ -300,7 +300,7 @@ public class DBUtil {
 	}
 
 	public void updatePersonalData() {
-		addMessage("Welcome to Primefaces!!");
+		addMessage("Update");
 		System.out.println("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
 		PersonalDataDAO dao = new PersonalDataDAO();
 		dao.update(selectedPersonalData);

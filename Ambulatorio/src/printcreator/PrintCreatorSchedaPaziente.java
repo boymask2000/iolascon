@@ -11,6 +11,7 @@ import beans.SurgicalIntervention;
 import database.DBUtil;
 
 public class PrintCreatorSchedaPaziente extends PrintCreator {
+
 	public String convertSchedaPazienteToPDF() {
 
 		DBUtil db = (DBUtil) JsfUtil.getBean("dBUtil");
@@ -38,6 +39,7 @@ public class PrintCreatorSchedaPaziente extends PrintCreator {
 
 		prt.addtable(t);
 
+		if( pers.getPhoto()!=null && pers.getPhoto().length>0)
 		prt.addImage(pers.getPhoto());
 
 		prt.endPageSequence();
@@ -80,8 +82,11 @@ public class PrintCreatorSchedaPaziente extends PrintCreator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		return "";
+		
+			JsfUtil.goTo("stampa");
+		
+//JsfUtil.redirect("stampa");
+		return "stampa";
 	}
 
 	private void stampaSurgical(PrintCreator prt, DBUtil db) {

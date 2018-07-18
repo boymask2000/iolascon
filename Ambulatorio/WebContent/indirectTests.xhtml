@@ -89,13 +89,14 @@
 
 					<p:panel>
 
-						<h:outputLink value="#{of:graphicImageURL('car.bone_marrow')}">
+						<o:graphicImage id="wer142" value="#{car.bone_marrow}"
+							dataURI="true" height="80" />
+						<p:overlayPanel id="imgPanel1" for="wer142" showEffect="blind"
+							hideEffect="explode"  hideEvent="mousedown"
+							dismissable="false" showCloseIcon="true">
 							<o:graphicImage value="#{car.bone_marrow}" dataURI="true"
-								height="80" />
-						</h:outputLink>
-
-
-						<o:graphicImage value="#{car.bone_marrow}" height="80" />
+								width="100%" height="100%" />
+						</p:overlayPanel>
 
 
 						<p:fileUpload value="#{dBUtil.uploadedFileIndirectTests_1}"
@@ -110,14 +111,17 @@
 
 					<p:panel>
 
-						<h:outputLink
-							value="#{of:graphicImageURL('car.ektacytometry_chart')}">
+						<o:graphicImage id="wer132" value="#{car.ektacytometry_chart}"
+							dataURI="true" height="80" />
+
+
+
+						<p:overlayPanel id="imgPanel2" for="wer132" showEffect="blind"
+							hideEffect="explode" hideEvent="mousedown"
+							dismissable="false" showCloseIcon="true">
 							<o:graphicImage value="#{car.ektacytometry_chart}" dataURI="true"
-								height="80" />
-						</h:outputLink>
-
-
-						<o:graphicImage value="#{car.ektacytometry_chart}" height="80" />
+								width="100%" height="100%" />
+						</p:overlayPanel>
 
 
 						<p:fileUpload value="#{dBUtil.uploadedFileIndirectTests_2}"
@@ -131,15 +135,19 @@
 				<h:panelGroup id="dd4">
 
 					<p:panel>
-
-						<h:outputLink
-							value="#{of:graphicImageURL('car.peripehral_blood_smear')}">
-							<o:graphicImage value="#{car.peripehral_blood_smear}"
-								dataURI="true" height="80" />
-						</h:outputLink>
+					
+					<o:graphicImage id="wer112" value="#{car.peripehral_blood_smear}"
+							dataURI="true" height="80" />
 
 
-						<o:graphicImage value="#{car.peripehral_blood_smear}" height="80" />
+
+						<p:overlayPanel id="imgPanel3" for="wer112" showEffect="blind"
+							hideEffect="explode"  hideEvent="mousedown"
+							dismissable="false" showCloseIcon="true">
+							<o:graphicImage value="#{car.peripehral_blood_smear}" dataURI="true"
+								width="100%" height="100%" />
+						</p:overlayPanel>
+					
 
 
 						<p:fileUpload value="#{dBUtil.uploadedFileIndirectTests_3}"

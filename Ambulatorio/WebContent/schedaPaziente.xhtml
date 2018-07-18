@@ -35,20 +35,20 @@
 		<p:tab title="Indirect Tests">
 			<ui:include src="indirectTests.xhtml" />
 		</p:tab>
+
 		<p:tab title="Genetic Data">
 			<ui:include src="geneticData.xhtml" />
 		</p:tab>
 
 	</p:tabView>
-	<p:commandButton value="Stampa" id="ajax22ss34" process="@this"
-		action="#{printSchedaPaziente.convertSchedaPazienteToPDF()}"
-		styleClass="ui-priority-primary" />
-		
+
 	<p:commandButton action="/tabAnagrQuery.xhtml?faces-redirect=true"
 		value="Esci" process="@this" />
 
 <p:commandButton action="/viewPdf.xhtml?faces-redirect=true"
+actionListener="#{printSchedaPaziente.convertSchedaPazienteToPDF()}"
+		value="Stampa" process="@this" />
+		
 
-		value="viewPdf" process="@this" />
 </h:form>
 </html>

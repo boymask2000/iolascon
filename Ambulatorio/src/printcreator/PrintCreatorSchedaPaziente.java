@@ -11,9 +11,7 @@ import beans.SurgicalIntervention;
 import database.DBUtil;
 
 public class PrintCreatorSchedaPaziente extends PrintCreator {
-	public void pippo() {
-		convertSchedaPazienteToPDF();
-	}
+
 	public String convertSchedaPazienteToPDF() {
 
 		DBUtil db = (DBUtil) JsfUtil.getBean("dBUtil");

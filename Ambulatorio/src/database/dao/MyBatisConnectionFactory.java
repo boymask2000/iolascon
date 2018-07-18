@@ -13,6 +13,7 @@ import database.mapper.GeneticDataMapper;
 import database.mapper.HematologicDataMapper;
 import database.mapper.IndirectTestsMapper;
 import database.mapper.IronBalanceMapper;
+import database.mapper.OtherInfoMapper;
 import database.mapper.PersonalDataMapper;
 import database.mapper.QueryMapper;
 import database.mapper.SurgicalInterventionMapper;
@@ -43,6 +44,7 @@ public class MyBatisConnectionFactory {
 				sqlSessionFactory.getConfiguration().addMapper(IronBalanceMapper.class);
 				sqlSessionFactory.getConfiguration().addMapper(IndirectTestsMapper.class);
 				sqlSessionFactory.getConfiguration().addMapper(GeneticDataMapper.class);
+				sqlSessionFactory.getConfiguration().addMapper(OtherInfoMapper.class);
 				sqlSessionFactory.getConfiguration().addMapper(QueryMapper.class);
 			}
 			

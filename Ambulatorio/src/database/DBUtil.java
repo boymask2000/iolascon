@@ -18,6 +18,7 @@ import beans.HematologicData;
 import beans.IndirectTests;
 import beans.IronBalance;
 import beans.JsfUtil;
+import beans.OtherInfo;
 import beans.PersonalData;
 import beans.Query;
 import beans.SurgicalIntervention;
@@ -26,6 +27,7 @@ import database.dao.GeneticDataDAO;
 import database.dao.HematologicDataDAO;
 import database.dao.IndirectTestsDAO;
 import database.dao.IronBalanceDAO;
+import database.dao.OtherInfoDAO;
 import database.dao.PersonalDataDAO;
 import database.dao.QueryDAO;
 import database.dao.SurgicalInterventionDAO;
@@ -41,6 +43,7 @@ public class DBUtil {
 	private SurgicalIntervention surgicalIntervention;
 	private HematologicData hematologicData;
 	private BiochemicalData biochemicalData;
+	private OtherInfo otherInfo;
 	private Query query;
 	private List<BiochemicalData> elencoBiochemicalData = new ArrayList<BiochemicalData>();
 
@@ -49,8 +52,7 @@ public class DBUtil {
 	private IndirectTests indirectTests;
 	private GeneticData geneticData;
 
-	// ########################################## Query
-	// ###########################################
+	// ##########################################-Query-###########################################
 	public List<Query> getElencoQuery() {
 		elencoQuery.clear();
 		QueryDAO dao = new QueryDAO();
@@ -120,7 +122,7 @@ public class DBUtil {
 		dao.update(indirectTests);
 	}
 	// ##########################################-GeneticData-###########################################
-	
+
 	public List<GeneticData> getElencoGeneticData() {
 		// elencoBiochemicalData.clear();
 		GeneticDataDAO dao = new GeneticDataDAO();
@@ -141,6 +143,7 @@ public class DBUtil {
 			geneticData = new GeneticData();
 		return geneticData;
 	}
+
 	// ##########################################-IronBalance-###########################################
 	public List<IronBalance> getElencoIronBalance() {
 		elencoBiochemicalData.clear();
@@ -163,8 +166,7 @@ public class DBUtil {
 		return ironBalance;
 	}
 
-	// ########################################## BiochemicalData
-	// ###########################################
+	// ##########################################-BiochemicalData-###########################################
 	public List<BiochemicalData> getElencoBiochemicalData() {
 		elencoBiochemicalData.clear();
 		BiochemicalDataDAO dao = new BiochemicalDataDAO();
@@ -229,8 +231,7 @@ public class DBUtil {
 	public void setElencoEmatologic(List<HematologicData> elencoEmatologic) {
 		this.elencoEmatologic = elencoEmatologic;
 	}
-	// ########################################## SurgicalIntervention
-	// ###########################################
+	// ##########################################-SurgicalIntervention-###########################################
 
 	public List<SurgicalIntervention> getElencoSurgical() {
 		elencoSurgical.clear();
@@ -245,6 +246,7 @@ public class DBUtil {
 		}
 		return false;
 	}
+
 	public boolean isZeroSurgical() {
 		return getElencoSurgical().size() == 0;
 	}
@@ -268,8 +270,36 @@ public class DBUtil {
 		this.surgicalIntervention = surgicalIntervention;
 	}
 
-	// ########################################## PersonalData
-	// ###########################################
+	// ##########################################-OtherInfo-###########################################
+	public List<OtherInfo> getElencoOtherInfo() {
+	
+		OtherInfoDAO dao = new OtherInfoDAO();
+		return dao.selectAll(selectedPersonalData);
+	}
+	public boolean isOneOtherInfo() {
+		if (getElencoOtherInfo().size() == 1) {
+			otherInfo = getElencoOtherInfo().get(0);
+			return true;
+		}
+		return false;
+	}
+	public void insertOtherInfo() {
+		addMessage("Inserimento");
+		System.out.println("kkkkkkkkkkkkk inert kkkkkkkkkkkkkkkkkkkkkkkkk");
+		OtherInfoDAO dao = new OtherInfoDAO();
+		otherInfo.setN(selectedPersonalData.getN());
+
+		dao.insert(otherInfo);
+	}
+	public OtherInfo getOtherInfo() {
+		if (otherInfo == null)
+			otherInfo = new OtherInfo();
+		return otherInfo;
+	}
+	public void setOtherInfo(OtherInfo o) {
+		this.otherInfo = o;
+	}
+	// ##########################################-PersonalData-###########################################
 	public String getCurrentSelectionDesc() {
 		if (customPazienti == null)
 			return "All data";
@@ -278,7 +308,7 @@ public class DBUtil {
 
 	}
 
-//	private String currentSelectionDesc;
+	// private String currentSelectionDesc;
 	private Query currentQuery = null;
 	private List<PersonalData> customPazienti = null;
 
@@ -287,7 +317,7 @@ public class DBUtil {
 		currentQuery = null;
 		QueryHandler qh = (QueryHandler) JsfUtil.getBean("queryHandler");
 		qh.resetQuery();
-		
+
 	}
 
 	public List<PersonalData> getPazienti() {
@@ -436,8 +466,9 @@ public class DBUtil {
 	public void setIndirectTests(IndirectTests indirectTests) {
 		this.indirectTests = indirectTests;
 	}
-	public void  setIronBalance(IronBalance car) {
-		ironBalance=car;
+
+	public void setIronBalance(IronBalance car) {
+		ironBalance = car;
 	}
 
 	public void prova(javax.faces.event.AjaxBehaviorEvent event) throws javax.faces.event.AbortProcessingException {
@@ -460,6 +491,5 @@ public class DBUtil {
 	public void setCurrentQuery(Query currentQuery) {
 		this.currentQuery = currentQuery;
 	}
-
 
 }

@@ -77,28 +77,32 @@
 			</h:inputText>
 		</h:panelGrid>
 
-<h:panelGroup id="dd">
-		<p:panel>
+		<h:panelGroup id="dd">
+			<p:panel>
 
-			<c:if test="#{dBUtil.selectedPersonalData.photo != null}">
-				<h:outputLink
-					value="#{of:graphicImageURL('dBUtil.selectedPersonalData.photo')}">
-					<o:graphicImage value="#{dBUtil.selectedPersonalData.photo}"
-						dataURI="true" height="80" />
-				</h:outputLink>
+				<c:if test="#{dBUtil.selectedPersonalData.photo != null}">
+		
 
+<o:graphicImage id="wer12" value="#{dBUtil.selectedPersonalData.photo}"
+							dataURI="true" height="80" />
+					
 
-				<o:graphicImage value="#{dBUtil.selectedPersonalData.photo}"
-					height="80"  />
-			</c:if>
-			<p:commandButton rendered="false" value="ok" id="ajax22"
-				process="postPanel" actionListener="#{dBUtil.updatePersonalData}"
-				styleClass="ui-priority-primary" />
+					<p:overlayPanel id="imgPane3l" for="wer12" showEffect="blind"
+						hideEffect="explode" showEvent="mouseover" hideEvent="mousedown"
+						dismissable="false" showCloseIcon="true">
+						<o:graphicImage value="#{dBUtil.selectedPersonalData.photo}" 	dataURI="true" width="100%" height="100%" />
+					</p:overlayPanel>
 
-			<p:fileUpload value="#{dBUtil.uploadedFile}" mode="advanced"
-				skinSimple="true" fileUploadListener="#{dBUtil.fileUploadListener}" update="dd" />
+				</c:if>
+				<p:commandButton rendered="false" value="ok" id="ajax22"
+					process="postPanel" actionListener="#{dBUtil.updatePersonalData}"
+					styleClass="ui-priority-primary" />
 
-		</p:panel>
+				<p:fileUpload value="#{dBUtil.uploadedFile}" mode="advanced"
+					skinSimple="true" fileUploadListener="#{dBUtil.fileUploadListener}"
+					update="dd" />
+
+			</p:panel>
 		</h:panelGroup>
 	</h:panelGrid>
 

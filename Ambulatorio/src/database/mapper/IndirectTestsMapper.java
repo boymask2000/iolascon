@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.type.JdbcType;
 
 import beans.IndirectTests;
 import beans.PersonalData;
@@ -73,9 +74,9 @@ public interface IndirectTestsMapper {
 		@Result(property="cation_flux", column="cation_flux"),
 		
 		@Result(property="other", column="other"),
-		@Result(property="ektacytometry_chart", column="ektacytometry_chart"),
-		@Result(property="peripehral_blood_smear", column="peripehral_blood_smear"),
-		@Result(property="bone_marrow", column="bone_marrow"),
+		@Result(property="ektacytometry_chart", column="ektacytometry_chart", jdbcType=JdbcType.BLOB),
+		@Result(property="peripehral_blood_smear", column="peripehral_blood_smear", jdbcType=JdbcType.BLOB),
+		@Result(property="bone_marrow", column="bone_marrow", jdbcType=JdbcType.BLOB),
 		
 	})
 	public List<IndirectTests> selectAll(PersonalData data);

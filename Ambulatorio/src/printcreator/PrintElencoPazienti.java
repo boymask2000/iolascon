@@ -40,7 +40,7 @@ public class PrintElencoPazienti extends PrintCreator {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
-
+		JsfUtil.goTo("stampa");
 		return "";
 	}
 }

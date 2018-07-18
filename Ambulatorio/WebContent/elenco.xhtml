@@ -51,9 +51,11 @@
 		action="/nuovoPaziente.xhtml?faces-redirect=true"
 		styleClass="ui-priority-primary" />
 		
-		<p:commandButton value="Stampa" id="ajax22ss34" process="@this"
-		action="#{printElencoPazienti.convertElencoPazientiToPDF()}"
-		styleClass="ui-priority-primary" />
+
+		
+		<p:commandButton action="/viewPdf.xhtml?faces-redirect=true"
+actionListener="#{printElencoPazienti.convertElencoPazientiToPDF()}"
+		value="Stampa" process="@this" />
 
 </p:panel>
 </html>

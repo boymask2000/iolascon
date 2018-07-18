@@ -31,7 +31,7 @@ public interface PersonalDataMapper {
 			+ " onset_symptoms = #{onset_symptoms},"
 			+ " photo = #{photo},"
 			+ " age_onset_symptoms = #{age_onset_symptoms}"
-			+ " WHERE ID = #{id}";;
+			+ " WHERE N = #{n}";
 	
 
 	

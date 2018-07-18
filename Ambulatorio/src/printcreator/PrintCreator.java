@@ -13,8 +13,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.el.ELContext;
-import javax.faces.context.FacesContext;
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
@@ -29,8 +27,10 @@ import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
 import org.apache.fop.apps.MimeConstants;
 
+import beans.BasicDocumentViewController;
+import beans.JsfUtil;
 import common.AmbUtils;
-import database.DBUtil;
+import common.TempFileFactory;
 
 public class PrintCreator {
 	private StringBuffer buffer = new StringBuffer();
@@ -175,7 +175,8 @@ public class PrintCreator {
 		FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
 		// Setup output
 		OutputStream out;
-		out = new java.io.FileOutputStream("/home/giovanni/Desktop/pippo.pdf");
+		File tempPdf=TempFileFactory.getTempFile(".pdf");
+		out = new java.io.FileOutputStream(tempPdf);
 
 		try {
 			// Construct fop with desired output format
@@ -196,6 +197,9 @@ public class PrintCreator {
 		} finally {
 			out.close();
 		}
+		BasicDocumentViewController view = (BasicDocumentViewController) JsfUtil.getBean("basicDocumentViewController");
+		view.setPdf(tempPdf);
+	//	TempFileFactory.clean();
 	}
 
 	public List<Pair> caricaCampi(Object bean) {

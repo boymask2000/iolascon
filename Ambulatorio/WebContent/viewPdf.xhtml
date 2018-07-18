@@ -4,18 +4,30 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:pe="http://primefaces.org/ui/extensions">
+
+<f:event listener="#{basicDocumentViewController.onPrerender}"
+	type="preRenderView" />
+<!-- <p:tabView> -->
+<!-- 	<p:tab title="URL"> -->
+<!-- 		<pe:documentViewer height="500" -->
+<!-- 			url="#{basicDocumentViewController.contentUrl}" /> -->
+<!-- 	</p:tab> -->
+<!-- 	<p:tab title="Resource"> -->
+<!-- 		<pe:documentViewer height="500" library="books" name="c:\\books.pdf" /> -->
+<!-- 	</p:tab> -->
+<!-- 	<p:tab title="StreamedContent"> -->
+<!-- 		<pe:documentViewer height="500" -->
+<!-- 			value="#{basicDocumentViewController.content}" -->
+<!-- 			download="extensions-rocks.pdf" /> -->
+<!-- 	</p:tab> -->
+<!-- </p:tabView> -->
+<!-- <pe:documentViewer height="500" -->
+<!-- 	value="#{basicDocumentViewController.content}" -->
+<!-- 	download="extensions-rocks.pdf" /> -->
+<p:media value="#{basicDocumentViewController.content}" player="pdf"  cache="false"
+	width="100%" height="100%"/>
 	
-	<f:event listener="#{basicDocumentViewController.onPrerender}" type="preRenderView" />  
-<p:tabView>  
-    <p:tab title="URL">  
-        <pe:documentViewer height="500" url="#{basicDocumentViewController.contentUrl}"/>  
-    </p:tab>  
-    <p:tab title="Resource">  
-        <pe:documentViewer height="500" library="books" name="hood.pdf"/>  
-    </p:tab>  
-    <p:tab title="StreamedContent">  
-        <pe:documentViewer height="500" value="#{basicDocumentViewController.content}" download="extensions-rocks.pdf"/>  
-    </p:tab>  
-</p:tabView>  
-	
-	</html>
+
+
+
+</html>

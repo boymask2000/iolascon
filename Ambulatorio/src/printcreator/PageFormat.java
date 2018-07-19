@@ -16,6 +16,7 @@ public class PageFormat {
 	}
 
 	public StringBuffer getBuffer() {
+		buffer = new StringBuffer();
 		buffer.append("<fo:simple-page-master ");
 		buffer.append("master-name=\"" + name + "\" ");
 		if (orientation != null)

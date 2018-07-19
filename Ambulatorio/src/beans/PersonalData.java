@@ -27,7 +27,9 @@ public class PersonalData {
 	private String gender;
 	private String dob;
 	private String place_of_residence;
-	private int reference_doctor;
+	private String reference_doctor_name;
+	private int reference_doctor_tel;
+	private String reference_doctor_hospital;
 	private int initial_clinical;
 	private int age_at_diagnosis;
 	private String onset_symptoms;
@@ -106,12 +108,7 @@ public class PersonalData {
 	public void setPlace_of_residence(String place_of_residence) {
 		this.place_of_residence = place_of_residence;
 	}
-	public int getReference_doctor() {
-		return reference_doctor;
-	}
-	public void setReference_doctor(int reference_doctor) {
-		this.reference_doctor = reference_doctor;
-	}
+
 	public int getInitial_clinical() {
 		return initial_clinical;
 	}
@@ -146,6 +143,24 @@ public class PersonalData {
 	}
 	public String getEncodedImage() {
 		return AmbUtils.convertToBase64(getPhoto());
+	}
+	public String getReference_doctor_name() {
+		return reference_doctor_name;
+	}
+	public void setReference_doctor_name(String reference_doctor_name) {
+		this.reference_doctor_name = reference_doctor_name;
+	}
+	public int getReference_doctor_tel() {
+		return reference_doctor_tel;
+	}
+	public void setReference_doctor_tel(int reference_doctor_tel) {
+		this.reference_doctor_tel = reference_doctor_tel;
+	}
+	public String getReference_doctor_hospital() {
+		return reference_doctor_hospital;
+	}
+	public void setReference_doctor_hospital(String reference_doctor_hospital) {
+		this.reference_doctor_hospital = reference_doctor_hospital;
 	}
 	
 }

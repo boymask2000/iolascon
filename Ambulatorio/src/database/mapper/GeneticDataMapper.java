@@ -17,7 +17,8 @@ public interface GeneticDataMapper {
 	final String UPDATE = "UPDATE genetic_data SET"
 		
 			+ " gENE = #{gENE},"
-			+ " hGVS = #{hGVS},"
+			+ " hgvs_genomic = #{hgvs_genomic},"
+			+ " hgvs_protein = #{hgvs_protein},"
 			+ " type_of_variant = #{type_of_variant},"
 			+ " refSeq_id = #{refSeq_id},"
 			+ " hOM_HET = #{hOM_HET},"
@@ -40,7 +41,8 @@ public interface GeneticDataMapper {
 	final String INSERT = "INSERT INTO genetic_data"
 			+ " (N," 
 			+" gENE ," 
-			+" hGVS ," 
+			+" hgvs_genomic ," 
+			+" hgvs_protein ," 
 			+" type_of_variant ," 
 			+" refSeq_id," 
 			+" hOM_HET ," 
@@ -56,7 +58,7 @@ public interface GeneticDataMapper {
 			+" other" 
 			+" ) "
 			+ ""
-			+ "VALUES ( #{n}, #{gENE}, #{hGVS}, #{type_of_variant}, #{refSeq_id}, #{hOM_HET}, #{chr}, " + 
+			+ "VALUES ( #{n}, #{gENE}, #{hgvs_genomic},#{hgvs_protein}, #{type_of_variant}, #{refSeq_id}, #{hOM_HET}, #{chr}, " + 
 			"	#{position}, #{ref_allede}, #{alt_allede}, #{mAF_1000G}, #{mAF_EVS}, #{mAF_ExAC}, #{aCMG_path_score}, #{dNA_Storage}," + 
 			"	#{other})";
 			
@@ -65,7 +67,8 @@ public interface GeneticDataMapper {
 		@Result(property="id", column="ID"),
 		@Result(property="n", column="N"),
 		@Result(property="gENE", column="gENE"),
-		@Result(property="hGVS", column="hGVS"),
+		@Result(property="hgvs_genomic", column="hgvs_genomic"),
+		@Result(property="hgvs_protein", column="hgvs_protein"),
 		@Result(property="type_of_variant", column="type_of_variant"),
 		@Result(property="refSeq_id", column="refSeq_id"),
 		@Result(property="hOM_HET", column="hOM_HET"),

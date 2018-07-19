@@ -43,14 +43,16 @@ public class PrintCreator {
 		pageFormats.add(PORTRAT);
 		LANDSCAPE.setOrientation("90");
 		pageFormats.add(LANDSCAPE);
+		
+		System.out.println("pageformat size="+pageFormats.size());
 	}
-
-	public void build() {
-		insertStartDoc();
-		insertPageFormats();
-
-		insertFineDoc();
-	}
+//
+//	public void build() {
+//		insertStartDoc();
+//		insertPageFormats();
+//
+//		insertFineDoc();
+//	}
 
 	public void insertPageFormats() {
 		buffer.append("<fo:layout-master-set>");
@@ -137,37 +139,34 @@ public class PrintCreator {
 
 	}
 
-	public static void main(String s[]) {
-		PrintCreator prt = new PrintCreator();
-		prt.insertStartDoc();
-		prt.insertPageFormats();
-
-		prt.startPageSequence(null);
-		prt.addBlock("Elenco", "30pt");
-		Table t = new Table();
-		t.setHeader(false);
-		t.addColumnDefinition(new Column("name", "2cm"));
-		t.addColumnDefinition(new Column("cognome", "2cm"));
-
-		for (int i = 0; i < 300; i++) {
-			t.startRow();
-			t.addDataCol("giovanni" + i);
-			t.addDataCol("posa");
-		}
-
-		prt.addtable(t);
-		prt.endPageSequence();
-		prt.insertFineDoc();
-
-		prt.dump();
-	}
+//	public static void main(String s[]) {
+//		PrintCreator prt = new PrintCreator();
+//		prt.insertStartDoc();
+//		prt.insertPageFormats();
+//
+//		prt.startPageSequence(null);
+//		prt.addBlock("Elenco", "30pt");
+//		Table t = new Table();
+//		t.setHeader(false);
+//		t.addColumnDefinition(new Column("name", "2cm"));
+//		t.addColumnDefinition(new Column("cognome", "2cm"));
+//
+//		for (int i = 0; i < 300; i++) {
+//			t.startRow();
+//			t.addDataCol("giovanni" + i);
+//			t.addDataCol("posa");
+//		}
+//
+//		prt.addtable(t);
+//		prt.endPageSequence();
+//		prt.insertFineDoc();
+//
+//		prt.dump();
+//	}
 
 
 	public void convertToPDFNEW(InputStream is) throws IOException, FOPException, TransformerException {
 		// the XSL FO file
-		// File xsltFile = getFile("print/template/lista_pazienti.xsl");
-		File xsltFile = new File("/home/giovanni/Desktop/fop-2.3/fop/prova.xsl");
-		// the XML file which provides the input
 
 		// create an instance of fop factory
 		FopFactory fopFactory = FopFactory.newInstance(new File(".").toURI());

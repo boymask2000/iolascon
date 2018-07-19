@@ -17,10 +17,8 @@ public interface OtherInfoMapper {
 	final String SELECT_BY_ID = "SELECT * FROM other_info WHERE ID = #{id}";
 	final String UPDATE = "UPDATE other_info SET"
 		
-		
 			+ " info = #{info},"
 		
-			
 			+ " WHERE ID = #{id}";
 
 	

@@ -53,8 +53,9 @@ public class PersonalDataDAO {
 			
 			PersonalDataMapper mapper = session.getMapper(PersonalDataMapper.class);
 			mapper.insert(contact);
-			
+		
 			session.commit();
+			
 		}catch(Throwable t) {
 			t.printStackTrace();
 		} finally {

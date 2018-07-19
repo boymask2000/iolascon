@@ -16,7 +16,7 @@ public class IronBalance {
 	private int liver_NMR_T2;
 	private int heart_NMR_T2;
 	private String chelation_History;
-	private int chelator;
+	private String chelator;
 	private int dosage_of_chelator;
 	private String other;
 	public int getN() {
@@ -91,10 +91,10 @@ public class IronBalance {
 	public void setChelation_History(String chelation_History) {
 		this.chelation_History = chelation_History;
 	}
-	public int getChelator() {
+	public String getChelator() {
 		return chelator;
 	}
-	public void setChelator(int chelator) {
+	public void setChelator(String chelator) {
 		this.chelator = chelator;
 	}
 	public int getDosage_of_chelator() {

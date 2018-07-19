@@ -54,10 +54,23 @@
 				value="#{dBUtil.selectedPersonalData.place_of_residence}">
 				<p:ajax event="keyup"></p:ajax>
 			</h:inputText>
-			<p:outputLabel value="Reference_doctor" />
-			<h:inputText value="#{dBUtil.selectedPersonalData.reference_doctor}">
+
+			<p:outputLabel value="Reference_doctor Name" />
+			<h:inputText
+				value="#{dBUtil.selectedPersonalData.reference_doctor_name}">
 				<p:ajax event="keyup"></p:ajax>
 			</h:inputText>
+			<p:outputLabel value="Reference_doctor Tel" />
+			<h:inputText
+				value="#{dBUtil.selectedPersonalData.reference_doctor_tel}">
+				<p:ajax event="keyup"></p:ajax>
+			</h:inputText>
+			<p:outputLabel value="Reference_doctor Hospital" />
+			<h:inputText
+				value="#{dBUtil.selectedPersonalData.reference_doctor_hospital}">
+				<p:ajax event="keyup"></p:ajax>
+			</h:inputText>
+
 			<p:outputLabel value="Initial_clinical" />
 			<h:inputText value="#{dBUtil.selectedPersonalData.initial_clinical}">
 				<p:ajax event="keyup"></p:ajax>
@@ -76,34 +89,38 @@
 				<p:ajax event="keyup"></p:ajax>
 			</h:inputText>
 		</h:panelGrid>
+		<p:panel>
+			<p:outputLabel value="Pedigree" />
+			<h:panelGroup id="dd">
+				<p:panel>
 
-		<h:panelGroup id="dd">
-			<p:panel>
+					<c:if test="#{dBUtil.selectedPersonalData.photo != null}">
 
-				<c:if test="#{dBUtil.selectedPersonalData.photo != null}">
-		
 
-<o:graphicImage id="wer12" value="#{dBUtil.selectedPersonalData.photo}"
-							dataURI="true" height="80" />
-					
+						<o:graphicImage id="wer12"
+							value="#{dBUtil.selectedPersonalData.photo}" dataURI="true"
+							height="80" />
 
-					<p:overlayPanel id="imgPane3l" for="wer12" showEffect="blind"
-						hideEffect="explode"  hideEvent="mousedown"
-						dismissable="false" showCloseIcon="true">
-						<o:graphicImage value="#{dBUtil.selectedPersonalData.photo}" 	dataURI="true" width="100%" height="100%" />
-					</p:overlayPanel>
 
-				</c:if>
-				<p:commandButton rendered="false" value="okj" id="ajax22"
-					process="postPanel" actionListener="#{dBUtil.updatePersonalData}"
-					styleClass="ui-priority-primary" />
+						<p:overlayPanel id="imgPane3l" for="wer12" showEffect="blind"
+							hideEffect="explode" hideEvent="mousedown" dismissable="false"
+							showCloseIcon="true">
+							<o:graphicImage value="#{dBUtil.selectedPersonalData.photo}"
+								dataURI="true" width="100%" height="100%" />
+						</p:overlayPanel>
 
-				<p:fileUpload value="#{dBUtil.uploadedFile}" mode="advanced"
-					skinSimple="true" fileUploadListener="#{dBUtil.fileUploadListener}"
-					update="dd" />
+					</c:if>
+					<p:commandButton rendered="false" value="okj" id="ajax22"
+						process="postPanel" actionListener="#{dBUtil.updatePersonalData}"
+						styleClass="ui-priority-primary" />
 
-			</p:panel>
-		</h:panelGroup>
+					<p:fileUpload value="#{dBUtil.uploadedFile}" mode="advanced"
+						skinSimple="true"
+						fileUploadListener="#{dBUtil.fileUploadListener}" update="dd" />
+
+				</p:panel>
+			</h:panelGroup>
+		</p:panel>
 	</h:panelGrid>
 
 </p:panel>

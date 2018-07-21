@@ -30,6 +30,7 @@ import org.apache.fop.apps.MimeConstants;
 import beans.BasicDocumentViewController;
 import beans.JsfUtil;
 import common.AmbUtils;
+import common.Pair;
 import common.TempFileFactory;
 
 public class PrintCreator {

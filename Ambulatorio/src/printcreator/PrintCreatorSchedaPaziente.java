@@ -8,6 +8,7 @@ import beans.HematologicData;
 import beans.JsfUtil;
 import beans.PersonalData;
 import beans.SurgicalIntervention;
+import common.Pair;
 import database.DBUtil;
 
 public class PrintCreatorSchedaPaziente extends PrintCreator {

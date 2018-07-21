@@ -17,6 +17,16 @@
 				skinSimple="true" fileUploadListener="#{fileUploadView.fileUploadListener}"
 				update="dd" />
 		</h:panelGroup>
+		
+		<p:outputLabel value="Esporta selezione corrent in file xls" />
+		
+		<h:panelGroup id="ddd">
+			<p:commandButton  value="okj" id="ajax22" update="ddd"
+						process="ddd" actionListener="#{xlsExporter.export}"
+						styleClass="ui-priority-primary" />
+		</h:panelGroup>
+		
+		
 	</h:panelGrid>
 </h:form>
 

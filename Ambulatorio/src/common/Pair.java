@@ -1,4 +1,4 @@
-package printcreator;
+package common;
 
 public class Pair {
 	private String name;

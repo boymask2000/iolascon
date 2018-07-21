@@ -24,12 +24,12 @@
 	</p:column>
 
 	<p:column headerText="equalTo Value">
-		<h:panelGroup id="formatsSelectPG">
+	
 			<h:inputText value="#{car.equalToValue}"
-				disabled="#{car.isEqualTo()}">
-				<p:ajax event="keyup" />
+			>
+				<f:ajax event="blur" />
 			</h:inputText>
-		</h:panelGroup>
+		
 	</p:column>
 
 

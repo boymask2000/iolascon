@@ -8,7 +8,7 @@ import javax.faces.context.FacesContext;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
-import excel.ExcelParser;
+import excelimport.ExcelParser;
 
 public class FileUploadView {
 

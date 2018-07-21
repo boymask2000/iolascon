@@ -14,6 +14,7 @@ public class CampoQuery {
 	private Object greaterThenValue;
 	private Object equalToValue;
 	private boolean goToOutput;
+	private String tipo;
 
 	// public CampoQuery(String tab, String f) {
 	// this.tabella = tab;
@@ -26,6 +27,12 @@ public class CampoQuery {
 	public CampoQuery(String tab, Field f) {
 		this.tabella = tab;
 		this.campo = f.getName();
+		this.tipo=f.getType().getName();
+	}
+	public String getValueSep() {
+		if(tipo==null)return " ";
+		if(tipo.equals("java.lang.String"))return "'";
+		return "";
 	}
 
 	public String getTabella() {
@@ -99,7 +106,8 @@ public class CampoQuery {
 	}
 
 	public Object getEqualToValue() {
-		return equalToValue;
+		if(equalToValue==null)return null;
+		return getValueSep() +equalToValue+getValueSep() ;
 	}
 
 	public void setEqualToValue(Object equalToValue) {

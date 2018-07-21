@@ -29,34 +29,54 @@ public class UtentiDAO {
 			session.close();
 		}
 	}
-	public void update(Utente contact){
+
+	public void update(Utente contact) {
 
 		SqlSession session = sqlSessionFactory.openSession();
 
 		try {
-			
+
 			UtentiMapper mapper = session.getMapper(UtentiMapper.class);
 			mapper.update(contact);
-			
+
 			session.commit();
-		}catch(Throwable t) {
+		} catch (Throwable t) {
 			t.printStackTrace();
 		} finally {
 			session.close();
 		}
 	}
-	public void insert(Utente contact){
+
+	public Utente search(Utente contact) {
+		Utente u = null;
+		SqlSession session = sqlSessionFactory.openSession();
+
+		try {
+
+			UtentiMapper mapper = session.getMapper(UtentiMapper.class);
+			u = mapper.search(contact);
+
+			session.commit();
+		} catch (Throwable t) {
+			t.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return u;
+	}
+
+	public void insert(Utente contact) {
 
 		SqlSession session = sqlSessionFactory.openSession();
 
 		try {
-			
+
 			UtentiMapper mapper = session.getMapper(UtentiMapper.class);
 			mapper.insert(contact);
-		
+
 			session.commit();
-			
-		}catch(Throwable t) {
+
+		} catch (Throwable t) {
 			t.printStackTrace();
 		} finally {
 			session.close();

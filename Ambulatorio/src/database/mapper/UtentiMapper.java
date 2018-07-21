@@ -25,8 +25,9 @@ public interface UtentiMapper {
 			+ " WHERE ID = #{id}";
 	
 
-	
-	
+	final String SEARCH = "SELECT * FROM utenti WHERE "
+	+ " utenza = #{utenza} AND"
+	+ " password = #{password}";
 	
 	final String DELETE = "DELETE FROM utenti WHERE CONTACT_ID = #{id}";
 	final String INSERT = "INSERT INTO utenti (utenza ," 
@@ -55,4 +56,7 @@ public interface UtentiMapper {
 	
 	@Insert(INSERT)
 	public void insert(Utente contact);
+	
+	@Select(SEARCH)
+	public Utente search(Utente contact);
 }

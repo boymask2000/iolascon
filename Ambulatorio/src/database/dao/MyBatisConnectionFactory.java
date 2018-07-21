@@ -17,6 +17,7 @@ import database.mapper.OtherInfoMapper;
 import database.mapper.PersonalDataMapper;
 import database.mapper.QueryMapper;
 import database.mapper.SurgicalInterventionMapper;
+import database.mapper.UtentiMapper;
 
 
 /**
@@ -45,6 +46,7 @@ public class MyBatisConnectionFactory {
 				sqlSessionFactory.getConfiguration().addMapper(IndirectTestsMapper.class);
 				sqlSessionFactory.getConfiguration().addMapper(GeneticDataMapper.class);
 				sqlSessionFactory.getConfiguration().addMapper(OtherInfoMapper.class);
+				sqlSessionFactory.getConfiguration().addMapper(UtentiMapper.class);
 				sqlSessionFactory.getConfiguration().addMapper(QueryMapper.class);
 			}
 			

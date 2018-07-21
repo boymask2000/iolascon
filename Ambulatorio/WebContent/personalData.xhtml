@@ -89,6 +89,7 @@
 				<p:ajax event="keyup"></p:ajax>
 			</h:inputText>
 		</h:panelGrid>
+<<<<<<< HEAD
 		<p:panel>
 			<p:outputLabel value="Pedigree" />
 			<h:panelGroup id="dd">
@@ -121,6 +122,36 @@
 				</p:panel>
 			</h:panelGroup>
 		</p:panel>
+=======
+
+		<h:panelGroup id="dd">
+			<p:panel>
+
+				<c:if test="#{dBUtil.selectedPersonalData.photo != null}">
+		
+
+<o:graphicImage id="wer12" value="#{dBUtil.selectedPersonalData.photo}"
+							dataURI="true" height="80" />
+					
+
+					<p:overlayPanel id="imgPane3l" for="wer12" showEffect="blind"
+						hideEffect="explode"  hideEvent="mousedown"
+						dismissable="false" showCloseIcon="true">
+						<o:graphicImage value="#{dBUtil.selectedPersonalData.photo}" 	dataURI="true" width="100%" height="100%" />
+					</p:overlayPanel>
+
+				</c:if>
+				<p:commandButton rendered="false" value="okj" id="ajax22"
+					process="postPanel" actionListener="#{dBUtil.updatePersonalData}"
+					styleClass="ui-priority-primary" />
+
+				<p:fileUpload value="#{dBUtil.uploadedFile}" mode="advanced"
+					skinSimple="true" fileUploadListener="#{dBUtil.fileUploadListener}"
+					update="dd" />
+
+			</p:panel>
+		</h:panelGroup>
+>>>>>>> a23efea3554147be629ad46f7ff53f3759203880
 	</h:panelGrid>
 
 </p:panel>

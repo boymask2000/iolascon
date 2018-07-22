@@ -15,7 +15,7 @@ public interface UtentiMapper {
 	final String SELECT_BY_ID = "SELECT * FROM utenti WHERE ID = #{id}";
 	final String UPDATE = "UPDATE utenti SET"
 		
-			+ " utenza = #{utenza},"
+			+ " user = #{user},"
 			+ " password = #{password},"
 			+ " email = #{email},"
 			+ " attivo = #{attivo},"
@@ -26,24 +26,24 @@ public interface UtentiMapper {
 	
 
 	final String SEARCH = "SELECT * FROM utenti WHERE "
-	+ " utenza = #{utenza} AND"
+	+ " user = #{user} AND"
 	+ " password = #{password}";
 	
 	final String DELETE = "DELETE FROM utenti WHERE CONTACT_ID = #{id}";
-	final String INSERT = "INSERT INTO utenti (utenza ," 
+	final String INSERT = "INSERT INTO utenti (user ," 
 						+ " password ," 
 			+" email ," 
 			+" attivo ," 
 			+" admin," 
 			+" note  ) "
 			+ ""
-			+ "VALUES (#{utenza}, #{password}, #{email},"+
+			+ "VALUES (#{user}, #{password}, #{email},"+
 	" #{attivo}, #{admin}, #{note} )";
 	
 	@Select(SELECT_ALL)
 	@Results(value = {
 		@Result(property="id", column="ID"),
-		@Result(property="utenza", column="utenza"),
+		@Result(property="user", column="user"),
 		@Result(property="password", column="password"),
 		@Result(property="email", column="email"),
 		@Result(property="admin", column="admin"),

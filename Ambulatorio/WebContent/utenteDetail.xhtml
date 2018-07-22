@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+</h:head>
+<h:panelGrid columns="2">
+
+	<p:outputLabel value="User" />
+	<h:inputText value="#{utentiBeanHelper.selectedUtente.user}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="Password" />
+	<h:inputText value="#{utentiBeanHelper.selectedUtente.password}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="Email" />
+	<h:inputText value="#{utentiBeanHelper.selectedUtente.email}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="Active" />
+	<h:inputText value="#{utentiBeanHelper.selectedUtente.attivo}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="Admin" />
+	<h:inputText value="#{utentiBeanHelper.selectedUtente.admin}" ><p:ajax event="keyup"/></h:inputText>
+	<p:outputLabel value="Note" />
+	<h:inputText value="#{utentiBeanHelper.selectedUtente.note}" ><p:ajax event="keyup"/></h:inputText>
+	
+
+</h:panelGrid>
+
+</html>

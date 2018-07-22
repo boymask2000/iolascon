@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15321875635650" configfile="/Ambulatorio/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="1330" id="pf15321876202021" referenceLink="//@navigationRule.6/@fromViewId|" outlinks="pf15321876202022 pf15321876202023 pf15321876202024 pf15321876202025 pf15321876202026 pf15321876202027 pf15321876202028" path="*"/>
-  <nodes xsi:type="pageflow:PFPage" name="schedaPaziente.xhtml" x="338" y="178" id="pf15321876202029" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf15321876202022" path="/schedaPaziente.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="elenco.xhtml" x="338" y="562" id="pf153218762020210" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf15321876202023" path="/elenco.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="nuovoPaziente.xhtml" x="338" y="946" id="pf153218762020211" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf15321876202024" path="/nuovoPaziente.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="viewPdf.xhtml" x="338" y="1330" id="pf153218762020212" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf15321876202025" path="/viewPdf.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="nuovoSurgicalIntervention.xhtml" x="338" y="1714" id="pf153218762020213" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf15321876202026" path="/nuovoSurgicalIntervention.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="nuovoBiochemicalData.xhtml" x="338" y="2098" id="pf153218762020214" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf15321876202027" path="/nuovoBiochemicalData.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="query/nuovaQuery.xhtml" x="338" y="2482" id="pf153218762020215" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" inlinks="pf15321876202028" path="/query/nuovaQuery.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="1714" id="pf15321876202021" referenceLink="//@navigationRule.9/@fromViewId|" outlinks="pf15321876202022 pf15321876202023 pf15321876202024 pf15321876202025 pf15321876202026 pf15321876202027 pf15321876202028 pf15322387229510 pf15322387229511 pf15322387229512" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="schedaPaziente.xhtml" x="338" y="178" id="pf15321876202029" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf15321876202022" path="/schedaPaziente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="elenco.xhtml" x="338" y="562" id="pf153218762020210" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf15321876202023" path="/elenco.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="nuovoPaziente.xhtml" x="338" y="946" id="pf153218762020211" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf15321876202024" path="/nuovoPaziente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="viewPdf.xhtml" x="338" y="1330" id="pf153218762020212" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" inlinks="pf15321876202025" path="/viewPdf.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="nuovoSurgicalIntervention.xhtml" x="338" y="1714" id="pf153218762020213" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" inlinks="pf15321876202026" path="/nuovoSurgicalIntervention.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="nuovoBiochemicalData.xhtml" x="338" y="2098" id="pf153218762020214" referenceLink="//@navigationRule.8/@navigationCase.0/@toViewId|" inlinks="pf15321876202027" path="/nuovoBiochemicalData.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="query/nuovaQuery.xhtml" x="338" y="2482" id="pf153218762020215" referenceLink="//@navigationRule.9/@navigationCase.0/@toViewId|" inlinks="pf15321876202028" path="/query/nuovaQuery.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="338" y="2866" id="pf15322387229513" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf15322387229510" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="tabAnagrQuery.xhtml" x="338" y="3250" id="pf15322387229514" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf15322387229511" path="/tabAnagrQuery.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="admn.xhtml" id="pf15322387229515" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf15322387229512" path="/admin.xhtml"/>
   <links id="pf15321876202022" target="pf15321876202029" source="pf15321876202021" outcome="scheda"/>
   <links id="pf15321876202023" target="pf153218762020210" source="pf15321876202021" outcome="elenco"/>
   <links id="pf15321876202024" target="pf153218762020211" source="pf15321876202021" outcome="nuovo"/>
@@ -15,4 +18,7 @@
   <links id="pf15321876202026" target="pf153218762020213" source="pf15321876202021" outcome="nuovo_surgical"/>
   <links id="pf15321876202027" target="pf153218762020214" source="pf15321876202021" outcome="nuovo_biomedical"/>
   <links id="pf15321876202028" target="pf153218762020215" source="pf15321876202021" outcome="nuova_query"/>
+  <links id="pf15322387229510" target="pf15322387229513" source="pf15321876202021" outcome="login"/>
+  <links id="pf15322387229511" target="pf15322387229514" source="pf15321876202021" outcome="main"/>
+  <links id="pf15322387229512" target="pf15322387229515" source="pf15321876202021" outcome="admin"/>
 </pageflow:Pageflow>

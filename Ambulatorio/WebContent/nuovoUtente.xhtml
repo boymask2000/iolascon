@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:include src="header.xhtml"></ui:include>
+<h:form>
+	<p:growl id="message"></p:growl>
+
+	<ui:include src="utenteDetail.xhtml" />
+
+
+
+	<h:commandButton value="Esci" id="pop" action="admin.xhtml"
+		process="postPanel" styleClass="ui-priority-primary" />
+
+
+	<h:panelGroup id="postPanel2">
+		<p:commandButton value="ok" id="ajasx" process="postPanel2" update="message"
+			actionListener="#{utentiBeanHelper.insertUtente}" 
+			styleClass="ui-priority-primary" />
+	</h:panelGroup>
+
+</h:form>
+</html>

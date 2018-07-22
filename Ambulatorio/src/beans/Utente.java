@@ -13,7 +13,7 @@ import database.dao.UtentiDAO;
 public class Utente {
 
 	private int id;
-	private String utenza;
+	private String user;
 	private String password;
 	private String email;
 	private String attivo;
@@ -27,14 +27,6 @@ public class Utente {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getUtenza() {
-		return utenza;
-	}
-
-	public void setUtenza(String utenza) {
-		this.utenza = utenza;
 	}
 
 	public String getPassword() {
@@ -77,14 +69,31 @@ public class Utente {
 		this.note = note;
 	}
 
+	public String logout() {
+		user = null;
+		password = null;
+		return "login";
+	}
+
+	public String checkLogin() {
+		if (user == null)
+			JsfUtil.redirect("login");
+		return "";
+	}
+
 	public String login() {
 		UtentiDAO dao = new UtentiDAO();
 		Utente u = dao.search(this);
 
 		if (u != null) {
+			
 			message = "Successfully logged-in.";
-			return "main";
+			if (u == null || u.getAdmin()==null || !u.getAdmin().equals("Y"))
+				return "main";
+			else
+				return "admin";
 		} else {
+			user = null;
 			message = "Wrong credentials.";
 			return "login";
 		}
@@ -96,5 +105,13 @@ public class Utente {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
 	}
 }

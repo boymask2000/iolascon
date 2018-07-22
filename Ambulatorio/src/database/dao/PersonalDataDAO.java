@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import beans.PersonalData;
 import database.mapper.PersonalDataMapper;
 
-public class PersonalDataDAO {
+public class PersonalDataDAO extends BasicDAO{
 	private SqlSessionFactory sqlSessionFactory;
 
 	public PersonalDataDAO() {

@@ -12,12 +12,13 @@ import org.apache.ibatis.annotations.Update;
 import beans.PersonalData;
 
 public interface PersonalDataMapper {
-	final String SELECT_ALL = "SELECT * FROM personal_data";
+	final String SELECT_ALL = "SELECT * FROM personal_data order by codice";
 	final String SELECT_BY_ID = "SELECT * FROM personal_data WHERE ID = #{id}";
 	final String UPDATE = "UPDATE personal_data SET"
 		
 			+ " NAME = #{name},"
 			+ " SURNAME = #{surname},"
+			+ " codice = #{codice},"
 			+ " Familial_degree = #{familial_degree},"
 			+ " Consanguinity = #{consanguinity},"
 			+ " Withdrawal = #{withdrawal},"
@@ -43,6 +44,7 @@ public interface PersonalDataMapper {
 	final String DELETE = "DELETE FROM personal_data WHERE CONTACT_ID = #{id}";
 	final String INSERT = "INSERT INTO personal_data (NAME ," 
 						+ " SURNAME ," 
+						+" codice ,"
 			+" Familial_degree ," 
 			+" Consanguinity ," 
 			+" Withdrawal," 
@@ -60,7 +62,7 @@ public interface PersonalDataMapper {
 			+" onset_symptoms ," 
 			+" age_onset_symptoms ) "
 			+ ""
-			+ "VALUES (#{name}, #{surname}, #{familial_degree},"+
+			+ "VALUES (#{name}, #{surname},#{codice}, #{familial_degree},"+
 	" #{consanguinity}, #{withdrawal}, #{acceptance}, #{codeEthnicity}, #{gender}, #{dob}, #{place_of_residence}, #{reference_doctor_name},"+
 		"#{reference_doctor_tel},#{reference_doctor_hospital},#{initial_clinical}, #{age_at_diagnosis}, #{photo}, #{onset_symptoms}, #{age_onset_symptoms})";
 	
@@ -70,6 +72,7 @@ public interface PersonalDataMapper {
 		@Result(property="n", column="N"),
 		@Result(property="name", column="name"),
 		@Result(property="surname", column="SURNAME"),
+		@Result(property="codice", column="codice"),
 		@Result(property="familial_degree", column="Familial_degree"),
 		@Result(property="consanguinity", column="Consanguinity"),
 		@Result(property="withdrawal", column="Withdrawal"),

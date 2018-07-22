@@ -7,7 +7,7 @@
 	
 	<h:panelGrid columns="2">
 	<p:outputLabel style="font-size:36px;line-height:48px;background-color:navy;color:white" value="Registro pazienti ematologici" />
-	<p:outputLabel value="Utente #{utente.utenza}" />
+	<p:outputLabel value="Utente #{utente.user}" rendered="#{utente.user!=null}"/>
 
 </h:panelGrid>
 </html>

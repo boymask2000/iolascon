@@ -3,6 +3,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
+
 <h:head>
 	<script name="jquery/jquery.js" library="primefaces"></script>
 </h:head>
@@ -26,6 +27,9 @@
 		<p:ajax event="rowUnselect" listener="#{dBUtil.onRowUnselect}" />
 		<p:column headerText="Id" style="width:40px;">
 			<h:outputText value="#{car.n}" />
+		</p:column>
+		<p:column headerText="Codice">
+			<h:outputText value="#{car.codice}" />
 		</p:column>
 		<p:column headerText="Cognome">
 			<h:outputText value="#{car.surname}" />

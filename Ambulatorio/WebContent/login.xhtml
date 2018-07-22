@@ -6,16 +6,21 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
+<f:metadata>
+	<f:event type="preRenderView" listener="#{utente.logout}" />
+</f:metadata>
+
 <ui:include src="header.xhtml"></ui:include>
 
-        <h:form>
-            <h:panelGrid columns="2">
-                <h:outputText value="Utente"></h:outputText>
-                <h:inputText value="#{utente.utenza}"></h:inputText>
-                <h:outputText value="Password"></h:outputText>
-                <h:inputText value="#{utente.password}"></h:inputText>
-            </h:panelGrid>
-            <h:commandButton value="Login" action="#{utente.login}"></h:commandButton>
-        </h:form>
+<h:form>
+	<h:panelGrid columns="2">
+		<h:outputText value="Utente"></h:outputText>
+		<h:inputText value="#{utente.user}"></h:inputText>
+
+		<h:outputText value="Password"></h:outputText>
+		<p:password value="#{utente.password}" required="true"/>
+	</h:panelGrid>
+	<h:commandButton value="Login" action="#{utente.login}"></h:commandButton>
+</h:form>
 
 </html>

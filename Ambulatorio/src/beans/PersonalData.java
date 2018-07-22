@@ -19,6 +19,7 @@ public class PersonalData {
 	private int id;
 	private String name;
 	private String surname;
+	private String codice;
 	private String familial_degree;
 	private String consanguinity;
 	private Date withdrawal;
@@ -161,6 +162,12 @@ public class PersonalData {
 	}
 	public void setReference_doctor_hospital(String reference_doctor_hospital) {
 		this.reference_doctor_hospital = reference_doctor_hospital;
+	}
+	public String getCodice() {
+		return codice;
+	}
+	public void setCodice(String codice) {
+		this.codice = codice;
 	}
 	
 }

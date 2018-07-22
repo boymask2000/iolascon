@@ -35,4 +35,11 @@ public class UtentiBeanHelper {
 		UtentiDAO dao = new UtentiDAO();
 		dao.update(selectedUtente);
 	}
+	public int getNumAdmins() {
+		UtentiDAO dao = new UtentiDAO();
+		return dao.getAdmins().size();
+	}
+	public boolean isOnlyAdmin() {
+		return getNumAdmins()==1 && selectedUtente.getAdmin()!=null && selectedUtente.getAdmin().equals("Y");
+	}
 }

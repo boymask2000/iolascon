@@ -14,6 +14,9 @@ public interface UtentiMapper {
 	final String SELECT_ALL = "SELECT * FROM utenti";
 	final String DELETE = "DELETE FROM utenti WHERE ID = #{id}";
 	final String SELECT_BY_ID = "SELECT * FROM utenti WHERE ID = #{id}";
+	
+	final String SELECT_ADMINS = "SELECT * FROM utenti where admin='Y'";
+	
 	final String UPDATE = "UPDATE utenti SET"
 		
 			+ " user = #{user},"
@@ -63,4 +66,15 @@ public interface UtentiMapper {
 	
 	@Select(DELETE)
 	public Utente delete(Utente contact);
+	
+	@Select(SELECT_ADMINS)
+	@Results(value = {
+			@Result(property="id", column="ID"),
+			@Result(property="user", column="user"),
+			@Result(property="password", column="password"),
+			@Result(property="email", column="email"),
+			@Result(property="admin", column="admin"),
+			@Result(property="note", column="note")
+		})
+	public List<Utente>  getAdmins();
 }

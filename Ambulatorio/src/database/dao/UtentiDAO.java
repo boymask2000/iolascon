@@ -29,6 +29,20 @@ public class UtentiDAO {
 			session.close();
 		}
 	}
+	public List<Utente> getAdmins() {
+
+		SqlSession session = sqlSessionFactory.openSession();
+
+		try {
+
+			UtentiMapper mapper = session.getMapper(UtentiMapper.class);
+			List<Utente> list = mapper.getAdmins();
+
+			return list;
+		} finally {
+			session.close();
+		}
+	}
 
 	public void update(Utente contact) {
 

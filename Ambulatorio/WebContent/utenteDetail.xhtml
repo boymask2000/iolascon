@@ -20,7 +20,8 @@
 	<p:outputLabel value="Active" />
 	<h:inputText value="#{utentiBeanHelper.selectedUtente.attivo}" ><p:ajax event="keyup"/></h:inputText>
 	<p:outputLabel value="Admin" />
-	<h:inputText value="#{utentiBeanHelper.selectedUtente.admin}" ><p:ajax event="keyup"/></h:inputText>
+	
+	<h:inputText value="#{utentiBeanHelper.selectedUtente.admin}" readonly="#{utentiBeanHelper.onlyAdmin}" ><p:ajax event="keyup"/></h:inputText>
 	<p:outputLabel value="Note" />
 	<h:inputText value="#{utentiBeanHelper.selectedUtente.note}" ><p:ajax event="keyup"/></h:inputText>
 	

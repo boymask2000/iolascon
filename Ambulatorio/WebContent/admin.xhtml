@@ -12,7 +12,7 @@
 
 <p:panel>
 
-
+<h:form>
 	<p:dataTable var="car" value="#{utentiBeanHelper.elencoUtenti}"
 		selectionMode="single" selection="#{utentiBeanHelper.selectedUtente}"
 		rowKey="#{car.user}">
@@ -28,8 +28,16 @@
 		<p:column headerText="Email">
 			<h:outputText value="#{car.email}" />
 		</p:column>
+		
+	
+         <p:column style="width:32px;text-align: center">
+             <h:commandButton  icon="ui-icon-search" title="View" action="/modificaUtente.xhtml">
+                <f:setPropertyActionListener value="#{car}" target="#{utentiBeanHelper.selectedUtente}" />
+            </h:commandButton>
+        </p:column>
+        
 	</p:dataTable>
-<h:form>
+
 	<p:commandButton value="Nuovo" id="ajax2234" process="@this"
 		action="/nuovoUtente.xhtml?faces-redirect=true"
 		styleClass="ui-priority-primary" />

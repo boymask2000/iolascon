@@ -12,6 +12,7 @@ import beans.Utente;
 
 public interface UtentiMapper {
 	final String SELECT_ALL = "SELECT * FROM utenti";
+	final String DELETE = "DELETE FROM utenti WHERE ID = #{id}";
 	final String SELECT_BY_ID = "SELECT * FROM utenti WHERE ID = #{id}";
 	final String UPDATE = "UPDATE utenti SET"
 		
@@ -29,7 +30,7 @@ public interface UtentiMapper {
 	+ " user = #{user} AND"
 	+ " password = #{password}";
 	
-	final String DELETE = "DELETE FROM utenti WHERE CONTACT_ID = #{id}";
+
 	final String INSERT = "INSERT INTO utenti (user ," 
 						+ " password ," 
 			+" email ," 
@@ -59,4 +60,7 @@ public interface UtentiMapper {
 	
 	@Select(SEARCH)
 	public Utente search(Utente contact);
+	
+	@Select(DELETE)
+	public Utente delete(Utente contact);
 }

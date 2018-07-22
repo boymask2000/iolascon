@@ -27,4 +27,12 @@ public class UtentiBeanHelper {
 		UtentiDAO dao = new UtentiDAO();
 		dao.insert(selectedUtente);
 	}
+	public void modificaUtente() {
+		UtentiDAO dao = new UtentiDAO();
+		dao.update(selectedUtente);
+	}
+	public void eliminaUtente() {
+		UtentiDAO dao = new UtentiDAO();
+		dao.update(selectedUtente);
+	}
 }

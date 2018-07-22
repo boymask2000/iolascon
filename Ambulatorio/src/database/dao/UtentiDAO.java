@@ -82,4 +82,21 @@ public class UtentiDAO {
 			session.close();
 		}
 	}
+	public void elimina(Utente contact) {
+
+		SqlSession session = sqlSessionFactory.openSession();
+
+		try {
+
+			UtentiMapper mapper = session.getMapper(UtentiMapper.class);
+			mapper.delete(contact);
+
+			session.commit();
+
+		} catch (Throwable t) {
+			t.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
 }

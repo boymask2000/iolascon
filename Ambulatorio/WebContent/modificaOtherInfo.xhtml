@@ -18,7 +18,15 @@
 
 	<h:panelGroup id="postPanel2">
 		<p:commandButton value="ok" id="ajasx" process="postPanel2"
+		action="/schedaPaziente.xhtml?faces-redirect=true" 
 			actionListener="#{dBUtil.modificaOtherInfo}" update="growl1"
+			styleClass="ui-priority-primary" />
+	</h:panelGroup>
+	
+	<h:panelGroup id="ostPanel2">
+		<p:commandButton value="Delete" id="asjasx" process="ostPanel2"
+		action="/schedaPaziente.xhtml?faces-redirect=true" 
+			actionListener="#{dBUtil.cancellaOtherInfo}" update="growl1"
 			styleClass="ui-priority-primary" />
 	</h:panelGroup>
 </h:form>

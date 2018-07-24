@@ -302,6 +302,15 @@ public class DBUtil {
 		dao.update(otherInfo);
 	}
 
+	public void cancellaOtherInfo() {
+		addMessage("Inserimento");
+
+		OtherInfoDAO dao = new OtherInfoDAO();
+		otherInfo.setN(selectedPersonalData.getN());
+
+		dao.delete(otherInfo);
+	}
+
 	public OtherInfo getOtherInfo() {
 		if (otherInfo == null)
 			otherInfo = new OtherInfo();

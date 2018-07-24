@@ -30,33 +30,52 @@ public class OtherInfoDAO {
 			session.close();
 		}
 	}
-	public void update(OtherInfo contact){
+
+	public void update(OtherInfo contact) {
 
 		SqlSession session = sqlSessionFactory.openSession();
 
 		try {
-			
+
 			OtherInfoMapper mapper = session.getMapper(OtherInfoMapper.class);
 			mapper.update(contact);
-			
+
 			session.commit();
-		}catch(Throwable t) {
+		} catch (Throwable t) {
 			t.printStackTrace();
 		} finally {
 			session.close();
 		}
 	}
-	public void insert(OtherInfo contact){
+
+	public void delete(OtherInfo contact) {
 
 		SqlSession session = sqlSessionFactory.openSession();
 
 		try {
-			
+
+			OtherInfoMapper mapper = session.getMapper(OtherInfoMapper.class);
+			mapper.delete(contact);
+
+			session.commit();
+		} catch (Throwable t) {
+			t.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+
+	public void insert(OtherInfo contact) {
+
+		SqlSession session = sqlSessionFactory.openSession();
+
+		try {
+
 			OtherInfoMapper mapper = session.getMapper(OtherInfoMapper.class);
 			mapper.insert(contact);
-			
+
 			session.commit();
-		}catch(Throwable t) {
+		} catch (Throwable t) {
 			t.printStackTrace();
 		} finally {
 			session.close();

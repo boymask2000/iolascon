@@ -58,7 +58,7 @@ public class Table {
 		for (List<String> row : rows) {
 			buffer.append("<fo:table-row>");
 			for (String ss : row) {
-				buffer.append("<fo:table-cell>");
+				buffer.append("<fo:table-cell border-style=\"solid\" border-color=\"black\" border-width=\"1pt\">");
 				buffer.append("<fo:block font-size=\"" + fontSize + "pt\" font-family=\"Helvetica\">");
 				buffer.append(ss);
 				buffer.append("</fo:block>");

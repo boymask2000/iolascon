@@ -12,7 +12,7 @@ public class GeneticDataFiller extends BeanFiller {
 	@Override
 	public void processPair(String key, Object val) {
 		if (key.startsWith("gene")) {
-			p.setgENE((String) val);
+			p.setGene((String) val);
 		}
 		if (key.startsWith("hgvs (genomic)")) {
 			p.setHgvs_genomic((String) val);

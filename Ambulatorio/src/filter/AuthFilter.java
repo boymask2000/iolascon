@@ -38,16 +38,20 @@ public class AuthFilter implements Filter {
 			// accessing any page in //public folder
 			String reqURI = req.getRequestURI();
 			if (reqURI.indexOf("/login.xhtml") >= 0 || ses == null) {
+				if (ses != null)
+					ses.invalidate();
 				chain.doFilter(request, response);
 				return;
 			}
 			Utente utente = (Utente) ses.getAttribute("utente");
-			if (utente!=null && utente.getUser() != null)
-
+			if (utente != null && utente.getUser() != null)
 				chain.doFilter(request, response);
-			else // user didn't log in but asking for a page that is not allowed so take user to
-					// login page
+			else {
+				if (ses != null)
+					ses.invalidate();
 				res.sendRedirect(req.getContextPath() + "/login.xhtml"); // Anonymous user. Redirect to login page
+
+			}
 		} catch (Throwable t) {
 			t.printStackTrace();
 			System.out.println(t.getMessage());

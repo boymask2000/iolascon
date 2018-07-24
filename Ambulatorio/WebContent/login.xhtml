@@ -6,13 +6,15 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
+	
 <f:metadata>
 	<f:event type="preRenderView" listener="#{utente.logout}" />
 </f:metadata>
+		<h:outputStylesheet library="css" name="login.css" />
 
 <ui:include src="header.xhtml"></ui:include>
 
-<h:form>
+<h:form >
 	<h:panelGrid columns="2">
 		<h:outputText value="Utente"></h:outputText>
 		<h:inputText value="#{utente.user}"></h:inputText>

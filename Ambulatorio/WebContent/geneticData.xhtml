@@ -12,8 +12,8 @@
 	<h:form>
 		<p:dataTable var="car" value="#{dBUtil.elencoGeneticData}">
 
-			<p:column headerText="gENE">
-				<h:outputText value="#{car.gENE}" />
+			<p:column headerText="gene">
+				<h:outputText value="#{car.gene}" />
 			</p:column>
 <p:column headerText="hgvs genomic">
 				<h:outputText value="#{car.hgvs_genomic}" />
@@ -31,7 +31,7 @@
 				<h:outputText value="#{car.refSeq_id}" />
 			</p:column>
 			<p:column headerText="hOM_HET">
-				<h:outputText value="#{car.hOM_HET}" />
+				<h:outputText value="#{car.hom_het}" />
 			</p:column>
 			<p:column headerText="chr">
 				<h:outputText value="#{car.chr}" />
@@ -47,19 +47,19 @@
 				<h:outputText value="#{car.alt_allede}" />
 			</p:column>
 			<p:column headerText="mAF 1000G">
-				<h:outputText value="#{car.mAF_1000G}" />
+				<h:outputText value="#{car.maf_1000G}" />
 			</p:column>
 			<p:column headerText="mAF EVS">
-				<h:outputText value="#{car.mAF_EVS}" />
+				<h:outputText value="#{car.maf_EVS}" />
 			</p:column>
 			<p:column headerText="mAF ExAC">
-				<h:outputText value="#{car.mAF_ExAC}" />
+				<h:outputText value="#{car.maf_ExAC}" />
 			</p:column>
 			<p:column headerText="aCMG path_score">
-				<h:outputText value="#{car.aCMG_path_score}" />
+				<h:outputText value="#{car.acmg_path_score}" />
 			</p:column>
 			<p:column headerText="dNA Storage">
-				<h:outputText value="#{car.dNA_Storage}" />
+				<h:outputText value="#{car.dna_Storage}" />
 			</p:column>
 			<p:column headerText="other">
 				<h:outputText value="#{car.other}" />

@@ -16,21 +16,21 @@ public interface GeneticDataMapper {
 	final String SELECT_BY_ID = "SELECT * FROM genetic_data WHERE ID = #{id}";
 	final String UPDATE = "UPDATE genetic_data SET"
 		
-			+ " gENE = #{gENE},"
+			+ " gENE = #{gene},"
 			+ " hgvs_genomic = #{hgvs_genomic},"
 			+ " hgvs_protein = #{hgvs_protein},"
 			+ " type_of_variant = #{type_of_variant},"
 			+ " refSeq_id = #{refSeq_id},"
-			+ " hOM_HET = #{hOM_HET},"
+			+ " hOM_HET = #{hom_het},"
 			+ " chr = #{chr},"
 			+ " position = #{position},"
 			+ " ref_allede = #{ref_allede},"
 			+ " alt_allede = #{alt_allede},"
-			+ " mAF_1000G = #{mAF_1000G},"
-			+ " mAF_EVS = #{mAF_EVS},"
-			+ " mAF_ExAC = #{mAF_ExAC},"
-			+ " aCMG_path_score = #{aCMG_path_score},"
-			+ " dNA_Storage = #{dNA_Storage},"
+			+ " mAF_1000G = #{maf_1000G},"
+			+ " mAF_EVS = #{maf_EVS},"
+			+ " mAF_ExAC = #{maf_ExAC},"
+			+ " aCMG_path_score = #{acmg_path_score},"
+			+ " dNA_Storage = #{dna_Storage},"
 			+ " other = #{other}"
 
 	+ " WHERE ID = #{id}";
@@ -45,7 +45,7 @@ public interface GeneticDataMapper {
 			+" hgvs_protein ," 
 			+" type_of_variant ," 
 			+" refSeq_id," 
-			+" hOM_HET ," 
+			+" hom_het ," 
 			+" chr ," 
 			+" position," 
 			+" ref_allede," 
@@ -58,30 +58,30 @@ public interface GeneticDataMapper {
 			+" other" 
 			+" ) "
 			+ ""
-			+ "VALUES ( #{n}, #{gENE}, #{hgvs_genomic},#{hgvs_protein}, #{type_of_variant}, #{refSeq_id}, #{hOM_HET}, #{chr}, " + 
-			"	#{position}, #{ref_allede}, #{alt_allede}, #{mAF_1000G}, #{mAF_EVS}, #{mAF_ExAC}, #{aCMG_path_score}, #{dNA_Storage}," + 
+			+ "VALUES ( #{n}, #{gene}, #{hgvs_genomic},#{hgvs_protein}, #{type_of_variant}, #{refSeq_id}, #{hom_het}, #{chr}, " + 
+			"	#{position}, #{ref_allede}, #{alt_allede}, #{maf_1000G}, #{maf_EVS}, #{maf_ExAC}, #{acmg_path_score}, #{dna_Storage}," + 
 			"	#{other})";
 			
 	@Select(SELECT_ALL)
 	@Results(value = {
 		@Result(property="id", column="ID"),
 		@Result(property="n", column="N"),
-		@Result(property="gENE", column="gENE"),
+		@Result(property="gene", column="gENE"),
 		@Result(property="hgvs_genomic", column="hgvs_genomic"),
 		@Result(property="hgvs_protein", column="hgvs_protein"),
 		@Result(property="type_of_variant", column="type_of_variant"),
 		@Result(property="refSeq_id", column="refSeq_id"),
-		@Result(property="hOM_HET", column="hOM_HET"),
+		@Result(property="hom_HET", column="hom_het"),
 		@Result(property="chr", column="chr"),
 		@Result(property="position", column="position"),
 		@Result(property="ref_allede", column="ref_allede"),
 		
 		@Result(property="alt_allede", column="alt_allede"),
-		@Result(property="mAF_1000G", column="mAF_1000G"),
-		@Result(property="mAF_EVS", column="mAF_EVS"),
-		@Result(property="mAF_ExAC", column="mAF_ExAC"),
-		@Result(property="aCMG_path_score", column="aCMG_path_score"),
-		@Result(property="dNA_Storage", column="dNA_Storage"),
+		@Result(property="maf_1000G", column="mAF_1000G"),
+		@Result(property="maf_EVS", column="mAF_EVS"),
+		@Result(property="maf_ExAC", column="mAF_ExAC"),
+		@Result(property="acmg_path_score", column="aCMG_path_score"),
+		@Result(property="dna_Storage", column="dNA_Storage"),
 		@Result(property="other", column="other")
 		
 	})

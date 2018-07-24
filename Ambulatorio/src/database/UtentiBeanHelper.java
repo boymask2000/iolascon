@@ -33,7 +33,7 @@ public class UtentiBeanHelper {
 	}
 	public void eliminaUtente() {
 		UtentiDAO dao = new UtentiDAO();
-		dao.update(selectedUtente);
+		dao.elimina(selectedUtente);
 	}
 	public int getNumAdmins() {
 		UtentiDAO dao = new UtentiDAO();

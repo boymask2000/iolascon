@@ -3,21 +3,21 @@ package beans;
 public class GeneticData {
 	private int id;
 	private int n;
-	private String gENE;
+	private String gene;
 	private String hgvs_genomic;
 	private String hgvs_protein;
 	private String type_of_variant;
 	private String refSeq_id;
-	private String hOM_HET;
+	private String hom_het;
 	private String chr;
 	private int position;
 	private String ref_allede;
 	private String alt_allede;
-	private int mAF_1000G;
-	private int mAF_EVS;
-	private int mAF_ExAC;
-	private String aCMG_path_score;
-	private String dNA_Storage;
+	private int maf_1000G;
+	private int maf_EVS;
+	private int maf_ExAC;
+	private String acmg_path_score;
+	private String dna_Storage;
 	private String other;
 	public int getId() {
 		return id;
@@ -31,13 +31,24 @@ public class GeneticData {
 	public void setN(int n) {
 		this.n = n;
 	}
-	public String getgENE() {
-		return gENE;
+	public String getGene() {
+		return gene;
 	}
-	public void setgENE(String gENE) {
-		this.gENE = gENE;
+	public void setGene(String gene) {
+		this.gene = gene;
 	}
-
+	public String getHgvs_genomic() {
+		return hgvs_genomic;
+	}
+	public void setHgvs_genomic(String hgvs_genomic) {
+		this.hgvs_genomic = hgvs_genomic;
+	}
+	public String getHgvs_protein() {
+		return hgvs_protein;
+	}
+	public void setHgvs_protein(String hgvs_protein) {
+		this.hgvs_protein = hgvs_protein;
+	}
 	public String getType_of_variant() {
 		return type_of_variant;
 	}
@@ -50,11 +61,11 @@ public class GeneticData {
 	public void setRefSeq_id(String refSeq_id) {
 		this.refSeq_id = refSeq_id;
 	}
-	public String gethOM_HET() {
-		return hOM_HET;
+	public String getHom_het() {
+		return hom_het;
 	}
-	public void sethOM_HET(String hOM_HET) {
-		this.hOM_HET = hOM_HET;
+	public void setHom_het(String hom_het) {
+		this.hom_het = hom_het;
 	}
 	public String getChr() {
 		return chr;
@@ -80,35 +91,35 @@ public class GeneticData {
 	public void setAlt_allede(String alt_allede) {
 		this.alt_allede = alt_allede;
 	}
-	public int getmAF_1000G() {
-		return mAF_1000G;
+	public int getMaf_1000G() {
+		return maf_1000G;
 	}
-	public void setmAF_1000G(int mAF_1000G) {
-		this.mAF_1000G = mAF_1000G;
+	public void setMaf_1000G(int maf_1000g) {
+		maf_1000G = maf_1000g;
 	}
-	public int getmAF_EVS() {
-		return mAF_EVS;
+	public int getMaf_EVS() {
+		return maf_EVS;
 	}
-	public void setmAF_EVS(int mAF_EVS) {
-		this.mAF_EVS = mAF_EVS;
+	public void setMaf_EVS(int maf_EVS) {
+		this.maf_EVS = maf_EVS;
 	}
-	public int getmAF_ExAC() {
-		return mAF_ExAC;
+	public int getMaf_ExAC() {
+		return maf_ExAC;
 	}
-	public void setmAF_ExAC(int mAF_ExAC) {
-		this.mAF_ExAC = mAF_ExAC;
+	public void setMaf_ExAC(int maf_ExAC) {
+		this.maf_ExAC = maf_ExAC;
 	}
-	public String getaCMG_path_score() {
-		return aCMG_path_score;
+	public String getAcmg_path_score() {
+		return acmg_path_score;
 	}
-	public void setaCMG_path_score(String aCMG_path_score) {
-		this.aCMG_path_score = aCMG_path_score;
+	public void setAcmg_path_score(String acmg_path_score) {
+		this.acmg_path_score = acmg_path_score;
 	}
-	public String getdNA_Storage() {
-		return dNA_Storage;
+	public String getDna_Storage() {
+		return dna_Storage;
 	}
-	public void setdNA_Storage(String dNA_Storage) {
-		this.dNA_Storage = dNA_Storage;
+	public void setDna_Storage(String dna_Storage) {
+		this.dna_Storage = dna_Storage;
 	}
 	public String getOther() {
 		return other;
@@ -116,17 +127,5 @@ public class GeneticData {
 	public void setOther(String other) {
 		this.other = other;
 	}
-	public String getHgvs_genomic() {
-		return hgvs_genomic;
-	}
-	public void setHgvs_genomic(String hgvs_genomic) {
-		this.hgvs_genomic = hgvs_genomic;
-	}
-	public String getHgvs_protein() {
-		return hgvs_protein;
-	}
-	public void setHgvs_protein(String hgvs_protein) {
-		this.hgvs_protein = hgvs_protein;
-	}
-
+	
 }

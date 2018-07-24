@@ -9,12 +9,12 @@ public class IndirectTests {
 	private int n;
 	private int id;
 	private Date date;
-	private int eMA_binding_test_patients;
-	private int eMA_binding_test_normal_ctr_value;
+	private int ema_binding_test_patients;
+	private int ema_binding_test_normal_ctr_value;
 	private int ektacytometry_omin;
 	private int ektacytometry_o;
 	private int ektacytometry_di_max;
-	private String pB_smear_description;
+	private String pb_smear_description;
 	private String bone_marrow_description;
 	private String cation_flux;
 	private String other;
@@ -40,18 +40,6 @@ public class IndirectTests {
 	public void setDate(Date date) {
 		this.date = JsfUtil.fixDate(date);
 	}
-	public int geteMA_binding_test_patients() {
-		return eMA_binding_test_patients;
-	}
-	public void seteMA_binding_test_patients(int eMA_binding_test_patients) {
-		this.eMA_binding_test_patients = eMA_binding_test_patients;
-	}
-	public int geteMA_binding_test_normal_ctr_value() {
-		return eMA_binding_test_normal_ctr_value;
-	}
-	public void seteMA_binding_test_normal_ctr_value(int eMA_binding_test_normal_ctr_value) {
-		this.eMA_binding_test_normal_ctr_value = eMA_binding_test_normal_ctr_value;
-	}
 	public int getEktacytometry_omin() {
 		return ektacytometry_omin;
 	}
@@ -69,12 +57,6 @@ public class IndirectTests {
 	}
 	public void setEktacytometry_di_max(int ektacytometry_di_max) {
 		this.ektacytometry_di_max = ektacytometry_di_max;
-	}
-	public String getpB_smear_description() {
-		return pB_smear_description;
-	}
-	public void setpB_smear_description(String pB_smear_description) {
-		this.pB_smear_description = pB_smear_description;
 	}
 	public String getBone_marrow_description() {
 		return bone_marrow_description;
@@ -115,11 +97,22 @@ public class IndirectTests {
 	public void setBone_marrow(byte[] bone_marrow) {
 		this.bone_marrow = bone_marrow;
 	}
-	
-	
-	
-	
-	
-
-
+	public int getEma_binding_test_patients() {
+		return ema_binding_test_patients;
+	}
+	public void setEma_binding_test_patients(int ema_binding_test_patients) {
+		this.ema_binding_test_patients = ema_binding_test_patients;
+	}
+	public int getEma_binding_test_normal_ctr_value() {
+		return ema_binding_test_normal_ctr_value;
+	}
+	public void setEma_binding_test_normal_ctr_value(int ema_binding_test_normal_ctr_value) {
+		this.ema_binding_test_normal_ctr_value = ema_binding_test_normal_ctr_value;
+	}
+	public String getPb_smear_description() {
+		return pb_smear_description;
+	}
+	public void setPb_smear_description(String pb_smear_description) {
+		this.pb_smear_description = pb_smear_description;
+	}
 }

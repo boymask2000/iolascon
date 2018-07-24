@@ -13,7 +13,9 @@
 
 	<p:outputLabel value="Other Info" />
 
-<p:inputTextarea rows="40" cols="80" maxlength="4000" value="#{dBUtil.otherInfo.info}">
+<p:textEditor widgetVar="editor1" value="#{dBUtil.otherInfo.info}" height="300" style="margin-bottom:10px" rendered="false"/>
+
+<p:inputTextarea rows="40" cols="80" maxlength="4000" value="#{dBUtil.otherInfo.info}" >
 <p:ajax event="keyup" />
 </p:inputTextarea>
 	

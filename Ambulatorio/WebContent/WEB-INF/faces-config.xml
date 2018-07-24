@@ -154,6 +154,15 @@
 		<from-view-id>*</from-view-id>
 
 		<navigation-case>
+			<from-outcome>modifica_otherinfo</from-outcome>
+			<to-view-id>/modificaOtherInfo.xhtml</to-view-id>
+		</navigation-case>
+
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+
+		<navigation-case>
 			<from-outcome>nuova_query</from-outcome>
 			<to-view-id>/query/nuovaQuery.xhtml</to-view-id>
 		</navigation-case>

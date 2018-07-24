@@ -7,6 +7,7 @@ import javax.el.ELContext;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
+import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.event.UnselectEvent;
@@ -65,7 +66,6 @@ public class DBUtil {
 				.getValue(elContext, null, "queryHandler");
 
 		String query = queryHandler.buildQuery();
-	
 
 		QueryXml qx = new QueryXml();
 		try {
@@ -83,7 +83,6 @@ public class DBUtil {
 		}
 
 		addMessage("Inserimento");
-	
 
 	}
 
@@ -102,7 +101,7 @@ public class DBUtil {
 
 	public void insertIndirectTests() {
 		addMessage("Aggiornamento");
-		
+
 		IndirectTestsDAO dao = new IndirectTestsDAO();
 		indirectTests.setN(selectedPersonalData.getN());
 
@@ -117,7 +116,7 @@ public class DBUtil {
 
 	public void updateIndirectTests() {
 		addMessage("Aggiornamento");
-		
+
 		IndirectTestsDAO dao = new IndirectTestsDAO();
 		dao.update(indirectTests);
 	}
@@ -131,7 +130,7 @@ public class DBUtil {
 
 	public void insertGeneticData() {
 		addMessage("Inserimento");
-	
+
 		GeneticDataDAO dao = new GeneticDataDAO();
 		geneticData.setN(selectedPersonalData.getN());
 
@@ -153,7 +152,7 @@ public class DBUtil {
 
 	public void insertIronBalance() {
 		addMessage("Inserimento");
-	
+
 		IronBalanceDAO dao = new IronBalanceDAO();
 		ironBalance.setN(selectedPersonalData.getN());
 
@@ -175,7 +174,7 @@ public class DBUtil {
 
 	public void insertBiochemicalData() {
 		addMessage("Inserimento");
-	
+
 		BiochemicalDataDAO dao = new BiochemicalDataDAO();
 		biochemicalData.setN(selectedPersonalData.getN());
 
@@ -205,7 +204,7 @@ public class DBUtil {
 	// }
 	public void insertHematologicData() {
 		addMessage("Inserimento");
-		
+
 		HematologicDataDAO dao = new HematologicDataDAO();
 		hematologicData.setN(selectedPersonalData.getN());
 
@@ -253,7 +252,7 @@ public class DBUtil {
 
 	public void insertSurgical() {
 		addMessage("Inserimento");
-	
+
 		SurgicalInterventionDAO dao = new SurgicalInterventionDAO();
 		surgicalIntervention.setN(selectedPersonalData.getN());
 
@@ -272,10 +271,11 @@ public class DBUtil {
 
 	// ##########################################-OtherInfo-###########################################
 	public List<OtherInfo> getElencoOtherInfo() {
-	
+
 		OtherInfoDAO dao = new OtherInfoDAO();
 		return dao.selectAll(selectedPersonalData);
 	}
+
 	public boolean isOneOtherInfo() {
 		if (getElencoOtherInfo().size() == 1) {
 			otherInfo = getElencoOtherInfo().get(0);
@@ -283,22 +283,35 @@ public class DBUtil {
 		}
 		return false;
 	}
+
 	public void insertOtherInfo() {
 		addMessage("Inserimento");
-		
+
 		OtherInfoDAO dao = new OtherInfoDAO();
 		otherInfo.setN(selectedPersonalData.getN());
 
 		dao.insert(otherInfo);
 	}
+
+	public void modificaOtherInfo() {
+		addMessage("Inserimento");
+
+		OtherInfoDAO dao = new OtherInfoDAO();
+		otherInfo.setN(selectedPersonalData.getN());
+
+		dao.update(otherInfo);
+	}
+
 	public OtherInfo getOtherInfo() {
 		if (otherInfo == null)
 			otherInfo = new OtherInfo();
 		return otherInfo;
 	}
+
 	public void setOtherInfo(OtherInfo o) {
 		this.otherInfo = o;
 	}
+
 	// ##########################################-PersonalData-###########################################
 	public String getCurrentSelectionDesc() {
 		if (customPazienti == null)
@@ -331,14 +344,14 @@ public class DBUtil {
 
 	public void updatePersonalData() {
 		addMessage("Update");
-		
+
 		PersonalDataDAO dao = new PersonalDataDAO();
 		dao.update(selectedPersonalData);
 	}
 
 	public void insertPersonalData() {
 		addMessage("Welcome to Primefaces!!");
-		
+
 		PersonalDataDAO dao = new PersonalDataDAO();
 		dao.insert(selectedPersonalData);
 	}
@@ -382,10 +395,10 @@ public class DBUtil {
 
 	public void fileUploadListener(FileUploadEvent event) {
 		uploadedFile = event.getFile();
-		
+
 		byte[] bb = uploadedFile.getContents();
 		selectedPersonalData.setPhoto(bb);
-		
+
 	}
 
 	public UploadedFile getUploadedFile() {
@@ -402,7 +415,7 @@ public class DBUtil {
 	public void uploadedFileIndirectTests_1_Listener(FileUploadEvent event) {
 		indirectTests = (IndirectTests) event.getComponent().getAttributes().get("foo");
 		uploadedFileIndirectTests_1 = event.getFile();
-		
+
 		byte[] bb = uploadedFileIndirectTests_1.getContents();
 
 		indirectTests.setBone_marrow(bb);
@@ -424,7 +437,7 @@ public class DBUtil {
 	public void uploadedFileIndirectTests_2_Listener(FileUploadEvent event) {
 		indirectTests = (IndirectTests) event.getComponent().getAttributes().get("foo");
 		uploadedFileIndirectTests_2 = event.getFile();
-		
+
 		byte[] bb = uploadedFileIndirectTests_2.getContents();
 
 		indirectTests.setEktacytometry_chart(bb);
@@ -446,7 +459,7 @@ public class DBUtil {
 	public void uploadedFileIndirectTests_3_Listener(FileUploadEvent event) {
 		indirectTests = (IndirectTests) event.getComponent().getAttributes().get("foo");
 		uploadedFileIndirectTests_3 = event.getFile();
-		
+
 		byte[] bb = uploadedFileIndirectTests_3.getContents();
 
 		indirectTests.setPeripehral_blood_smear(bb);
@@ -492,4 +505,18 @@ public class DBUtil {
 		this.currentQuery = currentQuery;
 	}
 
+	// public void onCellSurgicalEdit(CellEditEvent event) {
+	// Object oldValue = event.getOldValue();
+	// Object newValue = event.getNewValue();
+	// System.out.println(oldValue);System.out.println(newValue);
+	// if (newValue != null && !newValue.equals(oldValue)) {
+	// FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cell
+	// Changed",
+	// "Old: " + oldValue + ", New:" + newValue);
+	// FacesContext.getCurrentInstance().addMessage(null, msg);
+	// }
+	// }
+	public String goModificaOtherInfo() {
+		return "modifica_otherinfo";
+	}
 }

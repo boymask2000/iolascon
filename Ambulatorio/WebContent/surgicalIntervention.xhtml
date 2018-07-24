@@ -47,11 +47,11 @@
 		</p:dataTable>
 	</p:panel>
 	<p:panel rendered="#{dBUtil.oneSurgical}">
-	<ui:include src="surgicalInterventionDetail.xhtml" />
+		<ui:include src="surgicalInterventionDetail.xhtml" />
 	</p:panel>
 	<p:commandButton
 		action="/nuovoSurgicalIntervention.xhtml?faces-redirect=true"
-		value="Nuovo" process="@this" rendered="#{dBUtil.zeroSurgical}"/>
+		value="Nuovo" process="@this" rendered="#{dBUtil.zeroSurgical}" />
 
 </p:panel>
 </html>

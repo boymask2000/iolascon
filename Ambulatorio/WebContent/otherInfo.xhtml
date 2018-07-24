@@ -11,20 +11,32 @@
 <p:panel>
 	<p:panel rendered="#{!dBUtil.oneOtherInfo}">
 
-		<p:dataTable var="car" value="#{dBUtil.elencoOtherInfo}">
+		<p:dataTable var="car" value="#{dBUtil.elencoOtherInfo}"
+			selectionMode="single" selection="#{dBUtil.otherInfo}"
+			rowKey="#{car.n}">
 
-
-			<p:column headerText="Other info">
+			<p:column headerText="Other info" width="80%">
 				<h:outputText value="#{car.info}" />
 			</p:column>
-			
+
+
+
+			<p:column>
+				<p:commandButton
+					action="/modificaOtherInfo.xhtml?faces-redirect=true" value="Edit"
+					process="@this">
+					<f:setPropertyActionListener value="#{car}"
+						target="#{dBUtil.otherInfo}" />
+				</p:commandButton>
+			</p:column>
+
 		</p:dataTable>
+
 	</p:panel>
 	<p:panel rendered="#{dBUtil.oneOtherInfo}">
-	<ui:include src="otherInfoDetail.xhtml" />
+		<ui:include src="otherInfoDetail.xhtml" />
 	</p:panel>
-	<p:commandButton
-		action="/nuovoOtherInfo.xhtml?faces-redirect=true"
+	<p:commandButton action="/nuovoOtherInfo.xhtml?faces-redirect=true"
 		value="Nuovo" process="@this" />
 
 </p:panel>

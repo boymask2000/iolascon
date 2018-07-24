@@ -6,24 +6,38 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-	
+
 <f:metadata>
+
 	<f:event type="preRenderView" listener="#{utente.logout}" />
 </f:metadata>
+
 <head>
-		<h:outputStylesheet name="css/login.css" />
+<h:outputStylesheet name="css/login.css" />
 </head>
-<ui:include src="header.xhtml"></ui:include>
 
-<h:form >
+<h:body >
+<h:panelGrid style="border:0px !important; background:none;margin:0 auto">
 	<h:panelGrid columns="2">
-		<h:outputText value="Utente"></h:outputText>
-		<h:inputText value="#{utente.user}"></h:inputText>
+		<p:outputLabel
+			style="font-size:36px;line-height:48px;background-color:navy;color:white"
+			value="Registro pazienti ematologici" />
 
-		<h:outputText value="Password"></h:outputText>
-		<p:password value="#{utente.password}" required="true"/>
+
+		<p:outputLabel value="IP: #{utente.ip}" />
+
 	</h:panelGrid>
-	<h:commandButton value="Login" action="#{utente.login}"></h:commandButton>
-</h:form>
+	<h:form>
+		<h:panelGrid columns="2" >
+			<h:outputText value="Utente"></h:outputText>
+			<h:inputText value="#{utente.user}"></h:inputText>
+
+			<h:outputText value="Password"></h:outputText>
+			<p:password value="#{utente.password}" required="true" />
+		</h:panelGrid>
+		<h:commandButton value="Login" action="#{utente.login}"></h:commandButton>
+	</h:form>
+</h:panelGrid>
+</h:body>
 
 </html>

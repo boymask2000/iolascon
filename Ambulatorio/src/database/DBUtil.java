@@ -65,7 +65,7 @@ public class DBUtil {
 				.getValue(elContext, null, "queryHandler");
 
 		String query = queryHandler.buildQuery();
-		System.out.println(query);
+	
 
 		QueryXml qx = new QueryXml();
 		try {
@@ -83,7 +83,7 @@ public class DBUtil {
 		}
 
 		addMessage("Inserimento");
-		System.out.println("kkkkkkkkkkkkk inert kkkkkkkkkkkkkkkkkkkkkkkkk");
+	
 
 	}
 
@@ -102,7 +102,7 @@ public class DBUtil {
 
 	public void insertIndirectTests() {
 		addMessage("Aggiornamento");
-		System.out.println("kkkkkkkkkkkkk inert kkkkkkkkkkkkkkkkkkkkkkkkk");
+		
 		IndirectTestsDAO dao = new IndirectTestsDAO();
 		indirectTests.setN(selectedPersonalData.getN());
 
@@ -117,7 +117,7 @@ public class DBUtil {
 
 	public void updateIndirectTests() {
 		addMessage("Aggiornamento");
-		System.out.println("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+		
 		IndirectTestsDAO dao = new IndirectTestsDAO();
 		dao.update(indirectTests);
 	}
@@ -131,7 +131,7 @@ public class DBUtil {
 
 	public void insertGeneticData() {
 		addMessage("Inserimento");
-		System.out.println("kkkkkkkkkkkkk inert kkkkkkkkkkkkkkkkkkkkkkkkk");
+	
 		GeneticDataDAO dao = new GeneticDataDAO();
 		geneticData.setN(selectedPersonalData.getN());
 
@@ -153,7 +153,7 @@ public class DBUtil {
 
 	public void insertIronBalance() {
 		addMessage("Inserimento");
-		System.out.println("kkkkkkkkkkkkk inert kkkkkkkkkkkkkkkkkkkkkkkkk");
+	
 		IronBalanceDAO dao = new IronBalanceDAO();
 		ironBalance.setN(selectedPersonalData.getN());
 
@@ -175,7 +175,7 @@ public class DBUtil {
 
 	public void insertBiochemicalData() {
 		addMessage("Inserimento");
-		System.out.println("kkkkkkkkkkkkk inert kkkkkkkkkkkkkkkkkkkkkkkkk");
+	
 		BiochemicalDataDAO dao = new BiochemicalDataDAO();
 		biochemicalData.setN(selectedPersonalData.getN());
 
@@ -205,7 +205,7 @@ public class DBUtil {
 	// }
 	public void insertHematologicData() {
 		addMessage("Inserimento");
-		System.out.println("kkkkkkkkkkkkk inert kkkkkkkkkkkkkkkkkkkkkkkkk");
+		
 		HematologicDataDAO dao = new HematologicDataDAO();
 		hematologicData.setN(selectedPersonalData.getN());
 
@@ -253,7 +253,7 @@ public class DBUtil {
 
 	public void insertSurgical() {
 		addMessage("Inserimento");
-		System.out.println("kkkkkkkkkkkkk inert kkkkkkkkkkkkkkkkkkkkkkkkk");
+	
 		SurgicalInterventionDAO dao = new SurgicalInterventionDAO();
 		surgicalIntervention.setN(selectedPersonalData.getN());
 
@@ -285,7 +285,7 @@ public class DBUtil {
 	}
 	public void insertOtherInfo() {
 		addMessage("Inserimento");
-		System.out.println("kkkkkkkkkkkkk inert kkkkkkkkkkkkkkkkkkkkkkkkk");
+		
 		OtherInfoDAO dao = new OtherInfoDAO();
 		otherInfo.setN(selectedPersonalData.getN());
 
@@ -331,14 +331,14 @@ public class DBUtil {
 
 	public void updatePersonalData() {
 		addMessage("Update");
-		System.out.println("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+		
 		PersonalDataDAO dao = new PersonalDataDAO();
 		dao.update(selectedPersonalData);
 	}
 
 	public void insertPersonalData() {
 		addMessage("Welcome to Primefaces!!");
-		System.out.println("kkkkkkkkkkkkk inert kkkkkkkkkkkkkkkkkkkkkkkkk");
+		
 		PersonalDataDAO dao = new PersonalDataDAO();
 		dao.insert(selectedPersonalData);
 	}
@@ -382,10 +382,10 @@ public class DBUtil {
 
 	public void fileUploadListener(FileUploadEvent event) {
 		uploadedFile = event.getFile();
-		System.out.println("rrrrrrrrrrrrrrrr " + uploadedFile);
+		
 		byte[] bb = uploadedFile.getContents();
 		selectedPersonalData.setPhoto(bb);
-		System.out.println(bb.length);
+		
 	}
 
 	public UploadedFile getUploadedFile() {
@@ -402,7 +402,7 @@ public class DBUtil {
 	public void uploadedFileIndirectTests_1_Listener(FileUploadEvent event) {
 		indirectTests = (IndirectTests) event.getComponent().getAttributes().get("foo");
 		uploadedFileIndirectTests_1 = event.getFile();
-		System.out.println("rrrrrrrrrrrrrrrr " + uploadedFileIndirectTests_1);
+		
 		byte[] bb = uploadedFileIndirectTests_1.getContents();
 
 		indirectTests.setBone_marrow(bb);
@@ -424,7 +424,7 @@ public class DBUtil {
 	public void uploadedFileIndirectTests_2_Listener(FileUploadEvent event) {
 		indirectTests = (IndirectTests) event.getComponent().getAttributes().get("foo");
 		uploadedFileIndirectTests_2 = event.getFile();
-		System.out.println("rrrrrrrrrrrrrrrr " + uploadedFileIndirectTests_1);
+		
 		byte[] bb = uploadedFileIndirectTests_2.getContents();
 
 		indirectTests.setEktacytometry_chart(bb);
@@ -446,7 +446,7 @@ public class DBUtil {
 	public void uploadedFileIndirectTests_3_Listener(FileUploadEvent event) {
 		indirectTests = (IndirectTests) event.getComponent().getAttributes().get("foo");
 		uploadedFileIndirectTests_3 = event.getFile();
-		System.out.println("rrrrrrrrrrrrrrrr " + uploadedFileIndirectTests_1);
+		
 		byte[] bb = uploadedFileIndirectTests_3.getContents();
 
 		indirectTests.setPeripehral_blood_smear(bb);

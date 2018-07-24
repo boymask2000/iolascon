@@ -39,7 +39,6 @@ public class FileUploadView {
 			e.printStackTrace();
 		}
 		
-		System.out.println(uploadedFile);
 	}
 
 	public UploadedFile getUploadedFile() {

@@ -164,6 +164,6 @@ public class HematologicData {
 	public void fechaFinClickChange(SelectEvent event) {
 	Date d =(Date)event.getObject(); // I couldn't find out why this is here given that
 	                                          // the setter has already been called
-	    System.out.println(d);
+	 
 	}
 }

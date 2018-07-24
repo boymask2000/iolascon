@@ -44,8 +44,6 @@ public class PrintCreator {
 		pageFormats.add(PORTRAT);
 		LANDSCAPE.setOrientation("90");
 		pageFormats.add(LANDSCAPE);
-		
-		System.out.println("pageformat size="+pageFormats.size());
 	}
 //
 //	public void build() {
@@ -219,9 +217,9 @@ public class PrintCreator {
 
 				String methodName = "get" + name.substring(0, 1).toUpperCase() + name.substring(1);
 				Method meth = bean.getClass().getDeclaredMethod(methodName, null);
-				System.out.println(meth.getName());
+			
 				Object val = meth.invoke(bean, null);
-				System.out.println(val);
+				
 				if (val == null)
 					val = "";
 				if (val instanceof Date)

@@ -4,10 +4,15 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-	
-	<h:panelGrid columns="2">
-	<p:outputLabel style="font-size:36px;line-height:48px;background-color:navy;color:white" value="Registro pazienti ematologici" />
-	<p:outputLabel value="Utente #{utente.user}" rendered="#{utente.user!=null}"/>
+<head>
+<h:outputStylesheet name="css/styles.css" />
+</head>
+<h:panelGrid columns="3"
+	columnClasses="firstColumn,secondColumn,thirdColumn ">
+	<p:outputLabel value="Registro pazienti ematologici" />
+	<p:outputLabel value="Utente #{utente.user}"
+		rendered="#{utente.user!=null}" />
+	<p:outputLabel value="IP: #{utente.ip}" />
 
 </h:panelGrid>
 </html>

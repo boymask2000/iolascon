@@ -16,7 +16,7 @@ public class NavigationController implements Serializable {
 	private String pageId;
 
 	public String showPage() {
-		System.out.println("pageid2= " + pageId);
+		
 		if (pageId == null) {
 			return "home";
 		}
@@ -42,7 +42,7 @@ public class NavigationController implements Serializable {
 	}
 
 	public String goToHome() {
-		System.out.println("kk");
+	
 		return "elenco";
 	}
 
@@ -54,7 +54,7 @@ public class NavigationController implements Serializable {
 		this.pageId = pageId;
 	}
 	public void navigate(String rule) {
-		System.out.println("navigate: "+rule);
+	
 		JsfUtil.redirect(rule);
 	}
 

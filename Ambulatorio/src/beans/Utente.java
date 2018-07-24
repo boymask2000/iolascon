@@ -3,6 +3,9 @@
  */
 package beans;
 
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
+
 import database.dao.UtentiDAO;
 
 /**
@@ -113,5 +116,14 @@ public class Utente {
 
 	public void setUser(String user) {
 		this.user = user;
+	}
+	public String getIp() {
+		HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		String ipAddress = request.getHeader("X-FORWARDED-FOR");
+		if (ipAddress == null) {
+		    ipAddress = request.getRemoteAddr();
+		}
+	
+		return ipAddress;
 	}
 }

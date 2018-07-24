@@ -214,7 +214,7 @@ public class QueryHandler {
 				p.setN(rs.getInt("N"));
 				p.setSurname(rs.getString("Surname"));
 				p.setName(rs.getString("Name"));
-				System.out.println(rs.getInt("ID"));
+			
 
 				out.add(p);
 			}

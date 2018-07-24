@@ -1,0 +1,20 @@
+.firstColumn {
+	width: 50%;
+	line-height: 48px;
+	font-size: 36px;
+	background-color: navy;
+	color: white;
+}
+
+.secondColumn {
+	width: 25%;
+}
+
+.thirdColumn {
+	width: 25%;
+}
+
+.ui-dialog
+{
+     position: absolute !important;
+}

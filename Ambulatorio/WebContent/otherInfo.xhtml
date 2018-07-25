@@ -12,8 +12,7 @@
 	<p:panel rendered="#{!dBUtil.oneOtherInfo}">
 
 		<p:dataTable var="car" value="#{dBUtil.elencoOtherInfo}"
-			selectionMode="single" selection="#{dBUtil.otherInfo}"
-			rowKey="#{car.n}">
+		>
 
 			<p:column headerText="Other info" width="80%">
 				<h:outputText value="#{car.info}" />

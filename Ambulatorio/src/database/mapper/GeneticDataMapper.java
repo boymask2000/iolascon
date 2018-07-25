@@ -2,6 +2,7 @@ package database.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
@@ -14,6 +15,7 @@ import beans.PersonalData;
 public interface GeneticDataMapper {
 	final String SELECT_ALL = "SELECT * FROM genetic_data WHERE N = #{n}";
 	final String SELECT_BY_ID = "SELECT * FROM genetic_data WHERE ID = #{id}";
+	final String DELETE_BY_ID = "DELETE FROM genetic_data WHERE ID = #{id}";
 	final String UPDATE = "UPDATE genetic_data SET"
 		
 			+ " gENE = #{gene},"
@@ -34,9 +36,6 @@ public interface GeneticDataMapper {
 			+ " other = #{other}"
 
 	+ " WHERE ID = #{id}";
-	
-	final String DELETE = "DELETE FROM genetic_data WHERE CONTACT_ID = #{id}";
-	
 	
 	final String INSERT = "INSERT INTO genetic_data"
 			+ " (N," 
@@ -92,4 +91,7 @@ public interface GeneticDataMapper {
 	
 	@Insert(INSERT)
 	public void insert(GeneticData contact);
+
+	@Delete(DELETE_BY_ID)
+	public void delete(GeneticData contact);
 }

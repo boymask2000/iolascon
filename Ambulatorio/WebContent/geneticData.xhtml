@@ -9,68 +9,74 @@
 
 <p:growl id="growl113" life="2000" />
 <p:panel>
-	<h:form>
-		<p:dataTable var="car" value="#{dBUtil.elencoGeneticData}">
 
-			<p:column headerText="gene">
-				<h:outputText value="#{car.gene}" />
-			</p:column>
-<p:column headerText="hgvs genomic">
-				<h:outputText value="#{car.hgvs_genomic}" />
-			</p:column>
-			<p:column headerText="hgvs protein">
-				<h:outputText value="#{car.hgvs_protein}" />
-			</p:column>
-			
-			<p:column headerText="type of variant">
-				<h:outputText value="#{car.type_of_variant}" />
-			</p:column>
+	<p:dataTable var="car" value="#{dBUtil.elencoGeneticData}">
 
+		<p:column headerText="gene">
+			<h:outputText value="#{car.gene}" />
+		</p:column>
+		<p:column headerText="hgvs genomic">
+			<h:outputText value="#{car.hgvs_genomic}" />
+		</p:column>
+		<p:column headerText="hgvs protein">
+			<h:outputText value="#{car.hgvs_protein}" />
+		</p:column>
 
-			<p:column headerText="refSeq_id">
-				<h:outputText value="#{car.refSeq_id}" />
-			</p:column>
-			<p:column headerText="hOM_HET">
-				<h:outputText value="#{car.hom_het}" />
-			</p:column>
-			<p:column headerText="chr">
-				<h:outputText value="#{car.chr}" />
-			</p:column>
-			<p:column headerText="position">
-				<h:outputText value="#{car.position}" />
-			</p:column>
-			
-			<p:column headerText="ref allede">
-				<h:outputText value="#{car.ref_allede}" />
-			</p:column>
-			<p:column headerText="alt allede">
-				<h:outputText value="#{car.alt_allede}" />
-			</p:column>
-			<p:column headerText="mAF 1000G">
-				<h:outputText value="#{car.maf_1000G}" />
-			</p:column>
-			<p:column headerText="mAF EVS">
-				<h:outputText value="#{car.maf_EVS}" />
-			</p:column>
-			<p:column headerText="mAF ExAC">
-				<h:outputText value="#{car.maf_ExAC}" />
-			</p:column>
-			<p:column headerText="aCMG path_score">
-				<h:outputText value="#{car.acmg_path_score}" />
-			</p:column>
-			<p:column headerText="dNA Storage">
-				<h:outputText value="#{car.dna_Storage}" />
-			</p:column>
-			<p:column headerText="other">
-				<h:outputText value="#{car.other}" />
-			</p:column>
-			
-		</p:dataTable>
+		<p:column headerText="type of variant">
+			<h:outputText value="#{car.type_of_variant}" />
+		</p:column>
 
 
-		<p:commandButton
-			action="/nuovoGeneticData.xhtml?faces-redirect=true"
-			value="Nuovo" process="@this" />
-	</h:form>
+		<p:column headerText="refSeq_id">
+			<h:outputText value="#{car.refSeq_id}" />
+		</p:column>
+		<p:column headerText="hOM_HET">
+			<h:outputText value="#{car.hom_het}" />
+		</p:column>
+		<p:column headerText="chr">
+			<h:outputText value="#{car.chr}" />
+		</p:column>
+		<p:column headerText="position">
+			<h:outputText value="#{car.position}" />
+		</p:column>
+
+		<p:column headerText="ref allede">
+			<h:outputText value="#{car.ref_allede}" />
+		</p:column>
+		<p:column headerText="alt allede">
+			<h:outputText value="#{car.alt_allede}" />
+		</p:column>
+		<p:column headerText="mAF 1000G">
+			<h:outputText value="#{car.maf_1000G}" />
+		</p:column>
+		<p:column headerText="mAF EVS">
+			<h:outputText value="#{car.maf_EVS}" />
+		</p:column>
+		<p:column headerText="mAF ExAC">
+			<h:outputText value="#{car.maf_ExAC}" />
+		</p:column>
+		<p:column headerText="aCMG path_score">
+			<h:outputText value="#{car.acmg_path_score}" />
+		</p:column>
+		<p:column headerText="dNA Storage">
+			<h:outputText value="#{car.dna_Storage}" />
+		</p:column>
+		<p:column headerText="other">
+			<h:outputText value="#{car.other}" />
+		</p:column>
+		<p:column>
+			<p:commandButton
+				action="/modificaGeneticData.xhtml?faces-redirect=true" value="Edit"
+				process="@this">
+				<f:setPropertyActionListener value="#{car}"
+					target="#{dBUtil.geneticData}" />
+			</p:commandButton>
+		</p:column>
+	</p:dataTable>
+
+
+	<p:commandButton action="/nuovoGeneticData.xhtml?faces-redirect=true"
+		value="Nuovo" process="@this" />
+
 </p:panel>
 </html>

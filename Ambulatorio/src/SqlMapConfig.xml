@@ -4,7 +4,8 @@
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-    
+<!--     <properties resource="SqlMapConfig.properties"/> -->
+    <properties url="file:/etc/SqlMapConfig.properties"/> 
 	<settings>
 		<setting name="logImpl" value="LOG4J" />
 	</settings>
@@ -13,11 +14,10 @@
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
-				<property name="driver" value="com.mysql.cj.jdbc.Driver" />
-				<property name="url"
-		 			value="jdbc:mysql://localhost/ambulatorio" />
-				<property name="username" value="root" />
-				<property name="password" value="zaq12wsx" />
+				<property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
 			</dataSource>
 		</environment>
 	</environments>

@@ -30,33 +30,52 @@ public class GeneticDataDAO {
 			session.close();
 		}
 	}
-	public void update(GeneticData contact){
+
+	public void update(GeneticData contact) {
 
 		SqlSession session = sqlSessionFactory.openSession();
 
 		try {
-			
+
 			GeneticDataMapper mapper = session.getMapper(GeneticDataMapper.class);
 			mapper.update(contact);
-			
+
 			session.commit();
-		}catch(Throwable t) {
+		} catch (Throwable t) {
 			t.printStackTrace();
 		} finally {
 			session.close();
 		}
 	}
-	public void insert(GeneticData contact){
+
+	public void insert(GeneticData contact) {
 
 		SqlSession session = sqlSessionFactory.openSession();
 
 		try {
-			
+
 			GeneticDataMapper mapper = session.getMapper(GeneticDataMapper.class);
 			mapper.insert(contact);
-			
+
 			session.commit();
-		}catch(Throwable t) {
+		} catch (Throwable t) {
+			t.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+
+	public void delete(GeneticData contact) {
+
+		SqlSession session = sqlSessionFactory.openSession();
+
+		try {
+
+			GeneticDataMapper mapper = session.getMapper(GeneticDataMapper.class);
+			mapper.delete(contact);
+
+			session.commit();
+		} catch (Throwable t) {
 			t.printStackTrace();
 		} finally {
 			session.close();

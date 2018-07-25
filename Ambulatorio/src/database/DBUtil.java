@@ -32,6 +32,7 @@ import database.dao.OtherInfoDAO;
 import database.dao.PersonalDataDAO;
 import database.dao.QueryDAO;
 import database.dao.SurgicalInterventionDAO;
+import database.dao.UtentiDAO;
 import query.QueryHandler;
 import query.QueryXml;
 
@@ -527,5 +528,18 @@ public class DBUtil {
 	// }
 	public String goModificaOtherInfo() {
 		return "modifica_otherinfo";
+	}
+
+	public void setGeneticData(GeneticData geneticData) {
+		this.geneticData = geneticData;
+	}
+	
+	public void modificaGeneticData() {
+		GeneticDataDAO dao = new GeneticDataDAO();
+		dao.update(geneticData);
+	}
+	public void eliminaGeneticData() {
+		GeneticDataDAO dao = new GeneticDataDAO();
+		dao.delete(geneticData);
 	}
 }

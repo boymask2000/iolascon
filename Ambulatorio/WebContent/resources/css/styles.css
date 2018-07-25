@@ -1,5 +1,5 @@
 .firstColumn {
-	width: 50%;
+	width: 30%;
 	line-height: 48px;
 	font-size: 36px;
 	background-color: navy;
@@ -7,13 +7,15 @@
 }
 
 .secondColumn {
-	width: 25%;
+	width: 30%;
 }
 
 .thirdColumn {
-	width: 25%;
+	width: 20%;
 }
-
+.forthColumn {
+	width: 20%;
+}
 .ui-dialog
 {
      position: absolute !important;

@@ -7,12 +7,17 @@
 <head>
 <h:outputStylesheet name="css/styles.css" />
 </head>
-<h:panelGrid columns="3"
-	columnClasses="firstColumn,secondColumn,thirdColumn ">
+<h:panelGrid columns="4"
+	columnClasses="firstColumn,secondColumn,thirdColumn,forthColumn ">
 	<p:outputLabel value="Registro pazienti ematologici" />
+	<p:outputLabel
+		value="Paziente: #{dBUtil.selectedPersonalData.surname}  #{dBUtil.selectedPersonalData.name}"
+		rendered="#{dBUtil.selectedPersonalData.surname!=null}" />
+
 	<p:outputLabel value="Utente #{utente.user}"
 		rendered="#{utente.user!=null}" />
 	<p:outputLabel value="IP: #{utente.ip}" />
 
 </h:panelGrid>
+
 </html>

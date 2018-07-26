@@ -2,6 +2,7 @@ package database.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
@@ -13,7 +14,7 @@ import beans.PersonalData;
 
 public interface HematologicDataMapper {
 	final String SELECT_ALL = "SELECT * FROM Hematologic_data WHERE N = #{n}";
-	final String SELECT_BY_ID = "SELECT * FROM Hematologic_data WHERE ID = #{id}";
+	final String DELETE_BY_ID = "DELETE FROM Hematologic_data WHERE ID = #{id}";
 	final String UPDATE = "UPDATE Hematologic_data SET"
 		
 			+ " date = #{date},"
@@ -35,7 +36,7 @@ public interface HematologicDataMapper {
 			+ " trasf_need = #{trasf_need},"
 			+ " trasf_dep = #{trasf_dep},"
 			+ " N_life_trasf = #{n_life_trasf},"
-			+ " g6pd_def = #{g6pd_def},"
+			+ " g6pd_def = #{g6pd_def}"
 			
 	+ " WHERE ID = #{id}";
 
@@ -105,4 +106,7 @@ public interface HematologicDataMapper {
 	
 	@Insert(INSERT)
 	public void insert(HematologicData contact);
+
+	@Delete(DELETE_BY_ID)
+	public void delete(HematologicData contact);
 }

@@ -35,7 +35,7 @@ public class IronBalance {
 		return date;
 	}
 	public void setDate(Date date) {
-		this.date = date;
+		this.date = JsfUtil.fixDate(date);
 	}
 	public int getSerum_iron() {
 		return serum_iron;

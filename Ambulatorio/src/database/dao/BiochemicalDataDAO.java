@@ -30,33 +30,52 @@ public class BiochemicalDataDAO {
 			session.close();
 		}
 	}
-	public void update(BiochemicalData contact){
+
+	public void update(BiochemicalData contact) {
 
 		SqlSession session = sqlSessionFactory.openSession();
 
 		try {
-			
+
 			BiochemicalDataMapper mapper = session.getMapper(BiochemicalDataMapper.class);
 			mapper.update(contact);
-			
+
 			session.commit();
-		}catch(Throwable t) {
+		} catch (Throwable t) {
 			t.printStackTrace();
 		} finally {
 			session.close();
 		}
 	}
-	public void insert(BiochemicalData contact){
+
+	public void delete(BiochemicalData contact) {
 
 		SqlSession session = sqlSessionFactory.openSession();
 
 		try {
-			
+
+			BiochemicalDataMapper mapper = session.getMapper(BiochemicalDataMapper.class);
+			mapper.delete(contact);
+
+			session.commit();
+		} catch (Throwable t) {
+			t.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+
+	public void insert(BiochemicalData contact) {
+
+		SqlSession session = sqlSessionFactory.openSession();
+
+		try {
+
 			BiochemicalDataMapper mapper = session.getMapper(BiochemicalDataMapper.class);
 			mapper.insert(contact);
-			
+
 			session.commit();
-		}catch(Throwable t) {
+		} catch (Throwable t) {
 			t.printStackTrace();
 		} finally {
 			session.close();

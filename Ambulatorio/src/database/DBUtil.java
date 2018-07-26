@@ -551,4 +551,28 @@ public class DBUtil {
 		IronBalanceDAO dao = new IronBalanceDAO();
 		dao.update(ironBalance);
 	}
+
+	public void eliminaBiochemicalData() {
+		BiochemicalDataDAO dao = new BiochemicalDataDAO();
+		dao.delete(biochemicalData);
+	}
+
+	public void modificaBiochemicalData() {
+		BiochemicalDataDAO dao = new BiochemicalDataDAO();
+		dao.update(biochemicalData);
+	}
+
+	public void setBiochemicalData(BiochemicalData biochemicalData) {
+		this.biochemicalData = biochemicalData;
+	}
+	
+	public void eliminaHematologicData() {
+		HematologicDataDAO dao = new HematologicDataDAO();
+		dao.delete(hematologicData);
+	}
+
+	public void modificaHematologicData() {
+		HematologicDataDAO dao = new HematologicDataDAO();
+		dao.update(hematologicData);
+	}
 }

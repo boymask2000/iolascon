@@ -30,33 +30,52 @@ public class HematologicDataDAO {
 			session.close();
 		}
 	}
-	public void update(HematologicData contact){
+
+	public void update(HematologicData contact) {
 
 		SqlSession session = sqlSessionFactory.openSession();
 
 		try {
-			
+
 			HematologicDataMapper mapper = session.getMapper(HematologicDataMapper.class);
 			mapper.update(contact);
-			
+
 			session.commit();
-		}catch(Throwable t) {
+		} catch (Throwable t) {
 			t.printStackTrace();
 		} finally {
 			session.close();
 		}
 	}
-	public void insert(HematologicData contact){
+
+	public void insert(HematologicData contact) {
 
 		SqlSession session = sqlSessionFactory.openSession();
 
 		try {
-			
+
 			HematologicDataMapper mapper = session.getMapper(HematologicDataMapper.class);
 			mapper.insert(contact);
-			
+
 			session.commit();
-		}catch(Throwable t) {
+		} catch (Throwable t) {
+			t.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+
+	public void delete(HematologicData contact) {
+
+		SqlSession session = sqlSessionFactory.openSession();
+
+		try {
+
+			HematologicDataMapper mapper = session.getMapper(HematologicDataMapper.class);
+			mapper.delete(contact);
+
+			session.commit();
+		} catch (Throwable t) {
 			t.printStackTrace();
 		} finally {
 			session.close();

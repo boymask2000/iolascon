@@ -79,6 +79,18 @@
 			<p:column headerText="g6pd def">
 				<h:outputText value="#{car.g6pd_def}" />
 			</p:column>
+			
+			<p:column>
+			<p:commandButton
+				action="/modificaHematologicData.xhtml?faces-redirect=true" value="Edit"
+				process="@this">
+				<f:setPropertyActionListener value="#{car}"
+					target="#{dBUtil.hematologicData}" />
+			</p:commandButton>
+		</p:column>
+			
+			
+			
 		</p:dataTable>
 
 

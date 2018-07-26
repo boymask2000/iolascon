@@ -2,6 +2,7 @@ package database.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
@@ -14,7 +15,7 @@ import beans.PersonalData;
 
 public interface BiochemicalDataMapper {
 	final String SELECT_ALL = "SELECT * FROM biochemical_data WHERE N = #{n}";
-	final String SELECT_BY_ID = "SELECT * FROM biochemical_data WHERE ID = #{id}";
+	final String DELETE_BY_ID = "DELETE FROM biochemical_data WHERE ID = #{id}";
 	
 	final String UPDATE = "UPDATE biochemical_data SET"
 		
@@ -35,7 +36,7 @@ public interface BiochemicalDataMapper {
 			+ " DAT_vn1 = #{dat_vn1},"
 			+ " DAT_millisec = #{dat_millisec},"
 			+ " DAT_vn2 = #{dat_vn2},"
-			+ " other = #{other},"
+			+ " other = #{other}"
 			
 	+ " WHERE ID = #{id}";
 
@@ -97,4 +98,7 @@ public interface BiochemicalDataMapper {
 	
 	@Insert(INSERT)
 	public void insert(BiochemicalData contact);
+	
+	@Delete(DELETE_BY_ID)
+	public void delete(BiochemicalData contact);
 }

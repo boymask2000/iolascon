@@ -13,8 +13,13 @@
 
 	<p:outputLabel for="pwq1" value="date" />
 
-	<p:calendar id="pwq1"
-		value="#{dBUtil.ironBalance.date}" pattern="dd/MM/yyyy"/>
+		<p:calendar id="pwq1" 
+		value="#{dBUtil.ironBalance.date}" pattern="dd/MM/yyyy" >
+		<p:ajax event="dateSelect" listener="#{dBUtil.hematologicData.fechaInicioClickChange}"
+                update="@form" />
+		</p:calendar>
+		
+		
 	<p:outputLabel value="serum_iron" />
 	<h:inputText value="#{dBUtil.ironBalance.serum_iron}" ><p:ajax event="keyup"/></h:inputText>
 	<p:outputLabel value="ferritin" />

@@ -19,6 +19,7 @@ public class JsfUtil {
 		   FacesContext.getCurrentInstance().responseComplete(); 
 	}
 	public static Date fixDate( Date date) {
+		if(date==null)return null;
 		date.setTime(date.getTime() - (date.getTimezoneOffset() * 60 * 1000));
 		return date;
 	}

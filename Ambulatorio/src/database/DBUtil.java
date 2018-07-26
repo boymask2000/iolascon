@@ -575,4 +575,8 @@ public class DBUtil {
 		HematologicDataDAO dao = new HematologicDataDAO();
 		dao.update(hematologicData);
 	}
+	public void modificaSurgicalIntervention() {
+		SurgicalInterventionDAO dao = new SurgicalInterventionDAO();
+		dao.update(surgicalIntervention);
+	}
 }

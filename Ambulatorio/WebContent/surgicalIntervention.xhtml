@@ -9,46 +9,17 @@
 
 <p:growl id="growl1" life="2000" />
 <p:panel>
-	<p:panel rendered="#{!dBUtil.oneSurgical}">
-
-		<p:dataTable var="car" value="#{dBUtil.elencoSurgical}">
 
 
-			<p:column headerText="splenectomy YN">
-				<h:outputText value="#{car.splenectomy_YN}" />
-			</p:column>
-			<p:column headerText="splenectomy DATE">
-				<h:outputText value="#{car.splenectomy_DATE}">
-
-					<f:convertDateTime pattern="dd/MM/yyyy" />
-				</h:outputText>
-			</p:column>
-			<p:column headerText="splenectomy age">
-				<h:outputText value="#{car.splenectomy_age}" />
-			</p:column>
-
-			<p:column headerText="gallstones">
-				<h:outputText value="#{car.gallstones}" />
-			</p:column>
-
-
-			<p:column headerText="cholecystectomy YN">
-				<h:outputText value="#{car.cholecystectomy_YN}" />
-			</p:column>
-			<p:column headerText="cholecystectomy DATE">
-				<h:outputText value="#{car.cholecystectomy_DATE}" />
-			</p:column>
-			<p:column headerText="cholecystectomy age">
-				<h:outputText value="#{car.cholecystectomy_age}" />
-			</p:column>
-			<p:column headerText="hepatomegaly">
-				<h:outputText value="#{car.hepatomegaly}" />
-			</p:column>
-		</p:dataTable>
-	</p:panel>
 	<p:panel rendered="#{dBUtil.oneSurgical}">
 		<ui:include src="surgicalInterventionDetail.xhtml" />
 	</p:panel>
+	<h:panelGroup id="postPanel2">
+		<p:commandButton value="ok" process="postPanel2" update="growl1"
+			actionListener="#{dBUtil.modificaSurgicalIntervention}"
+			styleClass="ui-priority-primary" />
+	</h:panelGroup>
+	
 	<p:commandButton
 		action="/nuovoSurgicalIntervention.xhtml?faces-redirect=true"
 		value="Nuovo" process="@this" rendered="#{dBUtil.zeroSurgical}" />

@@ -46,7 +46,8 @@ public class SurgicalIntervention {
 	}
 
 	public void setSplenectomy_DATE(Date splenectomy_DATE) {
-		this.splenectomy_DATE = splenectomy_DATE;
+	//	this.splenectomy_DATE = splenectomy_DATE;
+		this.splenectomy_DATE = JsfUtil.fixDate(splenectomy_DATE);
 	}
 
 	public int getSplenectomy_age() {
@@ -96,6 +97,7 @@ public class SurgicalIntervention {
 	}
 
 	public void setCholecystectomy_DATE(Date cholecystectomy_DATE) {
-		this.cholecystectomy_DATE = cholecystectomy_DATE;
+		//this.cholecystectomy_DATE = cholecystectomy_DATE;
+		this.cholecystectomy_DATE = JsfUtil.fixDate(cholecystectomy_DATE);
 	}
 }

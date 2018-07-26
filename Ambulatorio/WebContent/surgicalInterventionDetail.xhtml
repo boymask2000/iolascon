@@ -17,11 +17,13 @@
 	</h:inputText>
 
 	<p:outputLabel for="pz1" value="Splenectomy date" />
-	<p:calendar id="pz1"
-		value="#{dBUtil.surgicalIntervention.splenectomy_DATE}"
-		pattern="dd/MM/yyyy"/>
 		
-
+<p:calendar id="pz1" value="#{dBUtil.surgicalIntervention.splenectomy_DATE}"
+		pattern="dd/MM/yyyy">
+		<p:ajax event="dateSelect"
+			listener="#{dBUtil.hematologicData.fechaInicioClickChange}"
+			update="@form" />
+	</p:calendar>
 
 	<h:outputText value="Splenectomy age"></h:outputText>
 	<h:inputText value="#{dBUtil.surgicalIntervention.splenectomy_age}">
@@ -36,11 +38,21 @@
 	<h:inputText value="#{dBUtil.surgicalIntervention.cholecystectomy_YN}">
 		<p:ajax event="keyup"></p:ajax>
 	</h:inputText>
-	<h:outputText value="Cholecystectom date"></h:outputText>
-	<h:inputText
-		value="#{dBUtil.surgicalIntervention.cholecystectomy_DATE}">
-		<p:ajax event="keyup"></p:ajax>
-	</h:inputText>
+	
+
+	
+	<p:outputLabel for="pz13" value="Cholecystectom date" />
+		
+<p:calendar id="pz13" value="#{dBUtil.surgicalIntervention.cholecystectomy_DATE}"
+		pattern="dd/MM/yyyy">
+		<p:ajax event="dateSelect"
+			listener="#{dBUtil.hematologicData.fechaInicioClickChange}"
+			update="@form" />
+	</p:calendar>
+	
+	
+	
+	
 	<h:outputText value="Cholecystectomy age"></h:outputText>
 	<h:inputText value="#{dBUtil.surgicalIntervention.cholecystectomy_age}">
 		<p:ajax event="keyup"></p:ajax>

@@ -59,27 +59,18 @@
 			<h:outputText value="#{car.other}" />
 		</p:column>
 
-
-		<p:column style="width:32px;text-align: center">
-			<p:commandButton update=":form:tabs:ironDetail1" 
-				oncomplete="PF('carDialog').show()" icon="ui-icon-search"
-				title="View">
+<p:column>
+			<p:commandButton
+				action="/modificaIronBalance.xhtml?faces-redirect=true" value="Edit"
+				process="@this">
 				<f:setPropertyActionListener value="#{car}"
 					target="#{dBUtil.ironBalance}" />
 			</p:commandButton>
 		</p:column>
 
+
 	</p:dataTable>
-	<p:outputPanel id="ironDetail1" style="text-align:center;">
-		<p:dialog header="Iron Balance" widgetVar="carDialog" modal="true"
-			showEffect="fade" hideEffect="fade" resizable="false">
-			<p:outputPanel id="ironDetail" style="text-align:center;">
 
-				<ui:include src="ironBalanceDetail.xhtml" />
-
-			</p:outputPanel>
-		</p:dialog>
-	</p:outputPanel>
 
 	<p:commandButton action="/nuovoIronBalance.xhtml?faces-redirect=true"
 		value="Nuovo" process="@this" />

@@ -7,7 +7,6 @@ import javax.el.ELContext;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
-import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.event.UnselectEvent;
@@ -32,7 +31,6 @@ import database.dao.OtherInfoDAO;
 import database.dao.PersonalDataDAO;
 import database.dao.QueryDAO;
 import database.dao.SurgicalInterventionDAO;
-import database.dao.UtentiDAO;
 import query.QueryHandler;
 import query.QueryXml;
 
@@ -533,13 +531,24 @@ public class DBUtil {
 	public void setGeneticData(GeneticData geneticData) {
 		this.geneticData = geneticData;
 	}
-	
+
 	public void modificaGeneticData() {
 		GeneticDataDAO dao = new GeneticDataDAO();
 		dao.update(geneticData);
 	}
+
 	public void eliminaGeneticData() {
 		GeneticDataDAO dao = new GeneticDataDAO();
 		dao.delete(geneticData);
+	}
+
+	public void eliminaIronBalance() {
+		IronBalanceDAO dao = new IronBalanceDAO();
+		dao.delete(ironBalance);
+	}
+
+	public void modificaIronBalance() {
+		IronBalanceDAO dao = new IronBalanceDAO();
+		dao.update(ironBalance);
 	}
 }

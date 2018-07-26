@@ -3,6 +3,10 @@
  */
 package beans;
 
+import java.util.Date;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
@@ -89,9 +93,9 @@ public class Utente {
 		Utente u = dao.search(this);
 
 		if (u != null) {
-			
+
 			message = "Successfully logged-in.";
-			if (u == null || u.getAdmin()==null || !u.getAdmin().equals("Y"))
+			if (u == null || u.getAdmin() == null || !u.getAdmin().equals("Y"))
 				return "main";
 			else
 				return "admin";
@@ -114,16 +118,34 @@ public class Utente {
 		return user;
 	}
 
+	private Session session=new Session();
+
 	public void setUser(String user) {
 		this.user = user;
+		session.setUser(user);
+		session.setStartDate(new Date());
 	}
+
 	public String getIp() {
-		HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
+				.getRequest();
 		String ipAddress = request.getHeader("X-FORWARDED-FOR");
 		if (ipAddress == null) {
-		    ipAddress = request.getRemoteAddr();
+			ipAddress = request.getRemoteAddr();
 		}
-	
+
 		return ipAddress;
+	}
+
+	@PostConstruct
+	public void sessionInitialized() {
+		session=new Session();
+		System.out.println("Inizio sessione User:" + user);
+	}
+
+	@PreDestroy
+	public void sessionDestroyed() {
+		System.out.println("Fine sessione User:" + user);
+		session.setEndDate(new Date());
 	}
 }

@@ -62,4 +62,21 @@ public class IronBalanceDAO {
 			session.close();
 		}
 	}
+
+	public void delete(IronBalance ironBalance) {
+		SqlSession session = sqlSessionFactory.openSession();
+
+		try {
+			
+			IronBalanceMapper mapper = session.getMapper(IronBalanceMapper.class);
+			mapper.delete(ironBalance);
+			
+			session.commit();
+		}catch(Throwable t) {
+			t.printStackTrace();
+		} finally {
+			session.close();
+		}
+		
+	}
 }

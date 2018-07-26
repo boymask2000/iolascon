@@ -2,6 +2,7 @@ package database.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
@@ -14,7 +15,7 @@ import beans.PersonalData;
 
 public interface IronBalanceMapper {
 	final String SELECT_ALL = "SELECT * FROM iron_balance WHERE N = #{n}";
-	final String SELECT_BY_ID = "SELECT * FROM iron_balance WHERE ID = #{id}";
+	final String DELETE_BY_ID = "DELETE FROM iron_balance WHERE ID = #{id}";
 	final String UPDATE = "UPDATE iron_balance SET"
 		
 		
@@ -83,4 +84,7 @@ public interface IronBalanceMapper {
 	
 	@Insert(INSERT)
 	public void insert(IronBalance contact);
+	
+	@Delete(DELETE_BY_ID)
+	public void delete(IronBalance contact);
 }

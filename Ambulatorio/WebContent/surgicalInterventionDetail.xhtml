@@ -11,14 +11,24 @@
 </h:head>
 <h:panelGrid columns="2">
 
-	<p:outputLabel value="Splenectomy_YN" />
-	<h:inputText value="#{dBUtil.surgicalIntervention.splenectomy_YN}">
-		<p:ajax event="keyup"></p:ajax>
-	</h:inputText>
+
+
+	<p:outputLabel for="console" value="Splenectomy_YN" />
+	<p:selectOneMenu id="console"
+		value="#{dBUtil.surgicalIntervention.splenectomy_YN}"
+		style="width:125px">
+		<f:selectItem itemLabel="Select One" itemValue="" />
+		<f:selectItem itemLabel="YES" itemValue="Y" />
+		<f:selectItem itemLabel="NO" itemValue="N" />
+		<p:ajax event="change" update="console" />
+
+	</p:selectOneMenu>
+	
 
 	<p:outputLabel for="pz1" value="Splenectomy date" />
-		
-<p:calendar id="pz1" value="#{dBUtil.surgicalIntervention.splenectomy_DATE}"
+
+	<p:calendar id="pz1"
+		value="#{dBUtil.surgicalIntervention.splenectomy_DATE}"
 		pattern="dd/MM/yyyy">
 		<p:ajax event="dateSelect"
 			listener="#{dBUtil.hematologicData.fechaInicioClickChange}"
@@ -34,25 +44,39 @@
 		<p:ajax event="keyup"></p:ajax>
 	</h:inputText>
 
-	<h:outputText value="Cholecystectomy_YN"></h:outputText>
-	<h:inputText value="#{dBUtil.surgicalIntervention.cholecystectomy_YN}">
-		<p:ajax event="keyup"></p:ajax>
-	</h:inputText>
-	
 
-	
+
+
+<p:outputLabel for="console1" value="Cholecystectomy_YN" />
+	<p:selectOneMenu id="console1"
+		value="#{dBUtil.surgicalIntervention.cholecystectomy_YN}"
+		style="width:125px">
+		<f:selectItem itemLabel="Select One" itemValue="" />
+		<f:selectItem itemLabel="YES" itemValue="Y" />
+		<f:selectItem itemLabel="NO" itemValue="N" />
+		<p:ajax event="change" update="console1" />
+
+	</p:selectOneMenu>
+
+
+
+
+
+
+
 	<p:outputLabel for="pz13" value="Cholecystectom date" />
-		
-<p:calendar id="pz13" value="#{dBUtil.surgicalIntervention.cholecystectomy_DATE}"
+
+	<p:calendar id="pz13"
+		value="#{dBUtil.surgicalIntervention.cholecystectomy_DATE}"
 		pattern="dd/MM/yyyy">
 		<p:ajax event="dateSelect"
 			listener="#{dBUtil.hematologicData.fechaInicioClickChange}"
 			update="@form" />
 	</p:calendar>
-	
-	
-	
-	
+
+
+
+
 	<h:outputText value="Cholecystectomy age"></h:outputText>
 	<h:inputText value="#{dBUtil.surgicalIntervention.cholecystectomy_age}">
 		<p:ajax event="keyup"></p:ajax>

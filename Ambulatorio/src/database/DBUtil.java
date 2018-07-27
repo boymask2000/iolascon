@@ -239,7 +239,7 @@ public class DBUtil {
 
 	public boolean isOneSurgical() {
 		if (getElencoSurgical().size() == 1) {
-			surgicalIntervention = getElencoSurgical().get(0);
+			//surgicalIntervention = getElencoSurgical().get(0);
 			return true;
 		}
 		return false;
@@ -259,8 +259,12 @@ public class DBUtil {
 	}
 
 	public SurgicalIntervention getSurgicalIntervention() {
-		if (surgicalIntervention == null)
+		if (surgicalIntervention == null) {
 			surgicalIntervention = new SurgicalIntervention();
+			if (getElencoSurgical().size() == 1) {
+				surgicalIntervention = getElencoSurgical().get(0);
+			}
+		}
 		return surgicalIntervention;
 	}
 
@@ -579,4 +583,5 @@ public class DBUtil {
 		SurgicalInterventionDAO dao = new SurgicalInterventionDAO();
 		dao.update(surgicalIntervention);
 	}
+
 }

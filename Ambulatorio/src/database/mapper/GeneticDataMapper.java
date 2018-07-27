@@ -70,7 +70,7 @@ public interface GeneticDataMapper {
 		@Result(property="hgvs_protein", column="hgvs_protein"),
 		@Result(property="type_of_variant", column="type_of_variant"),
 		@Result(property="refSeq_id", column="refSeq_id"),
-		@Result(property="hom_HET", column="hom_het"),
+		@Result(property="hom_het", column="hom_het"),
 		@Result(property="chr", column="chr"),
 		@Result(property="position", column="position"),
 		@Result(property="ref_allede", column="ref_allede"),

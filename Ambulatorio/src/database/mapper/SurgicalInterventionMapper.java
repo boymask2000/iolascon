@@ -25,7 +25,7 @@ public interface SurgicalInterventionMapper {
 			+ " cholecystectomy_YN = #{cholecystectomy_YN},"
 			+ " cholecystectomy_DATE = #{cholecystectomy_DATE},"
 			+ " cholecystectomy_age = #{cholecystectomy_age},"
-			+ " hepatomegaly = #{hepatomegaly},"
+			+ " hepatomegaly = #{hepatomegaly}"
 			
 	+ " WHERE ID = #{id}";
 

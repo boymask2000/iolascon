@@ -14,7 +14,7 @@
 	<p:panel rendered="#{dBUtil.oneSurgical}">
 		<ui:include src="surgicalInterventionDetail.xhtml" />
 	</p:panel>
-	<h:panelGroup id="postPanel2">
+	<h:panelGroup id="postPanel2" rendered="#{dBUtil.oneSurgical}">
 		<p:commandButton value="ok" process="postPanel2" update="growl1"
 			actionListener="#{dBUtil.modificaSurgicalIntervention}"
 			styleClass="ui-priority-primary" />

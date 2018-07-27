@@ -37,8 +37,9 @@ public class SurgicalIntervention {
 		return splenectomy_YN;
 	}
 
-	public void setSplenectomy_YN(String splenectomy_YN) {
-		this.splenectomy_YN = splenectomy_YN;
+	public void setSplenectomy_YN(String s) {
+		this.splenectomy_YN = s;
+		System.out.println("splenectomy_YN= "+s);
 	}
 
 	public Date getSplenectomy_DATE() {

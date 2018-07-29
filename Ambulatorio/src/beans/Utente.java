@@ -10,6 +10,7 @@ import javax.annotation.PreDestroy;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
+import database.SessioniHelper;
 import database.dao.UtentiDAO;
 
 /**
@@ -118,7 +119,7 @@ public class Utente {
 		return user;
 	}
 
-	private Session session=new Session();
+	private Session session = new Session();
 
 	public void setUser(String user) {
 		this.user = user;
@@ -137,15 +138,29 @@ public class Utente {
 		return ipAddress;
 	}
 
-	@PostConstruct
-	public void sessionInitialized() {
-		session=new Session();
-		System.out.println("Inizio sessione User:" + user);
-	}
-
-	@PreDestroy
-	public void sessionDestroyed() {
-		System.out.println("Fine sessione User:" + user);
-		session.setEndDate(new Date());
-	}
+//	@PostConstruct
+//	public void sessionInitialized() {
+//
+//		if (user == null)
+//			return;
+//		session.setUser(user);
+//		session.setStartDate(new Date());
+//
+//		SessioniHelper sh = (SessioniHelper) JsfUtil.getBean("sessioniHelper");
+//		sh.insertSessione(session);
+//
+//		id = session.getId();
+//	}
+//
+//	@PreDestroy
+//	public void sessionDestroyed() {
+//		if (user == null)
+//			return;
+//		System.out.println("Fine sessione User:" + user);
+//		session.setEndDate(new Date());
+//
+//		SessioniHelper sh = (SessioniHelper) JsfUtil.getBean("sessioniHelper");
+//		sh.updateSession(session);
+//
+//	}
 }

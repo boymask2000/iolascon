@@ -39,7 +39,7 @@ public class SurgicalIntervention {
 
 	public void setSplenectomy_YN(String s) {
 		this.splenectomy_YN = s;
-		System.out.println("splenectomy_YN= "+s);
+	
 	}
 
 	public Date getSplenectomy_DATE() {

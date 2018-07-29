@@ -3,6 +3,7 @@ package beans;
 import java.util.Date;
 
 public class Session {
+	private int id;
 	private String user;
 	private Date startDate;
 	private Date endDate;
@@ -36,6 +37,14 @@ public class Session {
 	@Override
 	public String toString() {
 		return "Session [user=" + user + ", startDate=" + startDate + ", endDate=" + endDate + "]";
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

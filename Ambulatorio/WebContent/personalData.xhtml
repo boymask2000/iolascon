@@ -18,7 +18,7 @@
 			<h:inputText value="#{dBUtil.selectedPersonalData.name}"></h:inputText>
 			<p:outputLabel value="Surname" />
 			<h:inputText value="#{dBUtil.selectedPersonalData.surname}"></h:inputText>
-	
+
 			<p:outputLabel value="Codice" />
 			<h:inputText value="#{dBUtil.selectedPersonalData.codice}"></h:inputText>
 			<p:outputLabel value="Familial Degree" />
@@ -44,10 +44,20 @@
 			<h:inputText value="#{dBUtil.selectedPersonalData.codeEthnicity}">
 				<p:ajax event="keyup"></p:ajax>
 			</h:inputText>
-			<p:outputLabel value="Gender" />
-			<h:inputText value="#{dBUtil.selectedPersonalData.gender}">
-				<p:ajax event="keyup"></p:ajax>
-			</h:inputText>
+
+
+			<p:outputLabel for="consoled1" value="Gender" />
+			<p:selectOneMenu id="consoled1"
+				value="#{dBUtil.selectedPersonalData.gender}" style="width:125px">
+				<f:selectItem itemLabel="Select One" itemValue="" />
+				<f:selectItem itemLabel="M" itemValue="M" />
+				<f:selectItem itemLabel="F" itemValue="F" />
+				<p:ajax event="change" update="consoled1" />
+
+			</p:selectOneMenu>
+
+
+
 			<p:outputLabel value="DOB" />
 			<h:inputText value="#{dBUtil.selectedPersonalData.dob}">
 				<p:ajax event="keyup"></p:ajax>

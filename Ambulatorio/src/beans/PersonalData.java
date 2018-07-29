@@ -8,6 +8,7 @@ import java.util.Date;
 import org.omnifaces.cdi.GraphicImageBean;
 
 import common.AmbUtils;
+import database.DBUtil;
 
 /**
  * @author giovanni
@@ -139,7 +140,8 @@ public class PersonalData {
 	}
 	public void setPhoto(byte[] photo) {
 		this.photo = photo;
-		
+		DBUtil db=(DBUtil)JsfUtil.getBean("dBUtil");
+		db.updatePersonalData();
 		
 	}
 	public String getEncodedImage() {

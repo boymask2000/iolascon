@@ -18,8 +18,8 @@ public interface IndirectTestsMapper {
 	final String UPDATE = "UPDATE indirect_tests SET"
 			+ " N = #{n},"
 			+ " date = #{date},"
-			+ " eMA_binding_test_patients = #{ema_binding_test_patients},"
-			+ " eMA_binding_test_normal_ctr_value = #{ema_binding_test_normal_ctr_value},"
+			+ " ema_binding_test_patients = #{ema_binding_test_patients},"
+			+ " ema_binding_test_normal_ctr_value = #{ema_binding_test_normal_ctr_value},"
 			+ " ektacytometry_omin = #{ektacytometry_omin},"
 			+ " ektacytometry_o = #{ektacytometry_o},"
 			+ " ektacytometry_di_max = #{ektacytometry_di_max},"
@@ -40,8 +40,8 @@ public interface IndirectTestsMapper {
 	final String INSERT = "INSERT INTO indirect_tests"
 			+ " (N," 
 			+" date ," 
-			+" eMA_binding_test_patients ," 
-			+" eMA_binding_test_normal_ctr_value ," 
+			+" ema_binding_test_patients ," 
+			+" ema_binding_test_normal_ctr_value ," 
 			+" ektacytometry_omin," 
 			+" ektacytometry_o ," 
 			+" ektacytometry_di_max ," 
@@ -65,8 +65,8 @@ public interface IndirectTestsMapper {
 		@Result(property="id", column="ID"),
 		@Result(property="n", column="N"),
 		@Result(property="date", column="date"),
-		@Result(property="ema_binding_test_patients", column="eMA_binding_test_patients"),
-		@Result(property="ema_binding_test_normal_ctr_value", column="eMA_binding_test_normal_ctr_value"),
+		@Result(property="ema_binding_test_patients", column="ema_binding_test_patients"),
+		@Result(property="ema_binding_test_normal_ctr_value", column="ema_binding_test_normal_ctr_value"),
 		@Result(property="ektacytometry_omin", column="ektacytometry_omin"),
 		@Result(property="ektacytometry_o", column="ektacytometry_o"),
 		@Result(property="ektacytometry_di_max", column="ektacytometry_di_max"),

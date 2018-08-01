@@ -146,7 +146,7 @@ public class Utente {
 			return;
 		if (id != 0)
 			return;
-		System.out.println("Inizio sessione User:" + user);
+	//	System.out.println("Inizio sessione User:" + user);
 		session.setUser(user);
 		session.setStartDate(new Date());
 
@@ -159,7 +159,7 @@ public class Utente {
 	public void sessionDestroyed() {
 		if (user == null)
 			return;
-		System.out.println("Fine sessione User:" + user);
+	//	System.out.println("Fine sessione User:" + user);
 		session.setEndDate(new Date());
 
 		SessioniHelper.updateSession(session);

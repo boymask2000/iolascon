@@ -31,7 +31,7 @@ public class Session {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 		
-		System.out.println(toString());
+	//	System.out.println(toString());
 	}
 
 	@Override

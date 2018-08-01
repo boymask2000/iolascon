@@ -12,7 +12,7 @@ import org.apache.ibatis.annotations.Update;
 import beans.Session;
 
 public interface SessionMapper {
-	final String SELECT_ALL = "SELECT * FROM audit";
+	final String SELECT_ALL = "SELECT * FROM audit order by start_date desc";
 	final String SELECT_BY_ID = "SELECT * FROM audit WHERE ID = #{id}";
 	final String UPDATE = "UPDATE audit SET"
 		

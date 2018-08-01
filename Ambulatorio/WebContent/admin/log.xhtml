@@ -16,9 +16,7 @@
 	<p:dataTable var="car" value="#{sessioniHelper.sessioni}"
 		selectionMode="single" selection="#{utentiBeanHelper.selectedUtente}"
 		rowKey="#{car.user}">
-		<f:facet name="header">
-            Utenti
-        </f:facet>
+
 		<p:column headerText="Utenza">
 			<h:outputText value="#{car.user}" />
 		</p:column>

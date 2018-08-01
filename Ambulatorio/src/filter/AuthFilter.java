@@ -44,9 +44,13 @@ public class AuthFilter implements Filter {
 				return;
 			}
 			Utente utente = (Utente) ses.getAttribute("utente");
-			if (utente != null && utente.getUser() != null)
-				chain.doFilter(request, response);
-			else {
+			if (utente != null && utente.getUser() != null) {
+				if (reqURI.indexOf("/admin/") >= 0
+						&& (utente.getAdmin() == null || !utente.getAdmin().equalsIgnoreCase("Y")))
+					res.sendRedirect(req.getContextPath() + "/login.xhtml");
+				else
+					chain.doFilter(request, response);
+			} else {
 				if (ses != null)
 					ses.invalidate();
 				res.sendRedirect(req.getContextPath() + "/login.xhtml"); // Anonymous user. Redirect to login page

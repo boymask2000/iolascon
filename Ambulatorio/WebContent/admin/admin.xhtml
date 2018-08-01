@@ -15,10 +15,9 @@
 
 	<h:form>
 		<p:tabView activeIndex="#{tabViewManagedBean.index}">
+
 			<p:tab title="Utenti">
-
 				<ui:include src="utenti.xhtml" />
-
 			</p:tab>
 
 			<p:tab title="Log">
@@ -28,7 +27,7 @@
 		</p:tabView>
 
 		<p:commandButton action="/login.xhtml?faces-redirect=true"
-		value="Esci" process="@this" />
+			value="Esci" process="@this" />
 	</h:form>
 
 

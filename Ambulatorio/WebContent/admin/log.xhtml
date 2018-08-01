@@ -14,8 +14,7 @@
 
 <h:form>
 	<p:dataTable var="car" value="#{sessioniHelper.sessioni}"
-		selectionMode="single" selection="#{utentiBeanHelper.selectedUtente}"
-		rowKey="#{car.user}">
+>
 
 		<p:column headerText="User">
 			<h:outputText value="#{car.user}" />

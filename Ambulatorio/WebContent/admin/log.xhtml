@@ -17,14 +17,17 @@
 		selectionMode="single" selection="#{utentiBeanHelper.selectedUtente}"
 		rowKey="#{car.user}">
 
-		<p:column headerText="Utenza">
+		<p:column headerText="User">
 			<h:outputText value="#{car.user}" />
 		</p:column>
 		<p:column headerText="Start ">
-			<h:outputText value="#{car.startDate}" />
+			<h:outputText value="#{car.startDateExt}" />
 		</p:column>
 		<p:column headerText="End ">
-			<h:outputText value="#{car.endDate}" />
+			<h:outputText value="#{car.endDateExt}" />
+		</p:column>
+		<p:column headerText="Time ">
+			<h:outputText value="#{car.durata}" />
 		</p:column>
 		
 	</p:dataTable>

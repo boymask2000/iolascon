@@ -1,5 +1,6 @@
 package beans;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Session {
@@ -16,10 +17,6 @@ public class Session {
 		this.user = user;
 	}
 
-	public Date getStartDate() {
-		return startDate;
-	}
-
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
@@ -28,10 +25,31 @@ public class Session {
 		return endDate;
 	}
 
+	public Date getStartDate() {
+		return startDate;
+	}
+
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
-		
-	//	System.out.println(toString());
+
+		// System.out.println(toString());
+	}
+
+	public String getExtval(Date d) {
+		if (d == null)
+			return "";
+		String pattern = "MM/dd/yyyy  HH:mm:ss";
+		SimpleDateFormat format = new SimpleDateFormat(pattern);
+		return format.format(d);
+
+	}
+
+	public String getEndDateExt() {
+		return getExtval(endDate);
+	}
+
+	public String getStartDateExt() {
+		return getExtval(startDate);
 	}
 
 	@Override
@@ -47,4 +65,29 @@ public class Session {
 		this.id = id;
 	}
 
+	public String getDurata() {
+		if (startDate == null || endDate == null)
+			return "";
+		long end = endDate.getTime();
+		long start = startDate.getTime();
+		long diff = (end - start) / 1000;
+
+		String out = "";
+		if (diff / 3600 > 0) {
+			out += (diff / 3600);
+			diff = diff - (diff / 3600) * 3600;
+		} else
+			out = "0";
+		out += ":";
+		if (diff / 60 > 0) {
+
+			out += (diff / 60);
+			diff = diff - (diff / 60) * 60;
+		} else
+			out += "0";
+
+		out += ":";
+		out += diff;
+		return out;
+	}
 }

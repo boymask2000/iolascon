@@ -4,7 +4,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-<ui:include src="header.xhtml"></ui:include>
+<ui:include src="../header.xhtml"></ui:include>
 <h:form>
 	<p:growl id="message"></p:growl>
 
@@ -17,20 +17,10 @@
 
 
 	<h:panelGroup id="postPanel2">
-		<p:commandButton value="ok" process="postPanel2" update="message"
-			actionListener="#{utentiBeanHelper.modificaUtente}"
+		<p:commandButton value="ok" id="ajasx" process="postPanel2" update="message"
+			actionListener="#{utentiBeanHelper.insertUtente}" 
 			styleClass="ui-priority-primary" />
 	</h:panelGroup>
-
-	<h:panelGroup id="postPanely"
-		rendered="#{utentiBeanHelper.selectedUtente.admin!='Y'}">
-		<p:commandButton value="Elimina" id="ajasx" process="postPanely"
-			update="message" actionListener="#{utentiBeanHelper.eliminaUtente}"
-			styleClass="ui-priority-primary">
-
-		</p:commandButton></h:panelGroup>
-		
-		
 
 </h:form>
 </html>

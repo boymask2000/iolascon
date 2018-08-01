@@ -3,14 +3,17 @@ package database;
 import java.util.List;
 
 import beans.Session;
-import beans.Utente;
 import database.dao.SessionDAO;
-import database.dao.UtentiDAO;
 
 public class SessioniHelper {
 
 
 	public static List<Session> getElencoSessioni() {
+
+		SessionDAO dao = new SessionDAO();
+		return dao.selectAll();
+	}
+	public List<Session> getSessioni() {
 
 		SessionDAO dao = new SessionDAO();
 		return dao.selectAll();

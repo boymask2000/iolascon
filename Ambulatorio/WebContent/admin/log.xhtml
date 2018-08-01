@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+</h:head>
+
+<p:growl id="msgs"></p:growl>
+
+<p:panel>
+
+<h:form>
+	<p:dataTable var="car" value="#{sessioniHelper.sessioni}"
+		selectionMode="single" selection="#{utentiBeanHelper.selectedUtente}"
+		rowKey="#{car.user}">
+		<f:facet name="header">
+            Utenti
+        </f:facet>
+		<p:column headerText="Utenza">
+			<h:outputText value="#{car.user}" />
+		</p:column>
+		<p:column headerText="Start ">
+			<h:outputText value="#{car.startDate}" />
+		</p:column>
+		<p:column headerText="End ">
+			<h:outputText value="#{car.endDate}" />
+		</p:column>
+		
+	</p:dataTable>
+
+
+	<h:commandButton value="Esci" id="pop" action="login"
+		process="postPanel" styleClass="ui-priority-primary" />
+</h:form>
+
+
+</p:panel>
+</html>

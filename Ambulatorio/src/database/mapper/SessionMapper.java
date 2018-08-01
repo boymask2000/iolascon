@@ -43,6 +43,6 @@ public interface SessionMapper {
 	public void update(Session contact);
 	
 	@Insert(INSERT)
-	@Options(useGeneratedKeys = true, keyProperty = "d")
+	@Options(useGeneratedKeys = true, keyProperty = "id")
 	public void insert(Session contact);
 }

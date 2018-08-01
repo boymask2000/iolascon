@@ -8,26 +8,26 @@ import database.dao.SessionDAO;
 import database.dao.UtentiDAO;
 
 public class SessioniHelper {
-	private Session session;
 
-	public List<Session> getElencoSessioni() {
+
+	public static List<Session> getElencoSessioni() {
 
 		SessionDAO dao = new SessionDAO();
 		return dao.selectAll();
 	}
 
-	public void insertSessione(Session s) {
-		this.session=s;
+	public static void insertSessione(Session s) {
+	
 		SessionDAO dao = new SessionDAO();
-		dao.insert(session);
+		dao.insert(s);
 	}
 
-	public void updateSession(Session s) {
+	public static void updateSession(Session s) {
 		SessionDAO dao = new SessionDAO();
 		dao.update(s);
 	}
 
-	public void deleteSession() {
+	public static void deleteSession() {
 		SessionDAO dao = new SessionDAO();
 		// dao.elimina(session);
 	}

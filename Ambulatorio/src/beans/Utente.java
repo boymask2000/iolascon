@@ -125,6 +125,7 @@ public class Utente {
 		this.user = user;
 		session.setUser(user);
 		session.setStartDate(new Date());
+		sessionInitialized();
 	}
 
 	public String getIp() {
@@ -138,29 +139,31 @@ public class Utente {
 		return ipAddress;
 	}
 
-//	@PostConstruct
-//	public void sessionInitialized() {
-//
-//		if (user == null)
-//			return;
-//		session.setUser(user);
-//		session.setStartDate(new Date());
-//
-//		SessioniHelper sh = (SessioniHelper) JsfUtil.getBean("sessioniHelper");
-//		sh.insertSessione(session);
-//
-//		id = session.getId();
-//	}
-//
-//	@PreDestroy
-//	public void sessionDestroyed() {
-//		if (user == null)
-//			return;
-//		System.out.println("Fine sessione User:" + user);
-//		session.setEndDate(new Date());
-//
-//		SessioniHelper sh = (SessioniHelper) JsfUtil.getBean("sessioniHelper");
-//		sh.updateSession(session);
-//
-//	}
+	@PostConstruct
+	public void sessionInitialized() {
+
+		if (user == null)
+			return;
+		if (id != 0)
+			return;
+		System.out.println("Inizio sessione User:" + user);
+		session.setUser(user);
+		session.setStartDate(new Date());
+
+		SessioniHelper.insertSessione(session);
+
+		id = session.getId();
+	}
+
+	@PreDestroy
+	public void sessionDestroyed() {
+		if (user == null)
+			return;
+		System.out.println("Fine sessione User:" + user);
+		session.setEndDate(new Date());
+
+		SessioniHelper.updateSession(session);
+		session = new Session();
+		id = 0;
+	}
 }

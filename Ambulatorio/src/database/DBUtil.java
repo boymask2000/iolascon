@@ -326,6 +326,7 @@ public class DBUtil {
 
 	// ##########################################-PersonalData-###########################################
 	public String getCurrentSelectionDesc() {
+		cleanPaziente();
 		if (customPazienti == null)
 			return "All data";
 		else
@@ -583,5 +584,7 @@ public class DBUtil {
 		SurgicalInterventionDAO dao = new SurgicalInterventionDAO();
 		dao.update(surgicalIntervention);
 	}
-
+public void cleanPaziente()  {
+	selectedPersonalData=null;
+}
 }
